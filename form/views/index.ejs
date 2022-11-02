@@ -1,11 +1,251 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <!-- HEAD -->
+  <%- include('./partials/head') %>
+
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <!-- HEADER -->
+    <%- include('./partials/header') %>
+
+    <!-- MAIN -->
+    <main>
+      <h2>Formulario actualización de datoss</h2>
+      <form action='/post' method='post' id='formNewDataMembers' name='formNewDataMembers' enctype='multipart/form-data' class='formNewDataMembers'>
+        
+        
+        <label for='firstName'>Nombre</label>
+        <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Juan' required maxlength='50'>
+        <br>
+        <label for='lastName'>Apellido</label>
+        <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Juan' required required maxlength='50'>
+        <br>
+
+        <label for='dateOfBirthAt'>Fecha de nacimiento</label>
+        <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class= 'input-date' required>
+        <br>
+
+        <label for='coexistenceSituation'>Con quien vives?</label>
+        <input type='checkbox' name='coexistenceSituation' value='p' id='coexistenceSituation-p' required>Papá
+        <input type='checkbox' name='coexistenceSituation' value='m' id='coexistenceSituation-m' required>Mamá
+        <input type='checkbox' name='coexistenceSituation' value='t' id='coexistenceSituation-t' required>Tío/a
+        <input type='checkbox' name='coexistenceSituation' value='a' id='coexistenceSituation-a' required>Abuelo/a
+        <input type='checkbox' name='coexistenceSituation' value='c' id='coexistenceSituation-c' required>Cónyuge
+        <input type='checkbox' name='coexistenceSituation' value='h' id='coexistenceSituation-h' required>Hijo/s
+        <input type='checkbox' name='coexistenceSituation' value='s' id='coexistenceSituation-s' required>Solo/a
+        <input type='checkbox' name='coexistenceSituation' value='n' id='coexistenceSituation-n' required>N/C
+        <br>
+
+
+
+        <label for='sex'>Genero:</label>
+        <input type='radio' name='sex' value='h' id='sex-h' required>Hombre
+        <input type='radio' name='sex' value='m' id='sex-m' required>Mujuer
+        <input type='radio' name='sex' value='nc' id='sex-nc' required>N/C
+        <br>
+
+        <label for='relationalSituation'>Situación relacional:</label>
+        <input type='radio' name='relationalSituation' value='s' id='relationalSituation-s' required>Soltero/a
+        <input type='radio' name='relationalSituation' value='ep' id='relationalSituation-ep' required>En pareja
+        <input type='radio' name='relationalSituation' value='c' id='relationalSituation-c' required>Casado/a
+        <input type='radio' name='relationalSituation' value='v' id='relationalSituation-v' required>Viudo/a
+        <input type='radio' name='relationalSituation' value='d' id='relationalSituation-d' required>Divorciado/a
+        <input type='radio' name='relationalSituation' value='o' id='relationalSituation-o' required>Otra
+        <input type='radio' name='relationalSituation' value='nc' id='relationalSituation-nc' required>N/C
+        <br>
+
+        <label for='isChildren'>Tiene hijos?:</label>
+        <input type='radio' name='isChildren' value='s' id='isChildren-s' required>Sí
+        <input type='radio' name='isChildren' value='n' id='isChildren-n' required checked>No
+        <br>
+
+        <label for='numberChildren'>Cuantos?</label>
+        <input type='number' name='numberChildren' value='0' id='numberChildren-n' required>
+        <br>
+
+        <label for='isChildrenAttendChurch'>Cuantos asisten a una iglesia?</label>
+        <input type='number' name='isChildrenAttendChurch' value='0' id='isChildrenAttendChurch-n' required>
+        <br>
+
+        <label for='street'>Calle</label>
+        <input type='text' name='street' id='street' class= 'input-text' placeholder='Av Falsa' required maxlength='50'>
+        <br>
+        <label for='numeration'>Numeración</label>
+        <input type='text' name='numeration' id='numeration' class= 'input-text' placeholder='123' required maxlength='50'>
+        <br>
+        <label for='secondLine'>Aclaración</label>
+        <input type='text' name='secondLine' id='secondLine' class= 'input-text' placeholder='A tener en cuenta'  maxlength='200'>
+        <br>
+        <label for='neighborhood'>Barrio</label>
+        <input type='text' name='neighborhood' id='neighborhood' class= 'input-text' required maxlength='50'>
+        <br>
+        <label for='neighborhoodBlock'>Manzana</label>
+        <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'input-text' maxlength='50'>
+        <br>
+        <label for='houseNumber'>Casa</label>
+        <input type='text' name='houseNumber' id='houseNumber' class= 'input-text' maxlength='50'>
+        <br>
+        <label for='postalCode'>Código postal</label>
+        <input type='text' name='postalCode' id='postalCode' class= 'input-text' required maxlength='50'>
+        <br>
+        <label for='location'>Localidad</label>
+        <input type='text' name='location' id='location' class= 'input-text'  maxlength='50'>
+        <br>
+        <label for='city'>Departamento</label>
+        <input type='text' name='city' id='city' class= 'input-text' required maxlength='50'>
+        <br>
+        <label for='state'>Provincia</label>
+        <input type='text' name='state' id='state' class= 'input-text' required maxlength='50'>
+        <br>
+        <label for='country'>País</label>
+        <input type='text' name='country' id='country' class= 'input-text' required maxlength='50'>
+        <br>
+
+        <label for='country'>País</label>
+        <input type='text' name='country' id='country' class= 'input-text' required maxlength='50'>
+        <br>
+        
+        <label for='valueContact'>Telefono celular</label>
+        <input type='text' name='valueContact' id='valueContact' class= 'input-text' placeholder='2610345789' required maxlength='50'>
+        <br>
+        <label for='fijo'>Telefono fijo (opcional)</label>
+<!--No tengo id!!!--><input type='text' name='fijo' id='fijo' class= 'input-text' maxlength='50'>
+        <br>
+        <label for='email'>Correo electronico</label>
+<!--No tengo id!!!--><input type="email" name="email" id="email" class= "input-text"  placeholder='Email' required minlength="5" maxlength="50">
+        <br>
+
+<!--El id no está ok!!!--><label for='webSite'>Redes sociales que usas</label>
+        <input type='checkbox' name='webSite' value='YouVersion' id='webSite-YouVersion' required>YouVersion
+        <input type='checkbox' name='webSite' value='Facebook' id='webSite-Facebook' required>Facebook
+        <input type='checkbox' name='webSite' value='Instagram' id='webSite-Instagram' required>Instagram
+        <input type='checkbox' name='webSite' value='YouTube' id='webSite-YouTube' required>YouTube
+        <input type='checkbox' name='webSite' value='Tik Tok' id='webSite-TikTok' required>Tik Tok
+        <input type='checkbox' name='webSite' value='Spotify' id='webSite-Spotify' required>Spotify
+        <input type='checkbox' name='webSite' value='WhatsApp' id='webSite-WhatsApp' required>WhatsApp
+        <input type='checkbox' name='webSite' value='Telegram' id='webSite-Telegram' required>Telegram
+        <input type='checkbox' name='webSite' value='Twitter' id='webSite-Twitter' required>Twitter
+        <input type='checkbox' name='webSite' value='Twitch' id='webSite-Twitch' required>Twitch
+        <input type='checkbox' name='webSite' value='Discord' id='webSite-Discord' required>Discord
+        <input type='checkbox' name='webSite' value='Pinterest' id='webSite-Pinterest' required>Pinterest
+        <input type='checkbox' name='webSite' value='LinkedIn' id='webSite-LinkedIn' required>LinkedIn
+        <input type='checkbox' name='webSite' value='Slack' id='webSite-Slack' required>Slack
+        <br>
+
+<!--No tengo id!!!--><label for='timeChurch'>Desde cuándo asistís a nuestra iglesia?</label>
+        <input type='radio' name='timeChurch' value='h' id='timeChurch-n' required>Menos de 6 meses
+        <input type='radio' name='timeChurch' value='m' id='timeChurch-6-1' required>Entre 6 meses a 1 año
+        <input type='radio' name='timeChurch' value='nc' id='timeChurch-' required>Entre 1 año a 5 años
+        <input type='radio' name='timeChurch' value='nc' id='timeChurch-' required>Más de 5 años
+        <br>  
+
+<!--El id no está ok!!!--><label for='churchExperiences'>Marca las experiencias completadas</label>
+        <input type='checkbox' name='churchExperiences' value='nuevoInicio' id='churchExperiences-nuevoInicio' required>Nuevo Inicio con Dios
+        <input type='checkbox' name='churchExperiences' value='bautismo' id='churchExperiences-bautismo' required>Bautismo
+        <input type='checkbox' name='churchExperiences' value='p1' id='churchExperiences-p1' required>Paso 1-Avance-Charla de nuevos Miembros
+        <input type='checkbox' name='churchExperiences' value='p2' id='churchExperiences-p2' required>Paso 2-Avance-Descubre tu Forma
+        <input type='checkbox' name='churchExperiences' value='p3' id='churchExperiences-p3' required>Paso 3-Avance-Adopta Hábitos de Madurez
+        <input type='checkbox' name='churchExperiences' value='p4' id='churchExperiences-p4' required>Paso 4-Avance-Voluntariado inicial por un mes
+        <input type='checkbox' name='churchExperiences' value='vd1' id='churchExperiences-vd1' required>Vida Discipular 1
+        <input type='checkbox' name='churchExperiences' value='vd2' id='churchExperiences-vd2' required>Vida Discipular 2
+        <input type='checkbox' name='churchExperiences' value='vd3' id='churchExperiences-vd3' required>Vida Discipular 3
+        <input type='checkbox' name='churchExperiences' value='vd4' id='churchExperiences-vd4' required>Vida Discipular 4
+        <input type='checkbox' name='churchExperiences' value='libre' id='churchExperiences-libre' required>Sea Libre
+        <input type='checkbox' name='churchExperiences' value='fundamentos' id='churchExperiences-fundamentos' required>Fundamentos
+        <input type='checkbox' name='churchExperiences' value='celebremos' id='churchExperiences-celebremos' required>Celebremos la Recuperación
+        <input type='checkbox' name='churchExperiences' value='otro' id='churchExperiences-otro' required>Otros
+        <br>
+
+<!--El id no está ok!!!--><label for='servicesUsed'>Servicios que has utilizados</label>
+        <input type='checkbox' name='servicesUsed' value='cafeteria' id='servicesUsed-cafeteria' required>Cafetería
+        <input type='checkbox' name='servicesUsed' value='camping' id='servicesUsed-camping' required>Camping
+        <input type='checkbox' name='servicesUsed' value='escuela-musica' id='servicesUsed-escuela-musica' required>Escuela de Música
+        <input type='checkbox' name='servicesUsed' value='escuela-danza' id='servicesUsed-escuela-danza' required>Escuela de Danza
+        <input type='checkbox' name='servicesUsed' value='casa-mujer' id='servicesUsed-casa-mujer' required>Casa de la Mujer
+        <input type='checkbox' name='servicesUsed' value='jardín' id='servicesUsed-jardín' required>Jardín Maternal
+        <input type='checkbox' name='servicesUsed' value='acasa' id='servicesUsed-acasa' required>ACASA
+        <br>
+
+        <label for='isParticipateSmallGroup'>Asistes a un Grupo pequeño?</label>
+        <input type='radio' name='isParticipateSmallGroup' value='si' id='isParticipateSmallGroup-si' required>Sí
+        <input type='radio' name='isParticipateSmallGroup' value='no' id='isParticipateSmallGroup-no' required>No
+        <br>
+
+        <label for='smallGroupName'>Nombre del grupo pequeño</label>
+        <input type='text' name='smallGroupName' id='smallGroupName' class= 'input-text' maxlength='50'>
+        <br>
+
+        <label for='smallGroupGuide'>Nombre del guía</label>
+        <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'input-text' maxlength='50'>
+        <br>
+
+        <label for='enjoyMost'>Qué es lo que más disfrutás del grupo pequeño?</label>
+        <input type='checkbox' name='enjoyMost' value='compañía' id='enjoyMost-compañía' required>Compañía
+        <input type='checkbox' name='enjoyMost' value='amistad' id='enjoyMost-amistad' required>Amistad
+        <input type='checkbox' name='enjoyMost' value='comida' id='enjoyMost-comida' required>Comida
+        <input type='checkbox' name='enjoyMost' value='oración' id='enjoyMost-oración' required>Oración
+        <input type='checkbox' name='enjoyMost' value='aprender' id='enjoyMost-aprender' required>Aprender de la palabra
+        <input type='checkbox' name='enjoyMost' value='otros' id='enjoyMost-otros' required>Otros
+        <br>
+
+        <label for='yourAreaInterest'>Cuál es tu área de interés?</label>
+        <input type='checkbox' name='yourAreaInterest' value='Relaciones' id='yourAreaInterest-relaciones' required>Relaciones
+        <input type='checkbox' name='yourAreaInterest' value='Conocer más la Biblia' id='yourAreaInterest-biblia' required>Conocer más la Biblia
+        <input type='checkbox' name='yourAreaInterest' value='Descubrir mi propósito' id='yourAreaInterest-miProposito' required>Descubrir mi propósito
+        <input type='checkbox' name='yourAreaInterest' value='Servir' id='yourAreaInterest-servir' required>Servir
+        <input type='checkbox' name='yourAreaInterest' value='Desarrollar hábitos saludables' id='yourAreaInterest-habitos' required>Desarrollar hábitos saludables
+        <input type='checkbox' name='yourAreaInterest' value='Esparcimiento' id='yourAreaInterest-esparcimiento' required>Esparcimiento
+        <input type='checkbox' name='yourAreaInterest' value='Diversión' id='yourAreaInterest-diversion' required>Diversión
+        <input type='checkbox' name='yourAreaInterest' value='Comunión' id='yourAreaInterest-comunion' required>Comunión
+        <input type='checkbox' name='yourAreaInterest' value='Otros' id='yourAreaInterest-otros' required>Otros
+        <br>
+
+        <label for='yourNeeds'>Cuáles son tus necesidades?</label>
+        <input type='checkbox' name='yourNeeds' value='Problema de salud' id='yourNeeds-salud' required>Problema de salud
+        <input type='checkbox' name='yourNeeds' value='Economía' id='yourNeeds-economia' required>Economía
+        <input type='checkbox' name='yourNeeds' value='Familia' id='yourNeeds-familia' required>Familia
+        <input type='checkbox' name='yourNeeds' value='Oración' id='yourNeeds-oracion' required>Oración
+        <input type='checkbox' name='yourNeeds' value='Adicciones' id='yourNeeds-adicciones' required>Adicciones
+        <input type='checkbox' name='yourNeeds' value='Equilibrio emocional' id='yourNeeds-equilibrioEmocional' required>Equilibrio emocional
+        <input type='checkbox' name='yourNeeds' value='Control de emociones' id='yourNeeds-controlEmociones' required>Control de emociones
+        <input type='checkbox' name='yourNeeds' value='Soledad' id='yourNeeds-soledad' required>Soledad
+        <input type='checkbox' name='yourNeeds' value='Crianza' id='yourNeeds-crianza' required>Crianza
+        <input type='checkbox' name='yourNeeds' value='Matrimonial' id='yourNeeds-matrimonial' required>Matrimonial
+        <input type='checkbox' name='yourNeeds' value='Laboral' id='yourNeeds-laboral' required>Laboral
+        <input type='checkbox' name='yourNeeds' value='Legal' id='yourNeeds-legal' required>Legal
+        <input type='checkbox' name='yourNeeds' value='Identidad sexual' id='yourNeeds-sexual' required>Identidad sexual
+        <input type='checkbox' name='yourNeeds' value='Otor' id='yourNeeds-otor' required>Otor
+        <br>
+
+        
+        <label for='servicesChurch'>Sirves como voluntario en la iglesia?</label>
+        <input type='radio' name='servicesChurch' value='Sí' id='servicesChurch-si' required>Sí
+        <input type='radio' name='servicesChurch' value='No' id='servicesChurch-no' required checked>No
+        <br>
+
+
+<!--No tengo id!!!--><label for='areaServices'>Área de servivio</label>
+        <input type='text' name='areaServices' id='areaServices' class= 'input-text' maxlength='60'>
+        <br>
+
+<!--No tengo id!!!--><label for='profession'>Profesió/Oficio/Labor</label>
+        <input type='text' name='profession' id='profession' class= 'input-text' maxlength='60'>
+        <br>
+
+
+<!--No tengo id!!!--><label for='lastJob'>Última experiencia laboral</label>
+        <input type='text' name='lastJob' id='lastJob' class= 'input-text' maxlength='60'>
+        <br>
+
+<!--No tengo id!!!--><label for='artist'>Habilidades artísticas</label>
+        <input type='text' name='artist' id='artist' class= 'input-text' maxlength='60'>
+        <br>
+       
+
+      </form>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('./partials/footer') %>
+
   </body>
 </html>
