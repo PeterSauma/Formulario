@@ -38,4 +38,15 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//Declaracion de puertos
+const port =8080;
+
+
+//montar el servidor                                                                                                                                                                                                                                                                                                                             
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(__dirname);
+});
+
+
+//module.exports = app;
