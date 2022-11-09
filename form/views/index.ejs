@@ -10,31 +10,101 @@
     <!-- MAIN -->
     <main>
       <h1>Formulario actualización de datos</h1>
-      <hr size="5" color="red">
+      <hr size="" color="white">
 
       <form action='/post' method='post' id='formNewDataMembers' name='formNewDataMembers' enctype='multipart/form-data' class='formNewDataMembers'>
 
         <section class='personal' id='personal'>
                 <h2>Personal</h2>
 
-                <label for='firstName'>Nombre</label>
-                  <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Juan' required maxlength='50'>
-                <br>
+                <div class='text'>
+                  <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Nombre' required maxlength='50'>
+                </div>
+                
+                  
 
-                <label for='lastName'>Apellido</label>
-                  <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Juan' required required maxlength='50'>
-                <br>
+                <div class='text'>
+                    <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Apellido' required required maxlength='50'>
+                </div>
+               
+                
         
-                <label for='dateOfBirthAt'>Fecha de nacimiento</label>
-                  <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class= 'input-date' required>
-                <br>
+                <div class='date'>
+                  <div class='paragrph'>
+                    Fecha de nacimiento
+                  </div>
+                  <div class='date-label'>
+                    <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class= 'input-date' required>
+                  </div>
+                </div>
+                
 
-                <label for='sex'>Genero:</label>
-                  <input type='radio' name='sex' value='h' id='sex-h' required>Hombre
-                  <input type='radio' name='sex' value='m' id='sex-m' required>Mujuer
-                  <input type='radio' name='sex' value='nc' id='sex-nc' required>N/C
-                <br>
-                <hr size="5" color="red">
+                <div class='mark'>
+                  
+                  <div class='paragrph'>
+                    <p>Genero:</p>
+                  </div>
+
+                  <div class='inside-label'>
+
+                    <div class="input">
+                      <div class="radiobutton"><input type='radio' name='sex' value='h' id='sex-h' required></div>
+                      <div class="check-label"><p><strong>H</strong></p></div> 
+                    </div>
+                    
+                    <div class="input">
+                      <div class="radiobutton"><input type='radio' name='sex' value='m' id='sex-m' required></div>
+                      <div class="check-label"><p><strong>M</strong></p></div>
+                    </div>
+                    
+                    <div class="input">
+                      <div class="radiobutton"><input type='radio' name='sex' value='nc' id='sex-nc' required></div>
+                      <div class="check-label"><p><strong>N/C</strong></p></div>
+                    </div>
+
+                  </div>
+                  
+                </div>
+
+                <div class='mark'>
+                  <div class='paragrph'>
+                    <p>Situación relacional:</p>
+                  </div>
+                  <div class='inside-label2'>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='s' id='relationalSituation-s' required></div>
+                      <div class="check-label"><p><strong>Soltero/a</strong></p></div>  
+                    </div>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='ep' id='relationalSituation-ep' required></div>
+                      <div class="check-label"><p><strong>En pareja</strong></p></div>  
+                    </div>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='c' id='relationalSituation-c' required></div>
+                      <div class="check-label"><p><strong>Casado/a</strong></p></div>  
+                    </div>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='v' id='relationalSituation-v' required></div>
+                      <div class="check-label"><p><strong>Viudo/a</strong></p></div>  
+                    </div>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='d' id='relationalSituation-d' required></div>
+                      <div class="check-label"><p><strong>Divorciado/a</strong></p></div>  
+                    </div>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='o' id='relationalSituation-o' required></div>
+                      <div class="check-label"><p><strong>Otra</strong></p></div>
+                    </div>
+                    <div class="input">
+                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='nc' id='relationalSituation-nc' required></div>
+                      <div class="check-label"><p><strong>N/C</strong></p></div>  
+                    </div>  
+                  </div>
+                 </div>
+
+                
+                
+                <hr size="1" color="white">
         </section>
 
         <section class='family' id='family'>
@@ -49,81 +119,70 @@
                   <input type='checkbox' name='coexistenceSituation' value='h' id='coexistenceSituation-h' required>Hijo/s
                   <input type='checkbox' name='coexistenceSituation' value='s' id='coexistenceSituation-s' required>Solo/a
                   <input type='checkbox' name='coexistenceSituation' value='n' id='coexistenceSituation-n' required>N/C
-                <br>
-        
-                <label for='relationalSituation'>Situación relacional:</label>
-                  <input type='radio' name='relationalSituation' value='s' id='relationalSituation-s' required>Soltero/a
-                  <input type='radio' name='relationalSituation' value='ep' id='relationalSituation-ep' required>En pareja
-                  <input type='radio' name='relationalSituation' value='c' id='relationalSituation-c' required>Casado/a
-                  <input type='radio' name='relationalSituation' value='v' id='relationalSituation-v' required>Viudo/a
-                  <input type='radio' name='relationalSituation' value='d' id='relationalSituation-d' required>Divorciado/a
-                  <input type='radio' name='relationalSituation' value='o' id='relationalSituation-o' required>Otra
-                  <input type='radio' name='relationalSituation' value='nc' id='relationalSituation-nc' required>N/C
-                <br>
 
                 <label for='isChildren'>Tiene hijos?:</label>
                   <input type='radio' name='isChildren' value='s' id='isChildren-s' required>Sí
                   <input type='radio' name='isChildren' value='n' id='isChildren-n' required checked>No
-                <br>
+                
 
-                        <label for='numberChildren'>Cuantos?</label>
+                <label for='numberChildren'>Cuantos?</label>
                   <input type='number' name='numberChildren' value='0' id='numberChildren-n' required>
-                <br>
+                
 
                 <label for='isChildrenAttendChurch'>Cuantos asisten a una iglesia?</label>
                   <input type='number' name='isChildrenAttendChurch' value='0' id='isChildrenAttendChurch-n' required>
-                <br>
+                
 
-                <hr size="5" color="red">
+                <hr size="" color="white">
         </section>
         <section class='residency' id='residency'>
                 <h2>Recidencia</h2>
 
                 <label for='street'>Calle</label>
                   <input type='text' name='street' id='street' class= 'input-text' placeholder='Av Falsa' required maxlength='50'>
-                <br>
+                
 
                 <label for='numeration'>Numeración</label>
                   <input type='text' name='numeration' id='numeration' class= 'input-text' placeholder='123' required maxlength='50'>
-                <br>
+                
 
                 <label for='secondLine'>Aclaración</label>
                   <input type='text' name='secondLine' id='secondLine' class= 'input-text' placeholder='A tener en cuenta'  maxlength='200'>
-                <br>
+                
 
                 <label for='neighborhood'>Barrio</label>
                   <input type='text' name='neighborhood' id='neighborhood' class= 'input-text' required maxlength='50'>
-                <br>
+                
 
                 <label for='neighborhoodBlock'>Manzana</label>
                   <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'input-text' maxlength='50'>
-                <br>
+                
 
                 <label for='houseNumber'>Casa</label>
                   <input type='text' name='houseNumber' id='houseNumber' class= 'input-text' maxlength='50'>
-                <br>
+                
 
                 <label for='postalCode'>Código postal</label>
                   <input type='text' name='postalCode' id='postalCode' class= 'input-text' required maxlength='50'>
-                <br>
+                
 
                 <label for='location'>Localidad</label>
                   <input type='text' name='location' id='location' class= 'input-text'  maxlength='50'>
-                <br>
+                
 
                 <label for='city'>Departamento</label>
                   <input type='text' name='city' id='city' class= 'input-text' required maxlength='50'>
-                <br>
+                
 
                 <label for='state'>Provincia</label>
                   <input type='text' name='state' id='state' class= 'input-text' required maxlength='50'>
-                <br>
+                
 
                 <label for='country'>País</label>
                   <input type='text' name='country' id='country' class= 'input-text' required maxlength='50'>
-                <br>
+                
 
-                <hr size="5" color="red">
+                <hr size="" color="white">
         </section>
         
         <section class='contact' id='contact'>
@@ -131,13 +190,13 @@
 
                 <label for='valueContact'>Telefono celular</label>
                   <input type='text' name='valueContact' id='valueContact' class= 'input-text' placeholder='2610345789' required maxlength='50'>
-                <br>
+                
                 <label for='fijo'>Telefono fijo (opcional)</label>
 <!--sin id!!!-->  <input type='text' name='fijo' id='fijo' class= 'input-text' maxlength='50'>
-                <br>
+                
                 <label for='email'>Correo electronico</label>
 <!--sin id!!!-->  <input type="email" name="email" id="email" class= "input-text"  placeholder='Email' required minlength="5" maxlength="50">
-                <br>
+                
 
 <!--id  mal-->  <label for='webSite'>Redes sociales que usas</label>
                   <input type='checkbox' name='webSite' value='YouVersion' id='webSite-YouVersion' required>YouVersion
@@ -154,9 +213,9 @@
                   <input type='checkbox' name='webSite' value='Pinterest' id='webSite-Pinterest' required>Pinterest
                   <input type='checkbox' name='webSite' value='LinkedIn' id='webSite-LinkedIn' required>LinkedIn
                   <input type='checkbox' name='webSite' value='Slack' id='webSite-Slack' required>Slack
-                <br>
+                
 
-                <hr size="5" color="red">
+                <hr size="" color="white">
         </section>
 
         <section class='grownup' id='grownup'>
@@ -167,7 +226,7 @@
                   <input type='radio' name='timeChurch' value='m' id='timeChurch-6-1' required>Entre 6 meses a 1 año
                   <input type='radio' name='timeChurch' value='nc' id='timeChurch-' required>Entre 1 año a 5 años
                   <input type='radio' name='timeChurch' value='nc' id='timeChurch-' required>Más de 5 años
-                <br>  
+                  
 
 <!--id  mal-->  <label for='churchExperiences'>Marca las experiencias completadas</label>
                   <input type='checkbox' name='churchExperiences' value='nuevoInicio' id='churchExperiences-nuevoInicio' required>Nuevo Inicio con Dios
@@ -184,7 +243,7 @@
                   <input type='checkbox' name='churchExperiences' value='fundamentos' id='churchExperiences-fundamentos' required>Fundamentos
                   <input type='checkbox' name='churchExperiences' value='celebremos' id='churchExperiences-celebremos' required>Celebremos la Recuperación
                   <input type='checkbox' name='churchExperiences' value='otro' id='churchExperiences-otro' required>Otros
-                <br>
+                
 
 <!--id  mal-->  <label for='servicesUsed'>Servicios que has utilizados</label>
                   <input type='checkbox' name='servicesUsed' value='cafeteria' id='servicesUsed-cafeteria' required>Cafetería
@@ -194,20 +253,20 @@
                   <input type='checkbox' name='servicesUsed' value='casa-mujer' id='servicesUsed-casa-mujer' required>Casa de la Mujer
                   <input type='checkbox' name='servicesUsed' value='jardín' id='servicesUsed-jardín' required>Jardín Maternal
                   <input type='checkbox' name='servicesUsed' value='acasa' id='servicesUsed-acasa' required>ACASA
-                <br>
+                
 
                 <label for='isParticipateSmallGroup'>Asistes a un Grupo pequeño?</label>
                   <input type='radio' name='isParticipateSmallGroup' value='si' id='isParticipateSmallGroup-si' required>Sí
                   <input type='radio' name='isParticipateSmallGroup' value='no' id='isParticipateSmallGroup-no' required>No
-                <br>
+                
 
                 <label for='smallGroupName'>Nombre del grupo pequeño</label>
                   <input type='text' name='smallGroupName' id='smallGroupName' class= 'input-text' maxlength='50'>
-                <br>
+                
 
                 <label for='smallGroupGuide'>Nombre del guía</label>
                   <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'input-text' maxlength='50'>
-                <br>
+                
 
                 <label for='enjoyMost'>Qué es lo que más disfrutás del grupo pequeño?</label>
                   <input type='checkbox' name='enjoyMost' value='compañía' id='enjoyMost-compañía' required>Compañía
@@ -216,7 +275,7 @@
                   <input type='checkbox' name='enjoyMost' value='oración' id='enjoyMost-oración' required>Oración
                   <input type='checkbox' name='enjoyMost' value='aprender' id='enjoyMost-aprender' required>Aprender de la palabra
                   <input type='checkbox' name='enjoyMost' value='otros' id='enjoyMost-otros' required>Otros
-                <br>
+                
 
                 <label for='yourAreaInterest'>Cuál es tu área de interés?</label>
                   <input type='checkbox' name='yourAreaInterest' value='Relaciones' id='yourAreaInterest-relaciones' required>Relaciones
@@ -228,7 +287,7 @@
                   <input type='checkbox' name='yourAreaInterest' value='Diversión' id='yourAreaInterest-diversion' required>Diversión
                   <input type='checkbox' name='yourAreaInterest' value='Comunión' id='yourAreaInterest-comunion' required>Comunión
                   <input type='checkbox' name='yourAreaInterest' value='Otros' id='yourAreaInterest-otros' required>Otros
-                <br>
+                
 
                 <label for='yourNeeds'>Cuáles son tus necesidades?</label>
                   <input type='checkbox' name='yourNeeds' value='Problema de salud' id='yourNeeds-salud' required>Problema de salud
@@ -245,9 +304,9 @@
                   <input type='checkbox' name='yourNeeds' value='Legal' id='yourNeeds-legal' required>Legal
                   <input type='checkbox' name='yourNeeds' value='Identidad sexual' id='yourNeeds-sexual' required>Identidad sexual
                   <input type='checkbox' name='yourNeeds' value='Otor' id='yourNeeds-otor' required>Otor
-                <br>
+                
 
-                <hr size="5" color="red">
+                <hr size="" color="white">
         </section>
 
         <section class='vocation' id='vocation'>
@@ -256,56 +315,35 @@
                 <label for='servicesChurch'>Sirves como voluntario en la iglesia?</label>
                   <input type='radio' name='servicesChurch' value='Sí' id='servicesChurch-si' required>Sí
                   <input type='radio' name='servicesChurch' value='No' id='servicesChurch-no' required checked>No
-                <br>
+                
                 
                 
 <!--sin id!!!--><label for='areaServices'>Área de servivio</label>
                   <input type='text' name='areaServices' id='areaServices' class= 'input-text' maxlength='60'>
-                <br>
+                
                 
 <!--sin id!!!--><label for='profession'>Profesió/Oficio/Labor</label>
                   <input type='text' name='profession' id='profession' class= 'input-text' maxlength='60'>
-                <br>
+                
                 
                 
 <!--sin id!!!--><label for='lastJob'>Última experiencia laboral</label>
                   <input type='text' name='lastJob' id='lastJob' class= 'input-text' maxlength='60'>
-                <br>
+                
                 
 <!--sin id!!!--><label for='artist'>Habilidades artísticas</label>
                   <input type='text' name='artist' id='artist' class= 'input-text' maxlength='60'>
-                <br>
                 
-                <hr size="5" color="red">
+                
+                <hr size="" color="white">
+                <button type="submit" class="button" id='submit'>Enviar</button>
         </section>
-        <button type="submit" class="button" id='submit'>Enviar</button>
       </form>
-
-<!-- *************************************** CONEXIÓN CON LA API *************************************** -->
-      <script>
-        const submit = document.getElementById('submit') 
-        submit.addEventListener('click',()=>{
-          const newMember ={
-            title: 'foo',
-            body: '',//imputs del formulario
-            userId: 1,//?
-          },
-          fetch('https://docs.igle.ar/api', {
-            method: 'POST',
-            body: JSON.stringify(newMember),
-            headers: {
-              'Content-type': 'application/json; charset=UTF-8',//esto está ok?
-            },
-          })
-          .then((response) => response.json())
-          .then((json) => console.log(json));
-
-        })
-      </script>
     </main>
 
     <!-- FOOTER -->
     <%- include('./partials/footer') %>
-
+     <!-- SCRIPTS -->
+    <script src="/js/apiMembers.js"></script>
   </body>
 </html>
