@@ -1,31 +1,3 @@
-/*
-  INDICE:
-    GENERAL
-  
-  SECTION:
-    SECTION GENERAL:
-                      div text
-                      div marcos
-
-
-    SECTION PERSONAL:
-                      div name and lastName
-                      div date
-                      div genres
-                      div relationalSituation
-                      MEDIA QUERE:
-                                  div 361 genres
-                                  div 560 relationalSituation
-                                  div 761 relationalSituation
-    SECTION FAMILY:
-                      div coexistenceSituation
-                      div isChildren
-                      MEDIA QUERE:
-                                  div 361 isChildren
-                     
-
-*/
-
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> GENERAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
@@ -119,7 +91,7 @@ section {
   width: 100%;
 }
 
-/*section.family,*/section.residency,section.contact,section.grownup,section.vocation{
+/*section.family,section.residency,section.contact,section.grownup,section.smallGroup,*/section.vocation{
   display: none;
 }
 
@@ -153,16 +125,16 @@ div.mark{
   justify-content: flex-start;
   align-items: center;
   align-content: flex-start
- }
- div.paragrph{
+}
+div.paragrph{
   font-size: 20px;
   text-align: left;
-  padding: 0px;
-  margin: 0px 0px 0px 10px;
+  padding: 0px 10px;
   height: 20%;
   width: 100%;
- }
- div.input{
+}
+ /*inputs*/
+div.inputRow,div.inputColumn{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -172,13 +144,18 @@ div.mark{
   width: 100%;
   margin-left: 10px;
 }
-input[type='radio']{
-  width: 20px;
-  height: 20px;
+
+div.checkLabel{
+  font-size: 15px;
+  width: 80%;
 }
-div.check-label{
+div.checkLabelRow{
   font-size: 15px;
   width: 20%;
+}
+div.checkLabel p,div.checkLabelRow p{
+  display: flex;
+  margin-left: 5px;
 }
 
 /*div date*/
@@ -194,7 +171,7 @@ div.date{
   align-items:unset;
   align-content:center;
 }
-div.date-label {
+div.dateLabel {
   width: 100%;
   height: 30px;
   margin: 10px;
@@ -207,8 +184,8 @@ input[type='date']{
   border-radius: 3px;
 }
 
-/*div radio y check row*/
-div.inside-labelG{
+/*div radio y box row*/
+div.insideLabelRow{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -218,7 +195,20 @@ div.inside-labelG{
   align-content: center;
   margin: 0px;
 }
-div.radiobuttonG{
+/*div radio y box column*/
+div.insideLabelColumn{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: unset;
+  align-content: center;
+  margin: 0px;
+}
+
+/*radiobutton y checkbox*/
+div.radiobutton{
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -226,79 +216,37 @@ div.radiobuttonG{
   align-items:unset;
   align-content:center;
 }
-
-/*div relationalSituation*/
-div.inside-labelRS{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: unset;
-  align-content: center;
-  margin: 0px;
+input[type='radio']{
+  width: 20px;
+  height: 20px;
 }
-div.radiobuttonRS{
-  /*transform: translate(10%, 5%);
-  width: 20%;*/
-  display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:unset;
-  align-content:center;
+input[type='checkbox']{
+  width: 20px;
+  height: 20px;
 }
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION FAMILY <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-/*div coexistenceSituation*/
-
-div.inside-labelCS{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: unset;
-  align-content: center;
-  margin: 0px;
+/*parrafos largos*/
+.short{
+  display: block;
 }
-div.radiobuttonCS{
-  transform: translate(10%, 5%);
-  width: 20%;
+.longer{
+  display: none;
 }
-
-/*div isChildren*/
-
-div.inside-labelIC{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: unset;
-  align-content: center;
-  margin: 0px;
-}
-div.radiobuttonIC{
-  display:flex;
-  flex-direction:row;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:unset;
-  align-content:center;
-}
-
 
 @media (min-width: 361px) {
-  /*div 361 genres*/
-  div.inside-labelG{
+  /*div 361 inputs*/
+  div.insideLabelRow{
     flex-direction:row;
   }
-    /*div 361 isChildren*/
-    div.inside-labelIC{
-      flex-direction:row;
-    }
+  div.inputRow{
+    justify-content: center;
+  }
+  /*parrafos 361 largos*/
+  .short{
+    display: none;
+  }
+  .longer{
+    display: block;
+  }
 
 }
 @media (min-width: 560px) {
