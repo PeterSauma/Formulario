@@ -25,8 +25,13 @@ https://docs.igle.ar/api
 
 https://www.youtube.com/watch?v=6Xe3_3LJoJk
 
+https://www.figma.com/file/w0AMiUp2yOrU0OZOfORY5I/Form-%7C-Alameda?node-id=82%3A2
+
 https://www.figma.com/proto/4pZkFfYIdxI5u2ydL2LyRB/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
+
 https://www.figma.com/file/w0AMiUp2yOrU0OZOfORY5I/Form-%7C-Alameda?node-id=0%3A1
+
+https://www.figma.com/proto/w0AMiUp2yOrU0OZOfORY5I/Form-%7C-Alameda?node-id=219%3A13&scaling=scale-down&page-id=82%3A2&starting-point-node-id=219%3A13&show-proto-sidebar=1
 
 ### Estilos ccs
 

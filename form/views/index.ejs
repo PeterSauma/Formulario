@@ -10,25 +10,24 @@
     <!-- MAIN -->
     <main>
       <h1>Formulario actualización de datos</h1>
-      <hr size="" color="white">
+      <hr size="" color="black">
 
       <form action='/post' method='post' id='formNewDataMembers' name='formNewDataMembers' enctype='multipart/form-data' class='formNewDataMembers'>
 
         <section class='personal' id='personal'>
                 <h2>Personal</h2>
 
+                <!--NOMBRE-->
                 <div class='text'>
                   <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Nombre' required maxlength='50'>
                 </div>
-                
-                  
 
+                <!--APELLIDO-->
                 <div class='text'>
                     <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Apellido' required required maxlength='50'>
                 </div>
-               
-                
-        
+
+               <!--NACIMIENTO-->
                 <div class='date'>
                   <div class='paragrph'>
                     Fecha de nacimiento
@@ -37,28 +36,25 @@
                     <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class= 'input-date' required>
                   </div>
                 </div>
-                
 
+                <!--GENERO-->
                 <div class='mark'>
                   
                   <div class='paragrph'>
                     <p>Genero:</p>
                   </div>
 
-                  <div class='inside-label'>
-
+                  <div class='inside-labelG'>
                     <div class="input">
-                      <div class="radiobutton"><input type='radio' name='sex' value='h' id='sex-h' required></div>
+                      <div class="radiobuttonG"><input type='radio' name='sex' value='h' id='sex-h' required></div>
                       <div class="check-label"><p><strong>H</strong></p></div> 
                     </div>
-                    
                     <div class="input">
-                      <div class="radiobutton"><input type='radio' name='sex' value='m' id='sex-m' required></div>
+                      <div class="radiobuttonG"><input type='radio' name='sex' value='m' id='sex-m' required></div>
                       <div class="check-label"><p><strong>M</strong></p></div>
                     </div>
-                    
                     <div class="input">
-                      <div class="radiobutton"><input type='radio' name='sex' value='nc' id='sex-nc' required></div>
+                      <div class="radiobuttonG"><input type='radio' name='sex' value='nc' id='sex-nc' required></div>
                       <div class="check-label"><p><strong>N/C</strong></p></div>
                     </div>
 
@@ -66,75 +62,124 @@
                   
                 </div>
 
+                <!--SITUACION RELACIONAL-->
                 <div class='mark'>
                   <div class='paragrph'>
                     <p>Situación relacional:</p>
                   </div>
-                  <div class='inside-label2'>
+                  <div class='inside-labelRS'>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='s' id='relationalSituation-s' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='s' id='relationalSituation-s' required></div>
                       <div class="check-label"><p><strong>Soltero/a</strong></p></div>  
                     </div>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='ep' id='relationalSituation-ep' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='ep' id='relationalSituation-ep' required></div>
                       <div class="check-label"><p><strong>En pareja</strong></p></div>  
                     </div>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='c' id='relationalSituation-c' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='c' id='relationalSituation-c' required></div>
                       <div class="check-label"><p><strong>Casado/a</strong></p></div>  
                     </div>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='v' id='relationalSituation-v' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='v' id='relationalSituation-v' required></div>
                       <div class="check-label"><p><strong>Viudo/a</strong></p></div>  
                     </div>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='d' id='relationalSituation-d' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='d' id='relationalSituation-d' required></div>
                       <div class="check-label"><p><strong>Divorciado/a</strong></p></div>  
                     </div>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='o' id='relationalSituation-o' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='o' id='relationalSituation-o' required></div>
                       <div class="check-label"><p><strong>Otra</strong></p></div>
                     </div>
                     <div class="input">
-                      <div class="radiobutton2"><input type='radio' name='relationalSituation' value='nc' id='relationalSituation-nc' required></div>
+                      <div class="radiobuttonRS"><input type='radio' name='relationalSituation' value='nc' id='relationalSituation-nc' required></div>
                       <div class="check-label"><p><strong>N/C</strong></p></div>  
                     </div>  
                   </div>
                  </div>
 
-                
-                
-                <hr size="1" color="white">
+                <!--CONTINUAR-->
+                <div class='button' id='buttonPersonal'>
+                  <h3>CONTINUAR</h3>
+                </div>
+
         </section>
+
+        <hr size="1" color="white">
 
         <section class='family' id='family'>
                 <h2>Familia</h2>
 
-                <label for='coexistenceSituation'>Con quien vives?</label>
-                  <input type='checkbox' name='coexistenceSituation' value='p' id='coexistenceSituation-p' required>Papá
-                  <input type='checkbox' name='coexistenceSituation' value='m' id='coexistenceSituation-m' required>Mamá
-                  <input type='checkbox' name='coexistenceSituation' value='t' id='coexistenceSituation-t' required>Tío/a
-                  <input type='checkbox' name='coexistenceSituation' value='a' id='coexistenceSituation-a' required>Abuelo/a
-                  <input type='checkbox' name='coexistenceSituation' value='c' id='coexistenceSituation-c' required>Cónyuge
-                  <input type='checkbox' name='coexistenceSituation' value='h' id='coexistenceSituation-h' required>Hijo/s
-                  <input type='checkbox' name='coexistenceSituation' value='s' id='coexistenceSituation-s' required>Solo/a
-                  <input type='checkbox' name='coexistenceSituation' value='n' id='coexistenceSituation-n' required>N/C
-
-                <label for='isChildren'>Tiene hijos?:</label>
-                  <input type='radio' name='isChildren' value='s' id='isChildren-s' required>Sí
-                  <input type='radio' name='isChildren' value='n' id='isChildren-n' required checked>No
+                <!--CONVIVENCIA-->
+                <div class='mark'>
+                  <div class='paragrph'>
+                    <p>¿Con quien vives?</p>
+                  </div>
+                  <div class='inside-labelCS'>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='p' id='coexistenceSituation-p' required></div>
+                      <div class="check-label"><p><strong>Papá</strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='m' id='coexistenceSituation-m' required></div>
+                      <div class="check-label"><p><strong>Mamá</strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='t' id='coexistenceSituation-t' required></div>
+                      <div class="check-label"><p><strong>Tío/a</strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='a' id='coexistenceSituation-a' required></div>
+                      <div class="check-label"><p><strong>Abuelo/a </strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='c' id='coexistenceSituation-c' required></div>
+                      <div class="check-label"><p><strong>Cónyuge</strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='h' id='coexistenceSituation-h' required></div>
+                      <div class="check-label"><p><strong>Hijo/s</strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='s' id='coexistenceSituation-s' required></div>
+                      <div class="check-label"><p><strong>Solo/a</strong></p></div>
+                    </div>
+                    <div class='input'>
+                      <div class="radiobuttomCS"><input type='checkbox' name='coexistenceSituation' value='n' id='coexistenceSituation-n' required></div>
+                      <div class="check-label"><p><strong>N/C</strong></p></div>
+                    </div>
+                  </div>
+                </div>
                 
+                <!--HIJOS-->
+                <div class='mark'>
+                  <div class='paragrph'>
+                    <p>¿Tiene hijos?</p>
+                  </div>
+                  <div class='inside-labelIC'>
+                    <div class="input">
+                      <div class="radiobuttonIC"><input type='radio' name='isChildren' value='s' id='isChildren-s' required></div>
+                      <div class="check-label"><p><strong>Sí</strong></p></div>
+                    </div>
+                    <div class="input">
+                      <div class="radiobuttonIC"><input type='radio' name='isChildren' value='n' id='isChildren-n' required checked></div>
+                      <div class="check-label"><p><strong>No</strong></p></div>
+                    </div>
+                  </div>
 
-                <label for='numberChildren'>Cuantos?</label>
-                  <input type='number' name='numberChildren' value='0' id='numberChildren-n' required>
-                
+                   <div class='text'><input type='number' name='numberChildren' value='' id='numberChildren-n' placeholder="¿Cuantos?"></div>
+                   <div class='text'><input type='number' name='isChildrenAttendChurch' value='' id='isChildrenAttendChurch-n' placeholder="¿Cuantos asisten a la iglesia?"></div>
 
-                <label for='isChildrenAttendChurch'>Cuantos asisten a una iglesia?</label>
-                  <input type='number' name='isChildrenAttendChurch' value='0' id='isChildrenAttendChurch-n' required>
-                
+                </div>
 
-                <hr size="" color="white">
+                <!--CONTINUAR-->
+                <div class='button' id='buttonFamily'>
+                  <h3>CONTINUAR</h3>
+                </div>
+  
         </section>
+        <hr size="1" color="white">
         <section class='residency' id='residency'>
                 <h2>Recidencia</h2>
 
