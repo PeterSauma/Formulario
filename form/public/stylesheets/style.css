@@ -55,8 +55,17 @@ form{
   width: 100%;
   position: relative;
 }
-/*buttons*/
-.button{
+/*div buttons*/
+div.btnBox{
+  height: 100px;
+  width: 80%;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  align-content:center;
+}
+div.btn{
   width: 156px;
   height: 34px;
   background-image: linear-gradient(to left,#9381FF, #FFD8BE 90%) ;
@@ -65,7 +74,6 @@ form{
   font-weight: 700;
   position: relative;
   bottom: 5px;
-  z-index: 10;
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
@@ -74,41 +82,89 @@ form{
   align-content:center;
 }
 
-hr{
-  width: 100%;
-}
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
 section {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   align-content: center;
   width: 100%;
 }
 
-section.personal,section.family,section.residency,section.contact,section.grownup,section.smallGroup,section.vocation,section.photo{
+section.personal,section.family,section.residency,section.contact,section.vocation,section.photo,section.welcome{
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(/images/fondo.png);
+}
+
+section.grownup,section.smallGroup{
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(/images/fondoLargo.png);
+}
+
+section.grownup,section.smallGroup,section.personal,section.family,section.residency,section.contact,section.vocation,section.photo{
+  display: none;
+}
+ 
+
+
+/*section.welcome{
+  background-image: url(/images/Portada.png);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+ div.waveBox{
   background-image: url(/images/fondo.png);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+ }
+ div.wave{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url(/images/wave.png);
+  background-size: 1000px 100px;
+  z-index: 20;
+ }
+ div.imgBox{
+  width: 100%;
+  margin: auto;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+ }
+ img.welcome{
+  width: 100%;
+ }
+*/
 
-}
-/*section.family,section.residency,section.contact,section.grownup,section.smallGroup,section.vocation{
-  display: none;
-}*/
-
-
-/*  SECTION GENERAL  */
+/*  div mark y div text  */
 div.mark, div.text{
   width: 80%;
   margin: 10px;
 }
 
-/* formatos div text */
+/* div text */
 div.text{
   width: 80%;
 }
@@ -238,31 +294,28 @@ input[type='checkbox']{
   display: none;
 }
 /*section photo*/
-section.photo{
-  height: 100vh;
-}
+
 div.photoBox{
+  margin: 20px 0px;
   background-color: #FFF;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 80vw;
   height: 80vw;
-  max-height: 400px;
-  max-width: 400px;
-  padding: 10%;
+  min-height: 350px;
+  padding: 5%;
 }
-
 div.paragrphBlue{
+  font-size: 15px;
   color: #9381FF;
   text-align: center;
   width: 100%;
   margin: 5px;
   height: 20%;
-  font-size: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -270,7 +323,6 @@ div.paragrphBlue{
   align-items: unset;
   align-content: center;
 }
-
 div.dotedBox{
   border-style: dotted;
   border-color: rgb(150, 150, 150);
@@ -286,8 +338,7 @@ div.dotedBox{
   width: 100%;
 }
 
-
-/*validacionesJS*/
+/*subir foto*/
 input.inputPhoto{
   display: none;
 }
@@ -306,6 +357,308 @@ h3.namePhoto{
   font-size: 12px;
   margin: 2px;
 }
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+.modalPersonal,.modalFamily,.modalResidency,.modalContact,.modalGrownup,.modalSmallGroup,.modalVocation,.modalPhoto{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorPersonal,.contenedorFamily,.contenedorResidency,.contenedorContact,.contenedorGrownup,.contenedorSmallGroup,.contenedorVocation,.contenedorPhoto{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+
+.contenedorPersonal article.header,
+.contenedorFamily article.header,
+.contenedorResidency article.header,
+.contenedorContact article.header,
+.contenedorGrownup article.header,
+.contenedorSmallGroup article.header,
+.contenedorVocation article.header,
+.contenedorPhoto article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoPersonal,
+.contenidoFamily,
+.contenidoResidency,
+.contenidoContact,
+.contenidoGrownup,
+.contenidoSmallGroup,
+.contenidoVocation,
+.contenidoPhoto{
+  width: 100%;
+}
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 2 FAMILY<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*
+.modalFamily{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorFamily{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorFamily article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoFamily{
+  width: 100%;
+}
+
+
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 3 RESIDENCY <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*
+.modalResidency{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorResidency{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorResidency article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoResidency{
+  width: 100%;
+}
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 4 CONTACT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*
+.modalContact{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorContact{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorContact article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoContact{
+  width: 100%;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 5 GROWNUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*
+.modalGrownup{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorGrownup{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorGrownup article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoGrownup{
+  width: 100%;
+}
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 6 SMALLGROUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*
+.modalSmallGroup{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorSmallGroup{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorSmallGroup article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoSmallGroup{
+  width: 100%;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 7 VOCATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*
+.modalVocation{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorVocation{
+  width: 95%;
+  height: auto;
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorVocation article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoVocation{
+  width: 100%;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 8 PHOTO <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*.modalPhoto{
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.contenedorPhoto{
+  width: 95%;
+ 
+  margin: auto;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
+  transition: all 500ms ease;
+  position: relative;
+  transform: translateY(-30%);
+}
+.contenedorPhoto article.header{
+  padding: 10px;
+  background: rgb(100, 125, 98);
+  color: rgb(255, 255, 255);
+}
+.contenidoPhoto{
+  width: 100%;
+}
+*/
+
 
 
 @media (min-width: 361px) {
@@ -316,6 +669,10 @@ h3.namePhoto{
   div.inputRow{
     justify-content: center;
   }
+  /*section 361 photo*/
+  div.paragrphBlue{
+    font-size: 20px;
+  }
   /*parrafos 361 largos*/
   .short{
     display: none;
@@ -323,23 +680,16 @@ h3.namePhoto{
   .longer{
     display: block;
   }
-  /*section 361 photo*/
-  div.paragrphBlue{
-    font-size: 15px;
-  }
-
 }
 @media (min-width: 560px) {
-  /*section 560 photo*/
-  div.photoBox{
-    padding: 7%;
+  
+  /*div 560 buttons*/
+  div.btnBox{
+    height: 60px;
+    flex-direction:row;  
+    justify-content: space-between;
   }
 
 }
-@media (min-width: 761px) {
-  /*section 761 photo*/
-  div.photoBox{
-    padding: 5%;
-  }
-}
+@media (min-width: 761px) {}
 @media (min-width: 1000px) {}
