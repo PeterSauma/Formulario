@@ -357,6 +357,9 @@ h3.namePhoto{
   font-size: 12px;
   margin: 2px;
 }
+h4#titleError.textDanger{
+  font-size: 13px;
+}
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 

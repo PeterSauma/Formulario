@@ -1,8 +1,7 @@
 const fs = require('fs')
 const path = require('path')
-//falta conexion a la API
 const { validationResult } = require('express-validator')
-
+//falta conexion a la API
 
 
  const controllers = {
@@ -15,7 +14,7 @@ const { validationResult } = require('express-validator')
 
         if(errors.errors.length > 0){
 
-            return res.render('index', {
+            return res.render(path.join(__dirname,'../views/index'), {
 
                 errors : errors.mapped(),
                 oldData : req.body

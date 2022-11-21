@@ -3,31 +3,31 @@ window.addEventListener('load', function(){
     let formulario = document.querySelector('#formNewDataMembers')
     
     //capturo los imputs
-    let avatar=formulario.avatar
+    let file=formulario.file
 
     //Capturo todos los divs con text danger que van a aparecer cuando valide
-    let  avatarErr =document.querySelector('#avatarErr')
+    let  fileErr =document.querySelector('#fileErr')
 
 
     
-    //Validacion del avatar. Deberá ser un archivo válido (JPG, JPEG, PNG, GIF)
-    avatar.addEventListener('change', function(){
+    //Validacion del file. Deberá ser un archivo válido (JPG, JPEG, PNG, GIF)
+    file.addEventListener('change', function(){
 
         //Expresión regular para validar tipos de archivos
         let extPermitidas = /(.JPG|.JPEG|.PNG|.GIF)$/i
         //Genero la variable archivoRuta para que sea más facil de leer el if
-        let archivoRuta = avatar.value
+        let archivoRuta = file.value
 
         //Valido si me da un true o false el tipo de archivo
         if(!extPermitidas.exec(archivoRuta)){
-        avatarErr.innerText = 'Archivos permitidos: JPG, JPEG, PNG, GIF'
+        fileErr.innerText = 'Archivos permitidos: JPG, JPEG, PNG, GIF'
         }else {
-        avatarErr.innerText = ''
+        fileErr.innerText = ''
         }
 
         //agrego la leyenda con el nombre del archivo que se está po subir
         let namePhoto=document.querySelector('#namePhoto')
-        namePhoto.innerText=avatar.files[0].name
+        namePhoto.innerText=file.files[0].name
 
     });
 

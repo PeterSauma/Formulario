@@ -42,12 +42,30 @@
 
                 <!--NOMBRE-->
                 <div class='text'>
-                  <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Nombre'  maxlength='50'>
+                  <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Nombre'  maxlength='50' value="<%= locals.oldData ? oldData.firstName : null %>">
+                  
+                  <div class="error">
+                    <h4 class="text-danger" id="titleError"></h4>
+                    <% if(locals.errors && errors.firstName) { %>
+                      <samp class="textDanger">
+                      <%= errors.firstName.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
 
                 <!--APELLIDO-->
                 <div class='text'>
-                  <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Apellido'   maxlength='50'>
+                  <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Apellido'   maxlength='50' value="<%= locals.oldData ? oldData.lastName : null %>">
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.lastName) { %>
+                      <samp class="textDanger">
+                      <%= errors.lastName.msg %>
+                      </samp>
+                    <% } %>
+                  </div> 
                 </div>
 
                 <!--NACIMIENTO-->
@@ -69,19 +87,28 @@
 
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='sex' value='hombre' id='sexHombre' ></div>
-                      <div class="checkLabelrRow"><p><strong>H</strong></p></div> 
+                      <div class="radiobutton"><input type='radio' name='sex' id='sexHombre' value='hombre'<%= locals.oldData && oldData.sex == 'sexHombre' ? "checked" : null %>></div>
+                      <div class="checkLabelrRow"><p><strong>H</strong></p></div>
                     </div>
 
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='sex' value='mujer' id='sexMujer' ></div>
+                      <div class="radiobutton"><input type='radio' name='sex' id='sexMujer' value='mujer'<%= locals.oldData && oldData.sex == 'sexMujer' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>M</strong></p></div>
                     </div>
                     
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='sex' value='noContesta' id='sexNoContesta' ></div>
+                      <div class="radiobutton"><input type='radio' name='sex' id='sexNoContesta' value='noContesta'<%= locals.oldData && oldData.sex == 'sexNoContesta' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>N/C</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.sex) { %>
+                      <samp class="textDanger">
+                      <%= errors.sex.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
 
@@ -93,34 +120,43 @@
 
                   <div class='insideLabelColumn'>
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' value='soltero' id='relationalSituation-s' ></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-s' value='soltero'<%= locals.oldData && oldData.relationalSituation == 'soltero' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Soltero/a</strong></p></div>  
                     </div>
                     
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' value='enPareja' id='relationalSituation-ep' ></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-ep' value='enPareja'<%= locals.oldData && oldData.relationalSituation == 'enPareja' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>En pareja</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' value='casado' id='relationalSituation-c' ></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-c' value='casado'<%= locals.oldData && oldData.relationalSituation == 'casado' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Casado/a</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' value='viudo' id='relationalSituation-v' ></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-v' value='viudo'<%= locals.oldData && oldData.relationalSituation == 'viudo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Viudo/a</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' value='divorciado' id='relationalSituation-d' ></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-d' value='divorciado'<%= locals.oldData && oldData.relationalSituation == 'divorciado' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Divorciado/a</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' value='otro' id='relationalSituation-o' ></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-o' value='otro'<%= locals.oldData && oldData.relationalSituation == 'otro' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otra</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.relationalSituation) { %>
+                      <samp class="textDanger">
+                      <%= errors.relationalSituation.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
 
@@ -162,44 +198,53 @@
               
                   <div class='insideLabelColumn'>
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='p' id='coexistenceSituation-p' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-p' value='papa'<%= locals.oldData && oldData.coexistenceSituation == 'papa' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Papá</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='m' id='coexistenceSituation-m' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-m' value='mama'<%= locals.oldData && oldData.coexistenceSituation == 'mama' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Mamá</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='t' id='coexistenceSituation-t' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-t' value='tio'<%= locals.oldData && oldData.coexistenceSituation == 'tio' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Tío/a</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='a' id='coexistenceSituation-a' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-a' value='abuelo'<%= locals.oldData && oldData.coexistenceSituation == 'abuelo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Abuelo/a </strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='c' id='coexistenceSituation-c' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-c' value='conyuge'<%= locals.oldData && oldData.coexistenceSituation == 'conyuge' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Cónyuge</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='h' id='coexistenceSituation-h' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-h' value='hijo'<%= locals.oldData && oldData.coexistenceSituation == 'hijo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Hijo/s</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='s' id='coexistenceSituation-s' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-s' value='solo'<%= locals.oldData && oldData.coexistenceSituation == 'solo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Solo/a</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' value='o' id='coexistenceSituation-s' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-s' value='otro'<%= locals.oldData && oldData.coexistenceSituation == 'otro' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otro</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.coexistenceSituation) { %>
+                      <samp class="textDanger">
+                      <%= errors.coexistenceSituation.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
               
@@ -211,33 +256,38 @@
               
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isChildren' value='s' id='isChildren-s' ></div>
+                      <div class="radiobutton"><input type='radio' name='isChildren' id='isChildren-s' value='si'<%= locals.oldData && oldData.isChildren == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
               
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isChildren' value='n' id='isChildren-n'  checked></div>
+                      <div class="radiobutton"><input type='radio' name='isChildren' id='isChildren-n' value='no'<%= locals.oldData && oldData.isChildren == 'no' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>No</strong></p></div>
                     </div>
                   </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.isChildren) { %>
+                      <samp class="textDanger">
+                      <%= errors.isChildren.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
               
-                  <div class='text'><input type='number' name='numberChildren' value='' id='numberChildren-n' placeholder="¿Cuantos?"></div>
-                  <div class='text'><input type='number' name='isChildrenAttendChurch' value='' id='isChildrenAttendChurch-n' placeholder="¿Cuantos asisten a la iglesia?"></div>
+                  <div class='text'><input type='number' name='numberChildren' id='numberChildren-n' placeholder="¿Cuantos?" value=''></div>
+                  <div class='text'><input type='number' name='isChildrenAttendChurch' id='isChildrenAttendChurch-n' placeholder="¿Cuantos asisten a la iglesia?" value=''></div>
                 </div>
               
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
-                  <label for="btn-modalFamily">
-                    <div class='btn' id='btnFamilyBack'>
-                      <h3>ATRÁS</h3>
-                    </div>
-                  </label>
-
-                  <label for="btn-modalResidency">
-                    <div class='btn' id='btnFamilyContinue'>
-                      <h3>CONTINUAR</h3>
-                    </div>
-                  </label>
+                  <div class='btn' id='btnFamilyBack'>
+                    <h3>ATRÁS</h3>
+                  </div>
+                
+                  <div class='btn' id='btnFamilyContinue'>
+                    <h3>CONTINUAR</h3>
+                  </div>
                 </div>
               
               </section>
@@ -260,12 +310,30 @@
       
                 <!--CALLE-->
                 <div class='text'>
-                  <input type='text' name='street' id='street' class= 'input-text' placeholder='Calle'  maxlength='50'>
+                  <input type='text' name='street' id='street' class= 'input-text' placeholder='Calle'  maxlength='50' value='<%= locals.oldData ? oldData.street : null %>'>
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.street) { %>
+                      <samp class="textDanger">
+                      <%= errors.street.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
       
                 <!--NUEMRACION-->
                 <div class='text'>
-                  <input type='text' name='numeration' id='numeration' class= 'input-text' placeholder='Numeración'  maxlength='50'>
+                  <input type='number' name='numeration' id='numeration' class= 'input-text' placeholder='Numeración'  maxlength='50' value='<%= locals.oldData ? oldData.numeration : null %>'>
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.numeration) { %>
+                      <samp class="textDanger">
+                      <%= errors.numeration.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
                     
                 <!--ACLARACION-->
@@ -275,42 +343,78 @@
       
                 <!--BARRIO-->
                 <div class='text'>                  
-                  <input type='text' name='neighborhood' id='neighborhood' class= 'input-text' placeholder='Barrio'  maxlength='50'>
+                  <input type='text' name='neighborhood' id='neighborhood' class= 'input-text' placeholder='Barrio'  maxlength='50' value=''>
                 </div>
       
                 <!--MANZANA-->
                 <div class='text'>                  
-                  <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'input-text' placeholder='Manzana' maxlength='50'>
+                  <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'input-text' placeholder='Manzana' maxlength='50' value=''>
                 </div>
       
                 <!--CASA-->
                 <div class='text'>                  
-                  <input type='text' name='houseNumber' id='houseNumber' class= 'input-text' placeholder='Casa' maxlength='50'>
+                  <input type='text' name='houseNumber' id='houseNumber' class= 'input-text' placeholder='Casa' maxlength='50' value=''>
                 </div>
       
                 <!--CODIGO POSTAL-->
                 <div class='text'>
-                  <input type='text' name='postalCode' id='postalCode' class= 'input-text' placeholder='Código postal'  maxlength='50'>
+                  <input type='text' name='postalCode' id='postalCode' class= 'input-text' placeholder='Código postal'  maxlength='50' value='<%= locals.oldData ? oldData.postalCode : null %>'>
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.postalCode) { %>
+                      <samp class="textDanger">
+                      <%= errors.postalCode.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
                     
                 <!--LOCALIDAD-->
                 <div class='text'>
-                  <input type='text' name='location' id='location' class= 'input-text' placeholder='Localidad' maxlength='50'>
+                  <input type='text' name='location' id='location' class= 'input-text' placeholder='Localidad' maxlength='50' value=''>
                 </div>
                     
                 <!--DEPARTAMENTO-->
                 <div class='text'>
-                  <input type='text' name='city' id='city' class= 'input-text' placeholder='Departamento'  maxlength='50'>
+                  <input type='text' name='city' id='city' class= 'input-text' placeholder='Departamento'  maxlength='50' value='<%= locals.oldData ? oldData.city : null %>'>
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.city) { %>
+                      <samp class="textDanger">
+                      <%= errors.city.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
                     
                 <!--PROVINCIA-->
                 <div class='text'>
-                  <input type='text' name='state' id='state' class= 'input-text' placeholder='Provincia'  maxlength='50'>
+                  <input type='text' name='state' id='state' class= 'input-text' placeholder='Provincia'  maxlength='50' value='<%= locals.oldData ? oldData.state : null %>'>
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.state) { %>
+                      <samp class="textDanger">
+                      <%= errors.state.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
                     
                 <!--PAIS-->
                 <div class='text'>
-                  <input type='text' name='country' id='country' class= 'input-text' placeholder='País'  maxlength='50'>
+                  <input type='text' name='country' id='country' class= 'input-text' placeholder='País'  maxlength='50' value='<%= locals.oldData ? oldData.country : null %>'>
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.country) { %>
+                      <samp class="textDanger">
+                      <%= errors.country.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
       
                 <!--ADELANTE/ATRÁS-->
@@ -344,17 +448,35 @@
       
                 <!--CELULAR-->
                 <div class='text'>
-                  <input type='number' name='valueContact' id='valueContact' class= 'input-text' placeholder='Telefono celular'  maxlength='50'>
+                  <input type='number' name='valueContact' id='valueContact' class= 'input-text' placeholder='Telefono celular'  maxlength='50' value="<%= locals.oldData ? oldData.valueContact : null %>">
+                  
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.valueContact) { %>
+                      <samp class="textDanger">
+                      <%= errors.valueContact.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
       
                 <!--FIJO-->
                 <div class='text'>
-                  <input type="number" name='fijo' id='fijo' class= 'input-text' placeholder='Fijo (opcional)' maxlength='50'>
+                  <input type="number" name='fijo' id='fijo' class= 'input-text' placeholder='Fijo (opcional)' maxlength='50' value="">
                 </div>
       
                 <!--CORREO-->
                 <div class='text'>
-                  <input type="email" name="email" id="email" class= "input-text"  placeholder='Email'  minlength="5" maxlength="50">
+                  <input type="email" name="email" id="email" class= "input-text"  placeholder='Email'  minlength="5" maxlength="50" value="<%= locals.oldData ? oldData.email : null %>">
+                
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.email) { %>
+                      <samp class="textDanger">
+                      <%= errors.email.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                 </div>
       
                 <!--REDES-->
@@ -365,74 +487,88 @@
       
                   <div class='insideLabelColumn'>
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='YouVersion' id='webSite-YouVersion' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-YouVersion' value='YouVersion' <%= locals.oldData && oldData.webSite == 'YouVersion' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>YouVersion</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Facebook' id='webSite-Facebook' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Facebook' value='Facebook' <%= locals.oldData && oldData.webSite == 'Facebook' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Facebook</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Instagram' id='webSite-Instagram' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Instagram' value='Instagram' <%= locals.oldData && oldData.webSite == 'Instagram' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Instagram</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='YouTube' id='webSite-YouTube' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-YouTube' value='YouTube' <%= locals.oldData && oldData.webSite == 'YouTube' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>YouTube</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Tik' id='webSite-Tik' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Tik' value='Tik' <%= locals.oldData && oldData.webSite == 'Tik' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Tik Tok</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Spotify' id='webSite-Spotify' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Spotify' value='Spotify' <%= locals.oldData && oldData.webSite == 'Spotify' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Spotify</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='WhatsApp' id='webSite-WhatsApp' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-WhatsApp' value='WhatsApp' <%= locals.oldData && oldData.webSite == 'WhatsApp' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>WhatsApp</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Telegram' id='webSite-Telegram' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Telegram' value='Telegram' <%= locals.oldData && oldData.webSite == 'Telegram' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Telegram</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Twitter' id='webSite-Twitter' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Twitter' value='Twitter' <%= locals.oldData && oldData.webSite == 'Twitter' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Twitter</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Twitch' id='webSite-Twitch' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Twitch' value='Twitch' <%= locals.oldData && oldData.webSite == 'Twitch' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Twitch</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Discord' id='webSite-Discord' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Discord' value='Discord' <%= locals.oldData && oldData.webSite == 'Discord' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Discord</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Pinterest' id='webSite-Pinterest' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Pinterest' value='Pinterest' <%= locals.oldData && oldData.webSite == 'Pinterest' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Pinterest</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='LinkedIn' id='webSite-LinkedIn' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-LinkedIn' value='LinkedIn' <%= locals.oldData && oldData.webSite == 'LinkedIn' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>LinkedIn</strong></p></div> 
                     </div>
       
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='webSite' value='Slack' id='webSite-Slack' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-Slack' value='Slack' <%= locals.oldData && oldData.webSite == 'Slack' ? "checked" : null %>></div>
                       <div class='checkLabel'><p><strong>Slack</strong></p></div> 
                     </div>    
+
+                    <div class='inputColumn'>
+                      <div class="radiobutton"><input type='checkbox' name='webSite' id='webSite-ninguno' value='ninguno' <%= locals.oldData && oldData.webSite == 'ninguno' ? "checked" : null %>></div>
+                      <div class='checkLabel'><p><strong>N/C</strong></p></div> 
+                    </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.webSite) { %>
+                      <samp class="textDanger">
+                      <%= errors.webSite.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
       
@@ -441,6 +577,7 @@
                   <div class='btn' id='btnContactBack'>
                     <h3>ATRÁS</h3>
                   </div>
+
                   <div class='btn' id='btnContactContinue'>
                     <h3>CONTINUAR</h3>
                   </div>
@@ -472,24 +609,33 @@
       
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='timeChurch' value='timeChurch-0' id='timeChurch-0' ></div>
+                      <div class="radiobutton"><input type='radio' name='timeChurch'    id='timeChurch-0' value='timeChurch-0'<%= locals.oldData && oldData.timeChurch == 'timeChurch-0' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Menos de 6 meses</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='timeChurch' value='timeChurch-6-1' id='timeChurch-6-1' ></div>
+                      <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-6-1' value='timeChurch-6-1'<%= locals.oldData && oldData.timeChurch == 'timeChurch-6-1' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Entre 6 meses a 1 año</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='timeChurch' value='timeChurch-1-5' id='timeChurch-1-5' ></div>
+                      <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-1-5' value='timeChurch-1-5'<%= locals.oldData && oldData.timeChurch == 'timeChurch-1-5' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Entre 1 año a 5 años</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='timeChurch' value='timeChurch-5-0' id='timeChurch-5-0' ></div>
+                      <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-5-0' value='timeChurch-5-0'<%= locals.oldData && oldData.timeChurch == 'timeChurch-5-0' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Más de 5 años</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.timeChurch) { %>
+                      <samp class="textDanger">
+                      <%= errors.timeChurch.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
                       
@@ -501,84 +647,98 @@
       
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='nuevoInicio' id='churchExperiences-nuevoInicio' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-nuevoInicio' value='nuevoInicio'<%= locals.oldData && oldData.churchExperiences == 'nuevoInicio' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Nuevo Inicio</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Nuevo Inicio con Dios</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='bautismo' id='churchExperiences-bautismo' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-bautismo' value='bautismo'<%= locals.oldData && oldData.churchExperiences == 'bautismo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Bautismo</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='p1' id='churchExperiences-p1' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-paso1' value='paso1'<%= locals.oldData && oldData.churchExperiences == 'paso1' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Paso 1-Miembro</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Paso 1-Charla de nuevos Miembros</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='p2' id='churchExperiences-p2' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-paso2' value='paso2'<%= locals.oldData && oldData.churchExperiences == 'paso2' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Paso 2-Forma</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Paso 2-Descubre tu Forma</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='p3' id='churchExperiences-p3' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-paso3' value='paso3'<%= locals.oldData && oldData.churchExperiences == 'paso3' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Paso 3-Madrez</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Paso 3-Adopta Hábitos de Madurez</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='p4' id='churchExperiences-p4' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-paso4' value='paso4'<%= locals.oldData && oldData.churchExperiences == 'paso4' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Paso 4-Voluntario</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Paso 4-Voluntariado inicial</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='vd1' id='churchExperiences-vd1' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-vidaDiscipular1' value='vidaDiscipular1'<%= locals.oldData && oldData.churchExperiences == 'vidaDiscipular1' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Vida 1</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Vida Discipular 1</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='vd2' id='churchExperiences-vd2' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-vidaDiscipular2' value='vidaDiscipular2'<%= locals.oldData && oldData.churchExperiences == 'vidaDiscipular2' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Vida 2</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Vida Discipular 2</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='vd3' id='churchExperiences-vd3' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-vidaDiscipular3' value='vidaDiscipular3'<%= locals.oldData && oldData.churchExperiences == 'vidaDiscipular3' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Vida 3</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Vida Discipular 3</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='vd4' id='churchExperiences-vd4' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-vidaDiscipular4' value='vidaDiscipular4'<%= locals.oldData && oldData.churchExperiences == 'vidaDiscipular4' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Vida 4</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Vida Discipular 4</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='libre' id='churchExperiences-libre' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-seaLibre' value='seaLibre'<%= locals.oldData && oldData.churchExperiences == 'seaLibre' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Sea Libre</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='fundamentos' id='churchExperiences-fundamentos' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-fundamentos' value='fundamentos'<%= locals.oldData && oldData.churchExperiences == 'fundamentos' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Fundamentos</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='celebremos' id='churchExperiences-celebremos' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-celebremos' value='celebremos'<%= locals.oldData && oldData.churchExperiences == 'celebremos' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Celebremos</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Celebremos la Recuperación</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' value='otro' id='churchExperiences-otro' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-ninguno' value='ninguno'<%= locals.oldData && oldData.churchExperiences == 'ninguno' ? "checked" : null %>></div>
+                      <div class="checkLabel"><p><strong>N/C</strong></p></div>
+                    </div>
+
+                    <div class="inputColumn">
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-otro' value='otro'<%= locals.oldData && oldData.churchExperiences == 'otro' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otros</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.churchExperiences) { %>
+                      <samp class="textDanger">
+                      <%= errors.churchExperiences.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
                                
@@ -590,39 +750,58 @@
       
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='cafeteria' id='servicesUsed-cafeteria' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-cafeteria' value='cafeteria'<%= locals.oldData && oldData.servicesUsed == 'cafeteria' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Cafetería</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='camping' id='servicesUsed-camping' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-camping' value='camping'<%= locals.oldData && oldData.servicesUsed == 'camping' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Camping</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='escuela-musica' id='servicesUsed-escuela-musica' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-escuela-musica' value='escuela-musica'<%= locals.oldData && oldData.servicesUsed == 'escuela-musica' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Escuela de Música</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='escuela-danza' id='servicesUsed-escuela-danza' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-escuela-danza' value='escuela-danza'<%= locals.oldData && oldData.servicesUsed == 'escuela-danza' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Escuela de Danza</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='casa-mujer' id='servicesUsed-casa-mujer' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-casa-mujer' value='casa-mujer'<%= locals.oldData && oldData.servicesUsed == 'casa-mujer' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Casa de la Mujer</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='jardín' id='servicesUsed-jardín' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-jardín' value='jardín'<%= locals.oldData && oldData.servicesUsed == 'jardín' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Jardín Maternal</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='servicesUsed' value='acasa' id='servicesUsed-acasa' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-acasa' value='acasa'<%= locals.oldData && oldData.servicesUsed == 'acasa' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>ACASA</strong></p></div>
                     </div>
+
+                    <div class="inputColumn">
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-NC' value='ninguno'<%= locals.oldData && oldData.servicesUsed == 'ninguno' ? "checked" : null %>></div>
+                      <div class="checkLabel"><p><strong>N/C</strong></p></div>
+                    </div>
+
+                    <div class="inputColumn">
+                      <div class="radiobutton"><input type='checkbox' name='servicesUsed'  id='servicesUsed-otro' value='otro'<%= locals.oldData && oldData.servicesUsed == 'otro' ? "checked" : null %>></div>
+                      <div class="checkLabel"><p><strong>Otro</strong></p></div>
+                    </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.servicesUsed) { %>
+                      <samp class="textDanger">
+                      <%= errors.servicesUsed.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
       
@@ -631,6 +810,7 @@
                   <div class='btn' id='btnGrownupBack'>
                     <h3>ATRÁS</h3>
                   </div>
+
                   <div class='btn' id='btnGrownupContinue'>
                     <h3>CONTINUAR</h3>
                   </div>
@@ -661,24 +841,51 @@
       
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isParticipateSmallGroup' value='si' id='isParticipateSmallGroup-si' ></div>
+                      <div class="radiobutton"><input type='radio' name='isParticipateSmallGroup' id='isParticipateSmallGroup-si' value='si'<%= locals.oldData && oldData.isParticipateSmallGroup == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
                     
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isParticipateSmallGroup' value='no' id='isParticipateSmallGroup-no' ></div>
+                      <div class="radiobutton"><input type='radio' name='isParticipateSmallGroup' id='isParticipateSmallGroup-no' value='no'<%= locals.oldData && oldData.isParticipateSmallGroup == 'no' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>No</strong></p></div>
                     </div>
                   </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.isParticipateSmallGroup) { %>
+                      <samp class="textDanger">
+                      <%= errors.isParticipateSmallGroup.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
       
                   <div class='text'>
-                    <input type='text' name='smallGroupName' id='smallGroupName' class= 'input-text' placeholder="Nombre del grupo" maxlength='50'>
+                    <input type='text' name='smallGroupName' id='smallGroupName' class= 'input-text' placeholder="Nombre del grupo" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                  
+                    <div class="error">
+                      <h4 class="textDanger" id="titleError"></h4>
+                      <% if(locals.errors && errors.smallGroupName) { %>
+                        <samp class="textDanger">
+                        <%= errors.smallGroupName.msg %>
+                        </samp>
+                      <% } %>
+                    </div>
                   </div>
                   <div class='text'>
-                    <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'input-text' placeholder="Nombre del guía" maxlength='50'>
+                    <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'input-text' placeholder="Nombre del guía" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                  
+                    <div class="error">
+                      <h4 class="textDanger" id="titleError"></h4>
+                      <% if(locals.errors && errors.smallGroupGuide) { %>
+                        <samp class="textDanger">
+                        <%= errors.smallGroupGuide.msg %>
+                        </samp>
+                      <% } %>
+                    </div>
                   </div>
       
-                  </div>
+                </div>
       
                 <!--QUE LE GUSTA?-->
                 <div class='mark'>
@@ -688,35 +895,44 @@
                   
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' value='compañía' id='enjoyMost-compañía' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' id='enjoyMost-compañía' value='compañia'<%= locals.oldData && oldData.enjoyMost == 'compañia' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Compañía</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' value='amistad' id='enjoyMost-amistad' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' id='enjoyMost-amistad' value='amistad'<%= locals.oldData && oldData.enjoyMost == 'amistad' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Amistad</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' value='comida' id='enjoyMost-comida' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' id='enjoyMost-comida' value='comida'<%= locals.oldData && oldData.enjoyMost == 'comida' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Comida</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' value='oración' id='enjoyMost-oración' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' id='enjoyMost-oración' value='oración'<%= locals.oldData && oldData.enjoyMost == 'oración' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Oración</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' value='aprender' id='enjoyMost-aprender' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' id='enjoyMost-aprender' value='aprender'<%= locals.oldData && oldData.enjoyMost == 'aprender' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>La Biblia</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Aprender de la Biblia</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' value='otros' id='enjoyMost-otros' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='enjoyMost' id='enjoyMost-otros' value='otros'<%= locals.oldData && oldData.enjoyMost == 'otros' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otros</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.enjoyMost) { %>
+                      <samp class="textDanger">
+                      <%= errors.enjoyMost.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
       
@@ -725,54 +941,64 @@
                   <div class='paragrph'>
                     <p>¿Cuál es tu área de interés?</p>
                   </div>
+
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='relaciones' id='yourAreaInterest-relaciones' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-relaciones' value='relaciones'<%= locals.oldData && oldData.yourAreaInterest == 'relaciones' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Relaciones</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='biblia' id='yourAreaInterest-biblia' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-biblia' value='biblia'<%= locals.oldData && oldData.yourAreaInterest == 'biblia' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>La Biblia</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Conocer más la Biblia</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='proposito' id='yourAreaInterest-miProposito' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-miProposito' value='proposito'<%= locals.oldData && oldData.yourAreaInterest == 'proposito' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Mi propósito</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Descubrir mi propósito</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='servir' id='yourAreaInterest-servir' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-servir' value='servir'<%= locals.oldData && oldData.yourAreaInterest == 'servir' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Servir</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='habitoss' id='yourAreaInterest-habitos' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-habitos' value='habitoss'<%= locals.oldData && oldData.yourAreaInterest == 'habitoss' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Hábitos</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Desarrollar hábitos saludables</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='esparcimiento' id='yourAreaInterest-esparcimiento' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-esparcimiento' value='esparcimiento'<%= locals.oldData && oldData.yourAreaInterest == 'esparcimiento' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Esparcimiento</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='diversion' id='yourAreaInterest-diversion' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-diversion' value='diversion'<%= locals.oldData && oldData.yourAreaInterest == 'diversion' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Diversión</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='comunion' id='yourAreaInterest-comunion' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-comunion' value='comunion'<%= locals.oldData && oldData.yourAreaInterest == 'comunion' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Comunión</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' value='otros' id='yourAreaInterest-otros' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourAreaInterest' id='yourAreaInterest-otros' value='otros'<%= locals.oldData && oldData.yourAreaInterest == 'otros' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otros</strong></p></div>
                     </div>
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.yourAreaInterest) { %>
+                      <samp class="textDanger">
+                      <%= errors.yourAreaInterest.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
                 
@@ -784,76 +1010,85 @@
       
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='salud' id='yourNeeds-salud' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-salud' value='salud'<%= locals.oldData && oldData.yourNeeds == 'salud' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Salud</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Problemas de salud</strong></p></div>
                     </div>
                           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='economia' id='yourNeeds-economia' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-economia' value='economia'<%= locals.oldData && oldData.yourNeeds == 'economia' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Economía</strong></p></div>
                     </div>    
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='familia' id='yourNeeds-familia' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-familia' value='familia'<%= locals.oldData && oldData.yourNeeds == 'familia' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Familia</strong></p></div>
                     </div>    
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='oracion' id='yourNeeds-oracion' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-oracion' value='oracion'<%= locals.oldData && oldData.yourNeeds == 'oracion' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Oración</strong></p></div>
                     </div> 
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='adicciones' id='yourNeeds-adicciones' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-adicciones' value='adicciones'<%= locals.oldData && oldData.yourNeeds == 'adicciones' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Adicciones</strong></p></div>
                     </div> 
                               
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='equilibrioEmocional' id='yourNeeds-equilibrioEmocional' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-equilibrioEmocional' value='equilibrioEmocional'<%= locals.oldData && oldData.yourNeeds == 'equilibrioEmocional' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Equilibrio emocional</strong></p></div>
                     </div>    
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='controlEmociones' id='yourNeeds-controlEmociones' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-controlEmociones' value='controlEmociones'<%= locals.oldData && oldData.yourNeeds == 'controlEmociones' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Control de emociones</strong></p></div>
                     </div>    
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='soledad' id='yourNeeds-soledad' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-soledad' value='soledad'<%= locals.oldData && oldData.yourNeeds == 'soledad' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Soledad</strong></p></div>
                     </div>    
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='crianza' id='yourNeeds-crianza' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-crianza' value='crianza'<%= locals.oldData && oldData.yourNeeds == 'crianza' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Crianza</strong></p></div>
                     </div>    
       
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='matrimonial' id='yourNeeds-matrimonial' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-matrimonial' value='matrimonial'<%= locals.oldData && oldData.yourNeeds == 'matrimonial' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Matrimonial</strong></p></div>
                     </div>    
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='laboral' id='yourNeeds-laboral' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-laboral' value='laboral'<%= locals.oldData && oldData.yourNeeds == 'laboral' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Laboral</strong></p></div>
                     </div>    
                     
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='legal' id='yourNeeds-legal' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-legal' value='legal'<%= locals.oldData && oldData.yourNeeds == 'legal' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Legal</strong></p></div>
                     </div> 
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='sxual' id='yourNeeds-sexual' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-sexual' value='sxual'<%= locals.oldData && oldData.yourNeeds == 'sxual' ? "checked" : null %>></div>
                       <div class="checkLabel short"><p><strong>Sexualidad</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Identidad sexual</strong></p></div>
                     </div> 
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' value='otro' id='yourNeeds-otor' ></div>
+                      <div class="radiobutton"><input type='checkbox' name='yourNeeds' id='yourNeeds-otor' value='otro'<%= locals.oldData && oldData.yourNeeds == 'otro' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otro</strong></p></div>
                     </div> 
+                  </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.yourNeeds) { %>
+                      <samp class="textDanger">
+                      <%= errors.yourNeeds.msg %>
+                      </samp>
+                    <% } %>
                   </div>
                 </div>
             
@@ -862,6 +1097,7 @@
                   <div class='btn' id='btnSmallGroupBack'>
                     <h3>ATRÁS</h3>
                   </div>
+
                   <div class='btn' id='btnSmallGroupContinue'>
                     <h3>CONTINUAR</h3>
                   </div>
@@ -894,34 +1130,43 @@
       
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='servicesChurch' value='Sí' id='servicesChurch-si' ></div>
+                      <div class="radiobutton"><input type='radio' name='servicesChurch' id='servicesChurch-si'  value='si'<%= locals.oldData && oldData.servicesChurch == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
           
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='servicesChurch' value='No' id='servicesChurch-no'  checked></div>
+                      <div class="radiobutton"><input type='radio' name='servicesChurch' id='servicesChurch-no'  value='no'<%= locals.oldData && oldData.servicesChurch == 'no' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>No</strong></p></div>
                     </div>
                   </div>
+
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.servicesChurch) { %>
+                      <samp class="textDanger">
+                      <%= errors.servicesChurch.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
                   
                   <div class='text'>
-                    <input type='text' name='areaServices' id='areaServices' placeholder="Área de servicio" class= 'input-text' maxlength='60'>
+                    <input type='text' name='areaServices' id='areaServices' placeholder="Área de servicio" class= 'input-text' maxlength='60' value="">
                   </div>
                 </div>
       
                 <!--PROFESION-->
                 <div class='text'>
-                  <input type='text' name='profession' id='profession' class= 'input-text' placeholder="Profesión/Oficio/Labor" maxlength='60'>
+                  <input type='text' name='profession' id='profession' class= 'input-text' placeholder="Profesión/Oficio/Labor" maxlength='60' value="">
                 </div>
       
                 <!--ULTIMO TRABAJO-->
                 <div class='text'>
-                  <input type='text' name='lastJob' id='lastJob' class= 'input-text' placeholder ="Último trabajo" maxlength='60'>
+                  <input type='text' name='lastJob' id='lastJob' class= 'input-text' placeholder ="Último trabajo" maxlength='60' value="">
                 </div>
                 
                 <!--HABILIDADES ARTISTICAS-->
                 <div class='text'>
-                  <input type='text' name='artist' id='artist' class= 'input-text' placeholder="Habilidades artísticas" maxlength='60'>
+                  <input type='text' name='artist' id='artist' class= 'input-text' placeholder="Habilidades artísticas" maxlength='60' value="">
                 </div>
       
                 <!--ADELANTE/ATRÁS-->
@@ -929,6 +1174,7 @@
                   <div class='btn' id='btnVocationBack'>
                     <h3>ATRÁS</h3>
                   </div>
+                  
                   <div class='btn' id='btnVocationContinue'>
                     <h3>CONTINUAR</h3>
                   </div>
@@ -959,9 +1205,19 @@
                   <div class="dotedBox">
                     
                     <h3 class='namePhoto' id='namePhoto'></h3>
-                    <label class="inputPhotoLabel" for="avatar">Toca aquí para abrir la cámara o subir una foto</label>
-                    <input class= "inputPhoto" type="file" name="avatar" id="avatar">
-                    <div class="textDanger" id="avatarErr"></div>
+                    <label class="inputPhotoLabel" for="file">Toca aquí para abrir la cámara o subir una foto</label>
+                    <input class= "inputPhoto" type="file" name="file" id="file">
+                    
+                    <div class="textDanger" id="fileErr"></div>
+                    
+                    <div class="error">
+                      <h4 class="textDanger" id="titleError"></h4>
+                      <% if(locals.errors && errors.file) { %>
+                        <samp class="textDanger">
+                        <%= errors.file.msg %>
+                        </samp>
+                      <% } %>
+                    </div>
       
                   </div>
                 </div>
