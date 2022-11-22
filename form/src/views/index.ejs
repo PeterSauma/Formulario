@@ -30,7 +30,7 @@
         </section>
 <!------------------------------ SECTION 1 PERSONAL ------------------------------>
         <!--CONTENIDO MODAL PERSONAL-->
-        <div class="modalPersonal">
+        <div class="modalPersonal" id="modalPersonal">
           <div class="contenedorPersonal">
             <article class="header"><h2 class="encabezadoPersonal">Personal</h2></article>
             <div class="contenidoPersonal">
@@ -42,10 +42,11 @@
 
                 <!--NOMBRE-->
                 <div class='text'>
-                  <input type='text' name='firstName' id='firstName' class= 'input-text' placeholder='Nombre'  maxlength='50' value="<%= locals.oldData ? oldData.firstName : null %>">
+                  <input type='text' name='firstName' id='firstName' class= 'inputText' placeholder='Nombre'  maxlength='50' value="<%= locals.oldData ? oldData.firstName : null %>">
                   
+                  <div class="textDanger" id="firstNameErr"></div>
                   <div class="error">
-                    <h4 class="text-danger" id="titleError"></h4>
+                    <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.firstName) { %>
                       <samp class="textDanger">
                       <%= errors.firstName.msg %>
@@ -56,8 +57,9 @@
 
                 <!--APELLIDO-->
                 <div class='text'>
-                  <input type='text' name='lastName' id='lastName' class= 'input-text' placeholder='Apellido'   maxlength='50' value="<%= locals.oldData ? oldData.lastName : null %>">
+                  <input type='text' name='lastName' id='lastName' class= 'inputText' placeholder='Apellido'   maxlength='50' value="<%= locals.oldData ? oldData.lastName : null %>">
                   
+                  <div class="textDanger" id="lastNameErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.lastName) { %>
@@ -87,21 +89,22 @@
 
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='sex' id='sexHombre' value='hombre'<%= locals.oldData && oldData.sex == 'sexHombre' ? "checked" : null %>></div>
-                      <div class="checkLabelrRow"><p><strong>H</strong></p></div>
+                      <div class="radiobutton"><input type='radio' name='sex' class='sex' id='sexHombre' value='hombre'<%= locals.oldData && oldData.sex == 'sexHombre' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>H</strong></p></div>
                     </div>
 
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='sex' id='sexMujer' value='mujer'<%= locals.oldData && oldData.sex == 'sexMujer' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='sex' class='sex' id='sexMujer' value='mujer'<%= locals.oldData && oldData.sex == 'sexMujer' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>M</strong></p></div>
                     </div>
                     
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='sex' id='sexNoContesta' value='noContesta'<%= locals.oldData && oldData.sex == 'sexNoContesta' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='sex' class='sex' id='sexNoContesta' value='noContesta'<%= locals.oldData && oldData.sex == 'sexNoContesta' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>N/C</strong></p></div>
                     </div>
                   </div>
 
+                  <div class="textDanger" id="sexErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.sex) { %>
@@ -120,36 +123,37 @@
 
                   <div class='insideLabelColumn'>
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-s' value='soltero'<%= locals.oldData && oldData.relationalSituation == 'soltero' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' class="relationalSituation" id='relationalSituationSoltero' value='soltero'<%= locals.oldData && oldData.relationalSituation == 'soltero' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Soltero/a</strong></p></div>  
                     </div>
                     
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-ep' value='enPareja'<%= locals.oldData && oldData.relationalSituation == 'enPareja' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' class="relationalSituation" id='relationalSituationEnPareja' value='enPareja'<%= locals.oldData && oldData.relationalSituation == 'enPareja' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>En pareja</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-c' value='casado'<%= locals.oldData && oldData.relationalSituation == 'casado' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' class="relationalSituation" id='relationalSituationCasado' value='casado'<%= locals.oldData && oldData.relationalSituation == 'casado' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Casado/a</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-v' value='viudo'<%= locals.oldData && oldData.relationalSituation == 'viudo' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' class="relationalSituation" id='relationalSituationViudo' value='viudo'<%= locals.oldData && oldData.relationalSituation == 'viudo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Viudo/a</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-d' value='divorciado'<%= locals.oldData && oldData.relationalSituation == 'divorciado' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' class="relationalSituation" id='relationalSituationDivorciado' value='divorciado'<%= locals.oldData && oldData.relationalSituation == 'divorciado' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Divorciado/a</strong></p></div>  
                     </div>
 
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='radio' name='relationalSituation' id='relationalSituation-o' value='otro'<%= locals.oldData && oldData.relationalSituation == 'otro' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='relationalSituation' class="relationalSituation" id='relationalSituationOtro' value='otro'<%= locals.oldData && oldData.relationalSituation == 'otro' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otra</strong></p></div>
                     </div>
                   </div>
 
+                  <div class="textDanger" id="relationalSituationErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.relationalSituation) { %>
@@ -163,11 +167,11 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnPersonalBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#welcome"><h3>ATRÁS</h3></a>
                   </div>
 
                   <div class='btn' id='btnPersonalContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalFamily"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
 
@@ -180,7 +184,7 @@
 
 <!------------------------------ SECTION 2 FAMILY ------------------------------>
         <!--CONTENIDO MODAL FAMILY-->
-        <div class="modalFamily">
+        <div class="modalFamily" id="modalFamily">
           <div class="contenedorFamily">
             <article class="header"><h2 class="encabezadoFamily">Family</h2></article>
             <div class="contenidoFamily">
@@ -198,46 +202,47 @@
               
                   <div class='insideLabelColumn'>
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-p' value='papa'<%= locals.oldData && oldData.coexistenceSituation == 'papa' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationPapa' value='papa'<%= locals.oldData && oldData.coexistenceSituation == 'papa' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Papá</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-m' value='mama'<%= locals.oldData && oldData.coexistenceSituation == 'mama' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationMama' value='mama'<%= locals.oldData && oldData.coexistenceSituation == 'mama' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Mamá</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-t' value='tio'<%= locals.oldData && oldData.coexistenceSituation == 'tio' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationTio' value='tio'<%= locals.oldData && oldData.coexistenceSituation == 'tio' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Tío/a</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-a' value='abuelo'<%= locals.oldData && oldData.coexistenceSituation == 'abuelo' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationAbuelo' value='abuelo'<%= locals.oldData && oldData.coexistenceSituation == 'abuelo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Abuelo/a </strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-c' value='conyuge'<%= locals.oldData && oldData.coexistenceSituation == 'conyuge' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationConyuge' value='conyuge'<%= locals.oldData && oldData.coexistenceSituation == 'conyuge' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Cónyuge</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-h' value='hijo'<%= locals.oldData && oldData.coexistenceSituation == 'hijo' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationHijo' value='hijo'<%= locals.oldData && oldData.coexistenceSituation == 'hijo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Hijo/s</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-s' value='solo'<%= locals.oldData && oldData.coexistenceSituation == 'solo' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationSolo' value='solo'<%= locals.oldData && oldData.coexistenceSituation == 'solo' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Solo/a</strong></p></div>
                     </div>
               
                     <div class='inputColumn'>
-                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' id='coexistenceSituation-s' value='otro'<%= locals.oldData && oldData.coexistenceSituation == 'otro' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationOtro' value='otro'<%= locals.oldData && oldData.coexistenceSituation == 'otro' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Otro</strong></p></div>
                     </div>
                   </div>
 
+                  <div class="textDanger" id="coexistenceSituationErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.coexistenceSituation) { %>
@@ -256,16 +261,17 @@
               
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isChildren' id='isChildren-s' value='si'<%= locals.oldData && oldData.isChildren == 'si' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='isChildren' class='isChildren' id='isChildrenSi' value='si'<%= locals.oldData && oldData.isChildren == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
               
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isChildren' id='isChildren-n' value='no'<%= locals.oldData && oldData.isChildren == 'no' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='isChildren' class='isChildren' id='isChildrenNo' value='no'<%= locals.oldData && oldData.isChildren == 'no' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>No</strong></p></div>
                     </div>
                   </div>
 
+                  <div class="textDanger" id="isChildrenErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.isChildren) { %>
@@ -275,18 +281,21 @@
                     <% } %>
                   </div>
               
-                  <div class='text'><input type='number' name='numberChildren' id='numberChildren-n' placeholder="¿Cuantos?" value=''></div>
-                  <div class='text'><input type='number' name='isChildrenAttendChurch' id='isChildrenAttendChurch-n' placeholder="¿Cuantos asisten a la iglesia?" value=''></div>
+                  <div class='text'><input type='number' name='numberChildren' id='numberChildren' placeholder="¿Cuantos?" value=''></div>
+                  <div class="textDanger" id="numberChildrenErr"></div>
+                  
+                  <div class='text'><input type='number' name='isChildrenAttendChurch' id='isChildrenAttendChurch' placeholder="¿Cuantos asisten a la iglesia?" value=''></div>
+                  <div class="textDanger" id="isChildrenAttendChurchErr"></div>
                 </div>
               
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnFamilyBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalPersonal"><h3>ATRÁS</h3></a>
                   </div>
                 
                   <div class='btn' id='btnFamilyContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalResidency"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
               
@@ -298,7 +307,7 @@
 
 <!------------------------------ SECTION 3 RESIDENCY ------------------------------>
         <!--CONTENIDO MODAL RESIDENCY-->
-        <div class="modalResidency">
+        <div class="modalResidency" id="modalResidency">
           <div class="contenedorResidency">
             <article class="header"><h2 class="encabezadoResidency">Residency</h2></article>
             <div class="contenidoResidency">
@@ -310,8 +319,9 @@
       
                 <!--CALLE-->
                 <div class='text'>
-                  <input type='text' name='street' id='street' class= 'input-text' placeholder='Calle'  maxlength='50' value='<%= locals.oldData ? oldData.street : null %>'>
+                  <input type='text' name='street' id='street' class= 'inputText' placeholder='Calle'  maxlength='50' value='<%= locals.oldData ? oldData.street : null %>'>
                   
+                  <div class="textDanger" id="streetErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.street) { %>
@@ -324,8 +334,9 @@
       
                 <!--NUEMRACION-->
                 <div class='text'>
-                  <input type='number' name='numeration' id='numeration' class= 'input-text' placeholder='Numeración'  maxlength='50' value='<%= locals.oldData ? oldData.numeration : null %>'>
+                  <input type='number' name='numeration' id='numeration' class= 'inputText' placeholder='Numeración'  maxlength='50' value='<%= locals.oldData ? oldData.numeration : null %>'>
                   
+                  <div class="textDanger" id="numerationErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.numeration) { %>
@@ -338,28 +349,29 @@
                     
                 <!--ACLARACION-->
                 <div class='text'>
-                  <input type='text' name='secondLine' id='secondLine' class= 'input-text' placeholder='A tener en cuenta'  maxlength='200'>
+                  <input type='text' name='secondLine' id='secondLine' class= 'inputText' placeholder='A tener en cuenta'  maxlength='200'>
                 </div>
       
                 <!--BARRIO-->
                 <div class='text'>                  
-                  <input type='text' name='neighborhood' id='neighborhood' class= 'input-text' placeholder='Barrio'  maxlength='50' value=''>
+                  <input type='text' name='neighborhood' id='neighborhood' class= 'inputText' placeholder='Barrio'  maxlength='50' value=''>
                 </div>
       
                 <!--MANZANA-->
                 <div class='text'>                  
-                  <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'input-text' placeholder='Manzana' maxlength='50' value=''>
+                  <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'inputText' placeholder='Manzana' maxlength='50' value=''>
                 </div>
       
                 <!--CASA-->
                 <div class='text'>                  
-                  <input type='text' name='houseNumber' id='houseNumber' class= 'input-text' placeholder='Casa' maxlength='50' value=''>
+                  <input type='text' name='houseNumber' id='houseNumber' class= 'inputText' placeholder='Casa' maxlength='50' value=''>
                 </div>
       
                 <!--CODIGO POSTAL-->
                 <div class='text'>
-                  <input type='text' name='postalCode' id='postalCode' class= 'input-text' placeholder='Código postal'  maxlength='50' value='<%= locals.oldData ? oldData.postalCode : null %>'>
+                  <input type='text' name='postalCode' id='postalCode' class= 'inputText' placeholder='Código postal'  maxlength='50' value='<%= locals.oldData ? oldData.postalCode : null %>'>
                   
+                  <div class="textDanger" id="postalCodeErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.postalCode) { %>
@@ -372,13 +384,14 @@
                     
                 <!--LOCALIDAD-->
                 <div class='text'>
-                  <input type='text' name='location' id='location' class= 'input-text' placeholder='Localidad' maxlength='50' value=''>
+                  <input type='text' name='location' id='location' class= 'inputText' placeholder='Localidad' maxlength='50' value=''>
                 </div>
                     
                 <!--DEPARTAMENTO-->
                 <div class='text'>
-                  <input type='text' name='city' id='city' class= 'input-text' placeholder='Departamento'  maxlength='50' value='<%= locals.oldData ? oldData.city : null %>'>
+                  <input type='text' name='city' id='city' class= 'inputText' placeholder='Departamento'  maxlength='50' value='<%= locals.oldData ? oldData.city : null %>'>
                   
+                  <div class="textDanger" id="cityErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.city) { %>
@@ -391,8 +404,9 @@
                     
                 <!--PROVINCIA-->
                 <div class='text'>
-                  <input type='text' name='state' id='state' class= 'input-text' placeholder='Provincia'  maxlength='50' value='<%= locals.oldData ? oldData.state : null %>'>
+                  <input type='text' name='state' id='state' class= 'inputText' placeholder='Provincia'  maxlength='50' value='<%= locals.oldData ? oldData.state : null %>'>
                   
+                  <div class="textDanger" id="stateErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.state) { %>
@@ -405,8 +419,9 @@
                     
                 <!--PAIS-->
                 <div class='text'>
-                  <input type='text' name='country' id='country' class= 'input-text' placeholder='País'  maxlength='50' value='<%= locals.oldData ? oldData.country : null %>'>
+                  <input type='text' name='country' id='country' class= 'inputText' placeholder='País'  maxlength='50' value='<%= locals.oldData ? oldData.country : null %>'>
                   
+                  <div class="textDanger" id="countryErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.country) { %>
@@ -420,11 +435,11 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnResidencyBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalFamily"><h3>ATRÁS</h3></a>
                   </div>
 
                   <div class='btn' id='btnResidencyContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalContact"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
 
@@ -436,7 +451,7 @@
         
 <!------------------------------ SECTION 4 CONTACT ------------------------------>
         <!--CONTENIDO MODAL CONTACT-->
-        <div class="modalContact">
+        <div class="modalContact" id="modalContact">
           <div class="contenedorContact">
             <article class="header"><h2 class="encabezadoContact">Contact</h2></article>
             <div class="contenidoContact">
@@ -448,8 +463,9 @@
       
                 <!--CELULAR-->
                 <div class='text'>
-                  <input type='number' name='valueContact' id='valueContact' class= 'input-text' placeholder='Telefono celular'  maxlength='50' value="<%= locals.oldData ? oldData.valueContact : null %>">
+                  <input type='number' name='valueContact' id='valueContact' class= 'inputText' placeholder='Telefono celular'  maxlength='50' value="<%= locals.oldData ? oldData.valueContact : null %>">
                   
+                  <div class="textDanger" id="valueContactErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.valueContact) { %>
@@ -462,13 +478,14 @@
       
                 <!--FIJO-->
                 <div class='text'>
-                  <input type="number" name='fijo' id='fijo' class= 'input-text' placeholder='Fijo (opcional)' maxlength='50' value="">
+                  <input type="number" name='fijo' id='fijo' class= 'inputText' placeholder='Fijo (opcional)' maxlength='50' value="">
                 </div>
       
                 <!--CORREO-->
                 <div class='text'>
-                  <input type="email" name="email" id="email" class= "input-text"  placeholder='Email'  minlength="5" maxlength="50" value="<%= locals.oldData ? oldData.email : null %>">
+                  <input type="email" name="email" id="email" class= "inputText"  placeholder='Email'  minlength="5" maxlength="50" value="<%= locals.oldData ? oldData.email : null %>">
                 
+                  <div class="textDanger" id="emailErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.email) { %>
@@ -562,6 +579,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="webSiteErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.webSite) { %>
@@ -575,11 +593,11 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnContactBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalResidency"><h3>ATRÁS</h3></a>
                   </div>
 
                   <div class='btn' id='btnContactContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalGrownup"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
 
@@ -591,7 +609,7 @@
 
 <!------------------------------ SECTION 5 GROWNUP ------------------------------>
         <!--CONTENIDO MODAL GROWNUP-->
-        <div class="modalGrownup">
+        <div class="modalGrownup" id="modalGrownup">
           <div class="contenedorGrownup">
             <article class="header"><h2 class="encabezadoGrownup">Grownup</h2></article>
             <div class="contenidoGrownup">
@@ -629,6 +647,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="timeChurchErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.timeChurch) { %>
@@ -732,6 +751,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="churchExperiencesErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.churchExperiences) { %>
@@ -795,6 +815,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="servicesUsedErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.servicesUsed) { %>
@@ -808,11 +829,11 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnGrownupBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalContact"><h3>ATRÁS</h3></a>
                   </div>
 
                   <div class='btn' id='btnGrownupContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalSmallGroup"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
       
@@ -823,7 +844,7 @@
 
 <!------------------------------ SECTION 6 SMALL GORUP ------------------------------>
         <!--CONTENIDO MODAL SMALL GORUP-->
-        <div class="modalSmallGroup">
+        <div class="modalSmallGroup" id="modalSmallGroup">
           <div class="contenedorSmallGroup">
             <article class="header"><h2 class="encabezadoSmallGroup">SmallGroup</h2></article>
             <div class="contenidoSmallGroup">
@@ -851,6 +872,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="isParticipateSmallGroupErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.isParticipateSmallGroup) { %>
@@ -861,9 +883,10 @@
                   </div>
       
                   <div class='text'>
-                    <input type='text' name='smallGroupName' id='smallGroupName' class= 'input-text' placeholder="Nombre del grupo" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                    <input type='text' name='smallGroupName' id='smallGroupName' class= 'inputText' placeholder="Nombre del grupo" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
                   
-                    <div class="error">
+                  <div class="textDanger" id="smallGroupNameErr"></div>
+                  <div class="error">
                       <h4 class="textDanger" id="titleError"></h4>
                       <% if(locals.errors && errors.smallGroupName) { %>
                         <samp class="textDanger">
@@ -873,9 +896,10 @@
                     </div>
                   </div>
                   <div class='text'>
-                    <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'input-text' placeholder="Nombre del guía" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                    <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'inputText' placeholder="Nombre del guía" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
                   
-                    <div class="error">
+                  <div class="textDanger" id="smallGroupGuideErr"></div>
+                  <div class="error">
                       <h4 class="textDanger" id="titleError"></h4>
                       <% if(locals.errors && errors.smallGroupGuide) { %>
                         <samp class="textDanger">
@@ -926,6 +950,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="enjoyMostErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.enjoyMost) { %>
@@ -992,6 +1017,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="yourAreaInterestErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.yourAreaInterest) { %>
@@ -1082,6 +1108,7 @@
                     </div> 
                   </div>
 
+                  <div class="textDanger" id="yourNeedsErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.yourNeeds) { %>
@@ -1095,11 +1122,11 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnSmallGroupBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalGrownup"><h3>ATRÁS</h3></a>
                   </div>
 
                   <div class='btn' id='btnSmallGroupContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalVocation"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
       
@@ -1112,7 +1139,7 @@
 
 <!------------------------------ SECTION 7 VOCATION ------------------------------>
         <!--CONTENIDO MODAL VOCATION-->
-        <div class="modalVocation">
+        <div class="modalVocation" id="modalVocation">
           <div class="contenedorVocation">
             <article class="header"><h2 class="encabezadoVocation">Vocation</h2></article>
             <div class="contenidoVocation">
@@ -1140,6 +1167,7 @@
                     </div>
                   </div>
 
+                  <div class="textDanger" id="servicesChurchErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
                     <% if(locals.errors && errors.servicesChurch) { %>
@@ -1150,33 +1178,33 @@
                   </div>
                   
                   <div class='text'>
-                    <input type='text' name='areaServices' id='areaServices' placeholder="Área de servicio" class= 'input-text' maxlength='60' value="">
+                    <input type='text' name='areaServices' id='areaServices' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
                   </div>
                 </div>
       
                 <!--PROFESION-->
                 <div class='text'>
-                  <input type='text' name='profession' id='profession' class= 'input-text' placeholder="Profesión/Oficio/Labor" maxlength='60' value="">
+                  <input type='text' name='profession' id='profession' class= 'inputText' placeholder="Profesión/Oficio/Labor" maxlength='60' value="">
                 </div>
       
                 <!--ULTIMO TRABAJO-->
                 <div class='text'>
-                  <input type='text' name='lastJob' id='lastJob' class= 'input-text' placeholder ="Último trabajo" maxlength='60' value="">
+                  <input type='text' name='lastJob' id='lastJob' class= 'inputText' placeholder ="Último trabajo" maxlength='60' value="">
                 </div>
                 
                 <!--HABILIDADES ARTISTICAS-->
                 <div class='text'>
-                  <input type='text' name='artist' id='artist' class= 'input-text' placeholder="Habilidades artísticas" maxlength='60' value="">
+                  <input type='text' name='artist' id='artist' class= 'inputText' placeholder="Habilidades artísticas" maxlength='60' value="">
                 </div>
       
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnVocationBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalSmallGroup"><h3>ATRÁS</h3></a>
                   </div>
                   
                   <div class='btn' id='btnVocationContinue'>
-                    <h3>CONTINUAR</h3>
+                    <a href="#modalPhoto"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
       
@@ -1189,7 +1217,7 @@
 
 <!------------------------------ SECTION 8 PHOTO ------------------------------>
         <!--CONTENIDO MODAL PHOTO-->
-        <div class="modalPhoto">
+        <div class="modalPhoto" id="modalPhoto">
           <div class="contenedorPhoto">
             <article class="header"><h2 class="encabezadoPhoto">Photo</h2></article>
             <div class="contenidoPhoto">
@@ -1209,7 +1237,6 @@
                     <input class= "inputPhoto" type="file" name="file" id="file">
                     
                     <div class="textDanger" id="fileErr"></div>
-                    
                     <div class="error">
                       <h4 class="textDanger" id="titleError"></h4>
                       <% if(locals.errors && errors.file) { %>
@@ -1225,7 +1252,7 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnPhotoBack'>
-                    <h3>ATRÁS</h3>
+                    <a href="#modalVocation"><h3>ATRÁS</h3></a>
                   </div>
                   <div class='btn' id='btnPhotoContinue'>
                     <h3>CONTINUAR</h3>

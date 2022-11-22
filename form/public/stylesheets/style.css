@@ -7,7 +7,10 @@
   font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
-
+a{
+  text-decoration: none;
+  color: #000000;
+}
 html{
   display: flex;
   flex-direction:column;
@@ -114,49 +117,6 @@ section.grownup,section.smallGroup,section.personal,section.family,section.resid
 }
  
 
-
-/*section.welcome{
-  background-image: url(/images/Portada.png);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  height: 100vh;
-}
-
- div.waveBox{
-  background-image: url(/images/fondo.png);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  position: relative;
-  width: 100%;
-  height: 80%;
-  overflow: hidden;
- }
- div.wave{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-image: url(/images/wave.png);
-  background-size: 1000px 100px;
-  z-index: 20;
- }
- div.imgBox{
-  width: 100%;
-  margin: auto;
-  position: absolute;
-  z-index: 10;
-  bottom: 0;
-  left: 0;
- }
- img.welcome{
-  width: 100%;
- }
-*/
 
 /*  div mark y div text  */
 div.mark, div.text{
@@ -306,6 +266,8 @@ div.photoBox{
   align-items: center;
   width: 80vw;
   height: 80vw;
+  max-width: 800px;
+  max-height: 800px;
   min-height: 350px;
   padding: 5%;
 }
@@ -354,16 +316,14 @@ h3.namePhoto{
 }
 .textDanger {
   color: rgb(255, 0, 0);
-  font-size: 12px;
+  font-size: 14px;
   margin: 2px;
 }
 h4#titleError.textDanger{
   font-size: 13px;
 }
+
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-
-
 .modalPersonal,.modalFamily,.modalResidency,.modalContact,.modalGrownup,.modalSmallGroup,.modalVocation,.modalPhoto{
   width: 100%;
   display: flex;
@@ -412,257 +372,10 @@ h4#titleError.textDanger{
 }
 
 
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 2 FAMILY<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*
-.modalFamily{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INPUTS EMERGENTES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+#numberChildren,#isChildrenAttendChurch{
+  display: none;
 }
-.contenedorFamily{
-  width: 95%;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorFamily article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoFamily{
-  width: 100%;
-}
-
-
-
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 3 RESIDENCY <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*
-.modalResidency{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.contenedorResidency{
-  width: 95%;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorResidency article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoResidency{
-  width: 100%;
-}
-
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 4 CONTACT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*
-.modalContact{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.contenedorContact{
-  width: 95%;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorContact article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoContact{
-  width: 100%;
-}
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 5 GROWNUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*
-.modalGrownup{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.contenedorGrownup{
-  width: 95%;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorGrownup article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoGrownup{
-  width: 100%;
-}
-
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 6 SMALLGROUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*
-.modalSmallGroup{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.contenedorSmallGroup{
-  width: 95%;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorSmallGroup article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoSmallGroup{
-  width: 100%;
-}
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 7 VOCATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*
-.modalVocation{
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.contenedorVocation{
-  width: 95%;
-  height: auto;
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorVocation article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoVocation{
-  width: 100%;
-}
-
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE SECTION 8 PHOTO <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/*.modalPhoto{
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.5);
-  transition: all 500ms ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.contenedorPhoto{
-  width: 95%;
- 
-  margin: auto;
-  background: #fff;
-  box-shadow: 1px 7px 25px rgba(0,0,0,0.6);
-  transition: all 500ms ease;
-  position: relative;
-  transform: translateY(-30%);
-}
-.contenedorPhoto article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
-}
-.contenidoPhoto{
-  width: 100%;
-}
-*/
-
-
 
 @media (min-width: 361px) {
   /*div 361 inputs*/
