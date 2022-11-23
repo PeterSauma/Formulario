@@ -2,14 +2,29 @@ window.addEventListener('load', function(){
     //Capturo el formulario  completo
     let formulario = document.querySelector('#formNewDataMembers')
     
+    //capturo los sections
+    let vocation=document.getElementById('vocation')
+    let photo=document.getElementById('photo')
+
+    //capturo los botones de continuar y atras
+    let btnPhotoContinue=document.getElementById('btnPhotoContinue')
+    let btnPhotoBack=document.getElementById('btnPhotoBack')
+
+    //capturo los modals
+    let modalVocation=document.querySelector('.modalVocation')
+    let modalPhoto=document.querySelector('.modalPhoto')
+
+    //capturo los contenedor
+    let contenedorVocation=document.querySelector('.contenedorVocation')
+    let contenedorPhoto=document.querySelector('.contenedorPhoto')
+   
     //capturo los imputs
     let file=formulario.file
 
-    //Capturo todos los divs con text danger que van a aparecer cuando valide
+    //capturo los errores
     let  fileErr =document.querySelector('#fileErr')
 
-
-    
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES PHOTO <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     //Validacion del file. Deberá ser un archivo válido (JPG, JPEG, PNG, GIF)
     file.addEventListener('change', function(){
 
@@ -31,5 +46,30 @@ window.addEventListener('load', function(){
 
     });
 
+    /*>>>>>>>>>> botones Photo <<<<<<<<<<*/
+    btnPhotoBack.addEventListener('click',function(){
+        //photo donw
+        photo.style.display='none'
+        modalPhoto.style.opacity='0'
+        modalPhoto.style.visibility='hidden'
+        contenedorPhoto.style.transform='translateY(-30%)'
+        modalPhoto.style.transition='all 500ms ease'
 
-})
+        //vocation up
+        vocation.style.display='flex'
+        modalVocation.style.opacity='1'
+        modalVocation.style.visibility='visible'
+        contenedorVocation.style.transform='translateY(0%)'
+        modalVocation.style.transition='all 500ms ease'
+    });
+    btnPhotoContinue.addEventListener('click',function(){
+        //photo donw
+        photo.style.display='none'
+        modalPhoto.style.opacity='0'
+        modalPhoto.style.visibility='hidden'
+        contenedorPhoto.style.transform='translateY(-30%)'
+        modalPhoto.style.transition='all 500ms ease'
+    });
+
+
+});

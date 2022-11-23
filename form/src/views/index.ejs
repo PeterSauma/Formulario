@@ -77,7 +77,7 @@
                   </div>
 
                   <div class='dateLabel'>
-                    <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class= 'input-date' >
+                    <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class='input-date' min="1900-01-01" max="2022-12-31" >
                   </div>
                 </div>
 
@@ -261,7 +261,7 @@
               
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isChildren' class='isChildren' id='isChildrenSi' value='si'<%= locals.oldData && oldData.isChildren == 'si' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' name='isChildren' class='isChildren' id='isChildrenSi' onclick="isChecked()" value='si'<%= locals.oldData && oldData.isChildren == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
               
@@ -281,11 +281,17 @@
                     <% } %>
                   </div>
               
-                  <div class='text'><input type='number' name='numberChildren' id='numberChildren' placeholder="¿Cuantos?" value=''></div>
-                  <div class="textDanger" id="numberChildrenErr"></div>
+                  <div class='text'>
+                    <input type='number' name='numberChildren' id='numberChildren' placeholder="¿Cuantos?" value=''>
+                    
+                    <div class="textDanger" id="numberChildrenErr"></div>
+                  </div>
                   
-                  <div class='text'><input type='number' name='isChildrenAttendChurch' id='isChildrenAttendChurch' placeholder="¿Cuantos asisten a la iglesia?" value=''></div>
-                  <div class="textDanger" id="isChildrenAttendChurchErr"></div>
+                  
+                  <div class='text'>
+                    <input type='number' name='isChildrenAttendChurch' id='isChildrenAttendChurch' placeholder="¿Cuantos asisten a la iglesia?" value=''>
+                    <div class="textDanger" id="isChildrenAttendChurchErr"></div>
+                  </div>
                 </div>
               
                 <!--ADELANTE/ATRÁS-->
