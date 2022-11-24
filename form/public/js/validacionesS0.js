@@ -3,27 +3,32 @@ window.addEventListener('load', function(){
     let formulario = document.querySelector('#formNewDataMembers')
     
     //capturo los sections
+    let welcome=document.getElementById('welcome')
     let personal=document.getElementById('personal')
 
     //capturo los botones de continuar y atras
     let btnWelcomeContinue=document.getElementById('btnWelcomeContinue')
 
     //capturo los modals
+    let modalWelcome=document.querySelector('.modalWelcome')
     let modalPersonal=document.querySelector('.modalPersonal')
 
     //capturo los contenedor
+    let contenedorWelcome=document.querySelector('.contenedorWelcome')
     let contenedorPersonal=document.querySelector('.contenedorPersonal')
-   
-    //capturo los imputs
-
-    //capturo los errores
-
-    //Creo las variables false para radio y checkbox
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES WELCOME <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     /*>>>>>>>>>> botones Welcome <<<<<<<<<<*/
     btnWelcomeContinue.addEventListener('click',function(){
+        //Welcome donw
+        welcome.style.display='none'
+        modalWelcome.style.opacity='0'
+        modalWelcome.style.visibility='hidden'
+        contenedorWelcome.style.transform='translateY(-30%)'
+        modalWelcome.style.transition='all 500ms ease'
+        
+        //personal up
         personal.style.display='flex'
         modalPersonal.style.opacity='1'
         modalPersonal.style.visibility='visible'

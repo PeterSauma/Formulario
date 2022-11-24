@@ -9,30 +9,49 @@
 
     <!-- MAIN -->
     <main>
-      <!--h1>Formulario actualización de datos</h1>
-      <hr size="" color="black"-->
-
-      <form action='/post' method='post' id='formNewDataMembers' name='formNewDataMembers' enctype='multipart/form-data' class='formNewDataMembers'>
+      <form action='/createMember' method='post' id='formNewDataMembers' name='formNewDataMembers' enctype='multipart/form-data' class='formNewDataMembers'>
 
 <!------------------------------ SECTION 0 WELCOME ------------------------------>
-        <section class='welcome' id='welcome'>
+        <!--CONTENIDO MODAL WELCOME-->
+        <div class="modalWelcome" id="modalWelcome">
+          <div class="contenedorWelcome">
+            <div class="contenidoWelcome">
 
-          <!--ADELANTE/ATRÁS-->
-          <div class='btnBox'>
-            <div class='btn' id='btnWelcomeBack'>
-              <h3>ATRÁS</h3>
-            </div>
-            <div class='btn' id='btnWelcomeContinue'>
-              <h3>CONTINUAR</h3>
+              <!--SECTION WELCOME-->
+              <section class='welcome' id='welcome'>
+                <div class="bakcgroundImage">
+                  <img src="/images/portada.png" alt="portada">
+                
+                  <div class="containerWelcome">
+                    <!--MENSAJE BIENBENIDA-->
+                    <div class="bienvenida">
+                      <h1>¡Hola!</h1>
+                      <p>Bienbenido/a a la página de actualización de datos de la Alameda</p>
+                    </div>
+
+                    <!--ADELANTE/ATRÁS-->
+                    <div class='btnBoxWelcome'>
+                      <div class='btn' id='btnWelcomeContinue'>
+                        <a href="#modalPersonal"><h3>CONTINUAR</h3></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+    
+              </section>
             </div>
           </div>
+        </div>
 
-        </section>
 <!------------------------------ SECTION 1 PERSONAL ------------------------------>
         <!--CONTENIDO MODAL PERSONAL-->
         <div class="modalPersonal" id="modalPersonal">
           <div class="contenedorPersonal">
-            <article class="header"><h2 class="encabezadoPersonal">Personal</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header1.png" alt="header1">
+            </article>
             <div class="contenidoPersonal">
               
               <!--SECTION PERSONAL-->
@@ -186,7 +205,10 @@
         <!--CONTENIDO MODAL FAMILY-->
         <div class="modalFamily" id="modalFamily">
           <div class="contenedorFamily">
-            <article class="header"><h2 class="encabezadoFamily">Family</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header2.png" alt="header2">
+            </article>
             <div class="contenidoFamily">
               
               <!--SECTION-->
@@ -315,7 +337,10 @@
         <!--CONTENIDO MODAL RESIDENCY-->
         <div class="modalResidency" id="modalResidency">
           <div class="contenedorResidency">
-            <article class="header"><h2 class="encabezadoResidency">Residency</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header3.png" alt="header3">
+            </article>
             <div class="contenidoResidency">
               
               <!--SECTION-->
@@ -459,7 +484,10 @@
         <!--CONTENIDO MODAL CONTACT-->
         <div class="modalContact" id="modalContact">
           <div class="contenedorContact">
-            <article class="header"><h2 class="encabezadoContact">Contact</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header4.png" alt="header4">
+            </article>
             <div class="contenidoContact">
               
               <!--SECTION-->
@@ -617,7 +645,10 @@
         <!--CONTENIDO MODAL GROWNUP-->
         <div class="modalGrownup" id="modalGrownup">
           <div class="contenedorGrownup">
-            <article class="header"><h2 class="encabezadoGrownup">Grownup</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header5.png" alt="header5">
+            </article>
             <div class="contenidoGrownup">
               
               <!--SECTION-->
@@ -852,7 +883,10 @@
         <!--CONTENIDO MODAL SMALL GORUP-->
         <div class="modalSmallGroup" id="modalSmallGroup">
           <div class="contenedorSmallGroup">
-            <article class="header"><h2 class="encabezadoSmallGroup">SmallGroup</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header7.png" alt="header7">
+            </article>
             <div class="contenidoSmallGroup">
               
               <!--SECTION-->
@@ -1147,7 +1181,10 @@
         <!--CONTENIDO MODAL VOCATION-->
         <div class="modalVocation" id="modalVocation">
           <div class="contenedorVocation">
-            <article class="header"><h2 class="encabezadoVocation">Vocation</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header7.png" alt="header7">
+            </article>
             <div class="contenidoVocation">
               
               <!--SECTION-->
@@ -1219,13 +1256,14 @@
             </div>
           </div>
         </div>
-
-
 <!------------------------------ SECTION 8 PHOTO ------------------------------>
         <!--CONTENIDO MODAL PHOTO-->
         <div class="modalPhoto" id="modalPhoto">
           <div class="contenedorPhoto">
-            <article class="header"><h2 class="encabezadoPhoto">Photo</h2></article>
+            <article class="header">
+              <h2 class="encabezadoPersonal">Actualización de datos</h2>
+              <img src="/images/header7.png" alt="header7">
+            </article>
             <div class="contenidoPhoto">
                       
               <!--SECTION-->
@@ -1260,9 +1298,9 @@
                   <div class='btn' id='btnPhotoBack'>
                     <a href="#modalVocation"><h3>ATRÁS</h3></a>
                   </div>
-                  <div class='btn' id='btnPhotoContinue'>
-                    <h3>CONTINUAR</h3>
-                  </div>
+                  <button type="submit" class="btnSubmit" id='submit'>
+                    <h3>ENVIAR</h3>
+                  </button>
                 </div>
       
               </section>
@@ -1270,8 +1308,6 @@
             </div>
           </div>
         </div>
-       
-        <!--button type="submit" class="btnSubmit" id='submit'>Enviar</button-->
 
       </form>
     </main>

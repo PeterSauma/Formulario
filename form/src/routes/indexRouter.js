@@ -97,7 +97,12 @@ const validationsNewProduct = [
 
 
 
-/* GET home page. */
-router.get('/',validationsNewProduct,uploadFile.single("file"),indexController.index);
+/* FORMULARIO */
+router.get('/',indexController.index);
+router.post('/createMember',validationsNewProduct,uploadFile.single("file"),indexController.createMember);
+
+/* FINISH */
+router.get('/finish',indexController.finish)
+
 
 module.exports = router;

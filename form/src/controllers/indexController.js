@@ -14,7 +14,7 @@ const { validationResult } = require('express-validator')
 
         if(errors.errors.length > 0){
 
-            return res.render(path.join(__dirname,'../views/index'), {
+            return res.render(path.join(__dirname,'../views/finish'), {
 
                 errors : errors.mapped(),
                 oldData : req.body
@@ -25,6 +25,9 @@ const { validationResult } = require('express-validator')
         /*.then(resultado =>{
             return res.redirect('/')
         })*/
-    }
+    },
+    finish: (req, res) => {
+        return   res.render(path.join(__dirname,'../views/finish'));
+    },
  }
  module.exports=controllers

@@ -71,8 +71,33 @@ div.btnBox{
 div.btn{
   width: 156px;
   height: 34px;
-  background-image: linear-gradient(to left,#9381FF, #FFD8BE 90%) ;
-  border-radius: 3px;
+  background-image: linear-gradient(to left,#9381FF, #FFD8BE 95%) ;
+  border-radius: 5px;
+  color: #000000;
+  font-weight: 700;
+  position: relative;
+  bottom: 5px;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+  box-shadow:  5px 5px 5px rgb(148, 129, 255, 0.7);
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+div.btn:active{
+  transform: scale(0.8);
+  box-shadow:  -10px -10px -10px rgb(148, 129, 255, 0.7);
+
+}
+
+button.btnSubmit{
+  width: 156px;
+  height: 34px;
+  background-image: linear-gradient(to left,#9381FF, #FFD8BE 95%) ;
+  border-radius: 5px;
   color: #000000;
   font-weight: 700;
   position: relative;
@@ -96,7 +121,7 @@ section {
   width: 100%;
 }
 
-section.personal,section.family,section.residency,section.contact,section.vocation,section.photo,section.welcome{
+section.personal,section.family,section.residency,section.contact,section.vocation,section.photo{
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -115,8 +140,79 @@ section.grownup,section.smallGroup{
 section.grownup,section.smallGroup,section.personal,section.family,section.residency,section.contact,section.vocation,section.photo{
   display: none;
 }
- 
+/* >>>>>>>>>>>>>>>>>>>> section welcome y finish <<<<<<<<<<<<<<<<<<<< */
 
+section.welcome,section.finish{  
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  align-content:center;
+}
+div.bakcgroundImage{
+  position: relative;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+}
+div.bakcgroundImage img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+div.containerWelcome,div.containerFinish{
+  position: absolute;
+  z-index: 10;
+  margin-bottom: 10px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+  align-items:center;
+  align-content:center;
+}
+div.containerWelcome{
+  bottom: -70px;
+}
+div.containerFinish{
+  bottom: -100px;
+}
+
+div.bienvenida{
+  color: #000000;
+  width: 80%;
+  max-width: 450px;
+  margin: 10px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+  align-items:center;
+  align-content:center;
+}
+div.bienvenida h1{
+  margin: 0px;
+  font-size: 20px;
+}
+div.bienvenida p{
+  margin: 0px;
+  padding: 5px;
+  font-size: 15px;
+}
+
+div.btnBoxWelcome{
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  align-content:center;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ELEMENTOS DENTRO DEL SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 /*  div mark y div text  */
 div.mark, div.text{
@@ -356,10 +452,26 @@ h4#titleError.textDanger{
 .contenedorSmallGroup article.header,
 .contenedorVocation article.header,
 .contenedorPhoto article.header{
-  padding: 10px;
-  background: rgb(100, 125, 98);
-  color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  color:  rgba(148, 129, 255, 0.8)  ;
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
+article.header img{
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+
 .contenidoPersonal,
 .contenidoFamily,
 .contenidoResidency,
@@ -378,6 +490,20 @@ h4#titleError.textDanger{
 }
 
 @media (min-width: 361px) {
+  /*portada*/
+  div.containerWelcome{
+    bottom: 0px;
+  }
+  div.containerFinish{
+    bottom: -50px;
+  }
+  div.bienvenida h1{
+    font-size: 24px;
+  }
+  div.bienvenida p{
+  
+    font-size: 20px;
+  }
   /*div 361 inputs*/
   div.insideLabelRow{
     flex-direction:row;

@@ -3,6 +3,7 @@ window.addEventListener('load', function(){
     let formulario = document.querySelector('#formNewDataMembers')
 
     //capturo los sections
+    let welcome=document.getElementById('welcome')
     let personal=document.getElementById('personal')
     let family=document.getElementById('family')
 
@@ -11,16 +12,19 @@ window.addEventListener('load', function(){
     let btnPersonalContinue=document.getElementById('btnPersonalContinue')
 
     //capturo los modals
+    let modalWelcome=document.querySelector('.modalWelcome')
     let modalPersonal=document.querySelector('.modalPersonal')
     let modalFamily=document.querySelector('.modalFamily')
   
     //capturo los contenedor
+    let contenedorWelcome=document.querySelector('.contenedorWelcome')
     let contenedorPersonal=document.querySelector('.contenedorPersonal')
     let contenedorFamily=document.querySelector('.contenedorFamily')
 
     //capturo los imputs
     let firstName=formulario.firstName
     let lastName=formulario.lastName
+    let dateOfBirthAt=formulario.dateOfBirthAt
     let sexCheck=document.querySelectorAll('.sex') // type='radio' class='sex'
     let relationalSituationCheck=document.querySelectorAll('.relationalSituation') // type='radio' class='relationalSituation'
 
@@ -129,6 +133,13 @@ window.addEventListener('load', function(){
             lastNameErr.innerText = ''
             sexErr.innerText = ''
             relationalSituationErr.innerText = ''
+
+            //welcome up
+            welcome.style.display='flex'
+            modalWelcome.style.opacity='1'
+            modalWelcome.style.visibility='visible'
+            contenedorWelcome.style.transform='translateY(0%)'
+            modalWelcome.style.transition='all 500ms ease'
             
             //personal donw
             personal.style.display='none'

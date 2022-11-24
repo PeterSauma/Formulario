@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <!-- HEAD -->
+  <%- include('./partials/head') %>
+
+  <body>
+    <!-- HEADER -->
+    <%- include('./partials/header') %>
+
+    <!-- MAIN -->
+    <main>
+        <!--SECTION FINISH-->
+        <section class='finish' id='finish'>
+            <div class="bakcgroundImage">
+                <img src="/images/finish.png" alt="portada">
+
+                <div class="containerFinish">
+                    <!--MENSAJE BIENBENIDA-->
+                    <div class="bienvenida">
+                        <h1>Excelente!</h1>
+                        <p>Ya hemos terminado. Si queres dar otra respuesta presiona en continuar</p>
+                    </div>
+
+                    <!--ADELANTE/ATRÁS-->
+                    <div class='btnBoxWelcome'>
+                        <div class='btn'>
+                            <h3><a href="/">¡OTRA VEZ!</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <%- include('./partials/footer') %>
+     <!-- SCRIPTS -->
+    <script src="/js/apiMembers.js"></script>
+  </body>
+</html>
