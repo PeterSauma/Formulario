@@ -100,8 +100,6 @@ window.addEventListener('load', function(){
             numberChildrenErr.innerText = ''
             isChildrenAttendChurchErr.innerText = ''
 
-
-
             //family donw
             family.style.display='none'
             modalFamily.style.opacity='0'

@@ -25,8 +25,8 @@
                   <div class="containerWelcome">
                     <!--MENSAJE BIENBENIDA-->
                     <div class="bienvenida">
-                      <h1>¡Hola!</h1>
-                      <p>Bienbenido/a a la página de actualización de datos de la Alameda</p>
+                      <h2>¡Hola!</h2>
+                      <h1>Bienvenido/a a la página de actualización de datos de la Alameda</h1>
                     </div>
 
                     <!--ADELANTE/ATRÁS-->
@@ -92,18 +92,20 @@
                 <!--NACIMIENTO-->
                 <div class='date'>
                   <div class='paragrph'>
-                    <p>Fecha de nacimiento</p>
+                    <h4>Fecha de nacimiento</h4>
                   </div>
 
                   <div class='dateLabel'>
-                    <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class='input-date' min="1900-01-01" max="2022-12-31" >
+                    <input type='date' name='dateOfBirthAt' id='dateOfBirthAt' class='input-date' min="1900-01-01" max="2022-12-31" >   
                   </div>
+
+                  <div class="textDanger" id="dateOfBirthAtErr"></div>
                 </div>
 
                 <!--GENERO-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>Genero:</p>
+                    <h4>Genero:</h4>
                   </div>
 
                   <div class='insideLabelRow'>
@@ -137,7 +139,7 @@
                 <!--SITUACION RELACIONAL-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>Situación relacional:</p>
+                    <h4>Situación relacional:</h4>
                   </div>
 
                   <div class='insideLabelColumn'>
@@ -186,11 +188,11 @@
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnPersonalBack'>
-                    <a href="#welcome"><h3>ATRÁS</h3></a>
+                    <a href="#modalPersonal"><h3>ATRÁS</h3></a>
                   </div>
 
                   <div class='btn' id='btnPersonalContinue'>
-                    <a href="#modalFamily"><h3>CONTINUAR</h3></a>
+                    <a href="#modalPersonal"><h3>CONTINUAR</h3></a>
                   </div>
                 </div>
 
@@ -219,7 +221,7 @@
                 <!--CONVIVENCIA-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Con quien vives?</p>
+                    <h4>¿Con quien vives?</h4>
                   </div>
               
                   <div class='insideLabelColumn'>
@@ -274,11 +276,69 @@
                     <% } %>
                   </div>
                 </div>
+
+                <!--JEFES DE HOGAR-->
+                <div class='mark'>
+                  <div class='paragrph'>
+                    <h4 class="bossMan">¿Eres jefe de hogar?</h4>
+                    <h4 class="bossWoman">¿Eres jefa de hogar?</h4>
+                    <p>(solo efecto de identificar la familia conviviente)</p>
+                  </div>
               
+                  <div class='insideLabelRow'>
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='isBoss' class='isBoss' id='isBossSi' onclick="isChecked()" value='si'<%= locals.oldData && oldData.isBoss == 'si' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
+                    </div>
+              
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='isBoss' class='isBoss' id='isBossNo' value='no'<%= locals.oldData && oldData.isBoss == 'no' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>No</strong></p></div>
+                    </div>
+                  </div>
+
+                  <div class='paragrph'>
+                    <h4 class="bossMan">¿Tu pareja asiste a la iglesia?</h4>
+                  </div>
+              
+                  <div class='insideLabelRow'>
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='christianCouple' class='christianCouple' id='christianCoupleSi' value='si'<%= locals.oldData && oldData.christianCouple == 'si' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
+                    </div>
+              
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='christianCouple' class='christianCouple' id='christianCoupleNo' value='no'<%= locals.oldData && oldData.christianCouple == 'no' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>No</strong></p></div>
+                    </div>
+                  </div>
+
+                  <div class="textDanger" id="isBossErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.isBoss) { %>
+                      <samp class="textDanger">
+                      <%= errors.isBoss.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+              
+                  <div class='text'>
+                    <input type='text' name='nameSpouse' id='nameSpouse' placeholder="Nombre cónyuge" value=''>
+                    
+                    <div class="textDanger" id="nameSpouseErr"></div>
+                  </div>
+                  <div class='text'>
+                    <input type='text' name='lastNameSpouse' id='lastNameSpouse' placeholder="Apellido cónyuge" value=''>
+                    
+                    <div class="textDanger" id="lastNameSpouseErr"></div>
+                  </div>
+                </div>
+
                 <!--HIJOS-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Tiene hijos?</p>
+                    <h4>¿Tiene hijos?</h4>
                   </div>
               
                   <div class='insideLabelRow'>
@@ -533,7 +593,7 @@
                 <!--REDES-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>Redes sociales</p>
+                    <h4>¿Que redes sociales usas?</h4>
                   </div>
       
                   <div class='insideLabelColumn'>
@@ -655,32 +715,64 @@
               <section class='grownup' id='grownup'>
 
                 <h2>Crecimiento Cristiano</h2>
-      
-                <!--TIEMPO DE ASISTENCIA-->
+                <!--TIPO DE ASISTENCIA-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Desde cuándo asistís a nuestra iglesia?</p>
+                    <h4>¿De qué manera vivís los encuentros cada fin de semana?</h4>
                   </div>
       
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='timeChurch'    id='timeChurch-0' value='timeChurch-0'<%= locals.oldData && oldData.timeChurch == 'timeChurch-0' ? "checked" : null %>></div>
-                      <div class="checkLabel"><p><strong>Menos de 6 meses</strong></p></div>
+                      <div class="radiobutton"><input type='radio' name='liveChurch'  id='liveChurchPresesnce' value='liveChurchPresesnce'<%= locals.oldData && oldData.liveChurch == 'liveChurchPresesnce' ? "checked" : null %>></div>
+                      <div class="checkLabel"><p><strong>Presencial</strong></p></div>
+                    </div>
+          
+                    <div class="inputColumn">
+                      <div class="radiobutton"><input type='radio' name='liveChurch' id='liveChurchVirtual' value='liveChurchVirtual'<%= locals.oldData && oldData.liveChurch == 'liveChurchVirtual' ? "checked" : null %>></div>
+                      <div class="checkLabel"><p><strong>Virtual</strong></p></div>
+                    </div>
+                  </div>
+
+                  <div class="textDanger" id="timeChurchErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.timeChurch) { %>
+                      <samp class="textDanger">
+                      <%= errors.timeChurch.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+                </div>
+                
+                <!--TIEMPO DE ASISTENCIA-->
+                <div class='mark'>
+                  <div class='paragrph'>
+                    <h4>¿Desde cuándo asistís a la Alameda (presidencial o virtual)?</h4>
+                  </div>
+      
+                  <div class='insideLabelColumn'>
+                    <div class="inputColumn">
+                      <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-0' value='timeChurch-0'<%= locals.oldData && oldData.timeChurch == 'timeChurch-0' ? "checked" : null %>></div>
+                      <div class="checkLabel short"><p><strong>6 meses o menos</strong></p></div>
+                      <div class="checkLabel longer"><p><strong>Menos de 6 meses</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
                       <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-6-1' value='timeChurch-6-1'<%= locals.oldData && oldData.timeChurch == 'timeChurch-6-1' ? "checked" : null %>></div>
-                      <div class="checkLabel"><p><strong>Entre 6 meses a 1 año</strong></p></div>
+                      <div class="checkLabel short"><p><strong>1 año o menos</strong></p></div>
+                      <div class="checkLabel longer"><p><strong>Entre 6 meses a 1 año</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
                       <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-1-5' value='timeChurch-1-5'<%= locals.oldData && oldData.timeChurch == 'timeChurch-1-5' ? "checked" : null %>></div>
-                      <div class="checkLabel"><p><strong>Entre 1 año a 5 años</strong></p></div>
+                      <div class="checkLabel short"><p><strong>5 años o menos</strong></p></div>
+                      <div class="checkLabel longer"><p><strong>Entre 1 año a 5 años</strong></p></div>
                     </div>
                     
                     <div class="inputColumn">
                       <div class="radiobutton"><input type='radio' name='timeChurch' id='timeChurch-5-0' value='timeChurch-5-0'<%= locals.oldData && oldData.timeChurch == 'timeChurch-5-0' ? "checked" : null %>></div>
-                      <div class="checkLabel"><p><strong>Más de 5 años</strong></p></div>
+                      <div class="checkLabel short"><p><strong>5 años o más</strong></p></div>
+                      <div class="checkLabel longer"><p><strong>Más de 5 años</strong></p></div>
                     </div>
                   </div>
 
@@ -698,7 +790,7 @@
                 <!--EXPERIENCIAS COMPLETADAS-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>Marca las experiencias completadas</p>
+                    <h4>Marca las experiencias completadas</h4>
                   </div>
       
                   <div class='insideLabelColumn'>
@@ -776,6 +868,11 @@
                       <div class="checkLabel short"><p><strong>Celebremos</strong></p></div>
                       <div class="checkLabel longer"><p><strong>Celebremos la Recuperación</strong></p></div>
                     </div>
+
+                    <div class="inputColumn">
+                      <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-sdl' value='sdl'<%= locals.oldData && oldData.churchExperiences == 'sdl' ? "checked" : null %>></div>
+                      <div class="checkLabel"><p><strong>S.D.L.</strong></p></div>
+                    </div>
                     
                     <div class="inputColumn">
                       <div class="radiobutton"><input type='checkbox' name='churchExperiences' id='churchExperiences-ninguno' value='ninguno'<%= locals.oldData && oldData.churchExperiences == 'ninguno' ? "checked" : null %>></div>
@@ -802,7 +899,7 @@
                 <!--SERVICIOS USADOS-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>Servicios que has utilizados</p>
+                    <h4>Servicios que has utilizados</h4>
                   </div>
       
                   <div class='insideLabelColumn'>
@@ -897,7 +994,7 @@
                 <!--VA A UN GP?-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Asistes a un Grupo pequeño?</p>
+                    <h4>¿Asistes a un Grupo pequeño?</h4>
                   </div>
       
                   <div class='insideLabelRow'>
@@ -921,25 +1018,12 @@
                       </samp>
                     <% } %>
                   </div>
-      
+
                   <div class='text'>
-                    <input type='text' name='smallGroupName' id='smallGroupName' class= 'inputText' placeholder="Nombre del grupo" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                    <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'inputText' placeholder="Nombre guía" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
                   
-                  <div class="textDanger" id="smallGroupNameErr"></div>
-                  <div class="error">
-                      <h4 class="textDanger" id="titleError"></h4>
-                      <% if(locals.errors && errors.smallGroupName) { %>
-                        <samp class="textDanger">
-                        <%= errors.smallGroupName.msg %>
-                        </samp>
-                      <% } %>
-                    </div>
-                  </div>
-                  <div class='text'>
-                    <input type='text' name='smallGroupGuide' id='smallGroupGuide' class= 'inputText' placeholder="Nombre del guía" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
-                  
-                  <div class="textDanger" id="smallGroupGuideErr"></div>
-                  <div class="error">
+                    <div class="textDanger" id="smallGroupGuideErr"></div>
+                    <div class="error">
                       <h4 class="textDanger" id="titleError"></h4>
                       <% if(locals.errors && errors.smallGroupGuide) { %>
                         <samp class="textDanger">
@@ -948,13 +1032,15 @@
                       <% } %>
                     </div>
                   </div>
-      
+                  <div class='text'>
+                    <input type='text' name='smallGroupName' id='smallGroupName' class= 'inputText' placeholder="Nombre grupo (opcional)" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                  </div>
                 </div>
       
                 <!--QUE LE GUSTA?-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Qué disfrutás del grupo pequeño?</p>
+                    <h4>¿Qué disfrutás del grupo pequeño?</h4>
                   </div>
                   
                   <div class='insideLabelColumn'>
@@ -1004,7 +1090,7 @@
                 <!--AREA DE INTERES-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Cuál es tu área de interés?</p>
+                    <h4>¿Cuál es tu área de interés?</h4>
                   </div>
 
                   <div class='insideLabelColumn'>
@@ -1071,7 +1157,7 @@
                 <!--NECESIDADES-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Cuáles son tus necesidades?</p>
+                    <h4>¿Cuáles son tus necesidades?</h4>
                   </div>
       
                   <div class='insideLabelColumn'>
@@ -1175,8 +1261,6 @@
             </div>
           </div>
         </div>
-
-
 <!------------------------------ SECTION 7 VOCATION ------------------------------>
         <!--CONTENIDO MODAL VOCATION-->
         <div class="modalVocation" id="modalVocation">
@@ -1195,7 +1279,7 @@
                 <!--ES VOLUNTARIO?-->
                 <div class='mark'>
                   <div class='paragrph'>
-                    <p>¿Sirves como voluntario en la iglesia?</p>
+                    <h4>¿Sirves como voluntario en la iglesia?</h4>
                   </div>
       
                   <div class='insideLabelRow'>
@@ -1222,6 +1306,12 @@
                   
                   <div class='text'>
                     <input type='text' name='areaServices' id='areaServices' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
+                  </div>
+                  <div class='text'>
+                    <input type='text' name='areaServices2' id='areaServices2' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
+                  </div>
+                  <div class='text'>
+                    <input type='text' name='areaServices3' id='areaServices3' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
                   </div>
                 </div>
       
@@ -1271,13 +1361,13 @@
 
                 <div class="photoBox">
                   <div class='paragrphBlue'>
-                    <p>¡Sumá tu foto al mural de miAlameda!</p>
+                    <h4>¡Sumá tu foto al mural de miAlameda!</h4>
                   </div>
       
                   <div class="dotedBox">
                     
-                    <h3 class='namePhoto' id='namePhoto'></h3>
-                    <label class="inputPhotoLabel" for="file">Toca aquí para abrir la cámara o subir una foto</label>
+                    <h2 class='namePhoto' id='namePhoto'></h2>
+                    <label class="inputPhotoLabel" for="file"><h4>Toca aquí para abrir la cámara o subir una foto</h4></label>
                     <input class= "inputPhoto" type="file" name="file" id="file">
                     
                     <div class="textDanger" id="fileErr"></div>

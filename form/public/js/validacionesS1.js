@@ -33,10 +33,14 @@ window.addEventListener('load', function(){
     let lastNameErr = document.querySelector('#lastNameErr')
     let sexErr = document.querySelector('#sexErr')
     let relationalSituationErr = document.querySelector('#relationalSituationErr')
+    let dateOfBirthAtErr = document.querySelector('#dateOfBirthAtErr')
 
-    //Creo las variables false para radio y checkbox
+    //Creo las variables false para validar
+    let nombre = false
+    let apellido = false
     let sex = false
     let relationalSituation = false
+    let dateBirth = false
 
     //Expresiones regulares
     let regNum = /^(?=.*[0-9])(?=(.*)).{1,}$/
@@ -60,13 +64,13 @@ window.addEventListener('load', function(){
     firstName.addEventListener('blur', function(){
         //El imput no puede estar vacío
         if(firstName.value ==''){
-        firstNameErr.innerText = 'Debe completar este campo'
+            firstNameErr.innerText = 'Debe completar este campo'
         } else
         //Haciendo imput.value.length tengo la cantidad de caracteres, si en menor a 2 está mal
         if(firstName.value.length<3){
-        firstNameErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+            firstNameErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
         }else {
-        firstNameErr.innerText= ''
+            firstNameErr.innerText= ''
         }
     });
     
@@ -85,13 +89,13 @@ window.addEventListener('load', function(){
     lastName.addEventListener('blur', function(){
         //El imput no puede estar vacío
         if(lastName.value ==''){
-        lastNameErr.innerText = 'Debe completar este campo'
+            lastNameErr.innerText = 'Debe completar este campo'
         } else
         //Haciendo imput.value.length tengo la cantidad de caracteres, si en menor a 3 está mal
         if(lastName.value.length<3){
-        lastNameErr.innerText = 'El apellido debe tener 3 caracteres mínimo'
+            lastNameErr.innerText = 'El apellido debe tener 3 caracteres mínimo'
         } else {
-        lastNameErr.innerText = ''
+            lastNameErr.innerText = ''
         }
     });
     lastName.addEventListener('keyup', function(){
@@ -104,7 +108,24 @@ window.addEventListener('load', function(){
         } else if (firstName.value.includes('pablo') && lastName.value.includes('Infante')){
             alert ('cuñado, lamento decirte que estas excomulgado y no podés continuar con el formulario')
         }
-    })
+    });
+
+
+
+    //Validación de cumpleaños
+    dateOfBirthAt.addEventListener("change", function() {
+        dateBirth=true
+        dateOfBirthAtErr.innerText = ''
+        if (firstName.value.includes('Pablo') && lastName.value.includes('Infante')){
+            alert ('tenés 10 años más mentiroso!')
+        } else if (firstName.value.includes('pablo') && lastName.value.includes('infante')){
+            alert ('tenés 10 años más mentiroso!')
+        } else if (firstName.value.includes('Pablo') && lastName.value.includes('infante')){
+            alert ('tenés 10 años más mentiroso!')
+        } else if (firstName.value.includes('pablo') && lastName.value.includes('Infante')){
+            alert ('tenés 10 años más mentiroso!')
+        }
+    });
 
     /*>>>>>>>>>> botones Personal <<<<<<<<<<*/
     btnPersonalBack.addEventListener('click',function(){
@@ -119,18 +140,55 @@ window.addEventListener('load', function(){
                 relationalSituation= true
             }
         })
+        //Valido el nombre
         if(firstName.value ==''){
             firstNameErr.innerText = 'Debe completar este campo'
-        }else if(lastName.value ==''){
+        } else if(firstName.value.length<3){
+            firstNameErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+        }else if(regNum.test(firstName.value)){
+            firstNameErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(firstName.value)){
+            firstNameErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(firstName.value) ){
+            firstNameErr.innerText = 'Debe iniciar con mayuscula'
+        } else { 
+            nombre = true
+            firstNameErr.innerText = ''
+        }
+        //Valido el apellido
+        if(lastName.value ==''){
             lastNameErr.innerText = 'Debe completar este campo'
-        }else if(sex==false){
+        } else if(lastName.value.length<3){
+            lastNameErr.innerText = 'El apellido debe tener 3 caracteres mínimo'
+        }else if(regNum.test(lastName.value)){
+            lastNameErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(lastName.value)){
+            lastNameErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(lastName.value) ){
+            lastNameErr.innerText = 'Debe iniciar con mayuscula'
+        } else { 
+            apellido = true
+            lastNameErr.innerText = ''
+        }
+        //Valido el cumpleaños
+        if(!dateBirth){
+            dateOfBirthAtErr.innerText = 'Debe completar este campo'
+        }
+        //Valido el género
+        if(!sex){
             sexErr.innerText = 'Debe completar este campo'
-        }else if(relationalSituation==false){
+        } else { sexErr.innerText = ''}
+        //Valido la relaciones
+        if(!relationalSituation){
             relationalSituationErr.innerText = 'Debe completar este campo'
-        }else {
+        } else {relationalSituationErr.innerText =''}
+        //Si todo está ok pasa
+        if (nombre && apellido && dateBirth && sex && relationalSituation) {
+
             //delete errors
             firstNameErr.innerText = ''
             lastNameErr.innerText = ''
+            dateOfBirthAtErr.innerText = ''
             sexErr.innerText = ''
             relationalSituationErr.innerText = ''
 
@@ -161,18 +219,54 @@ window.addEventListener('load', function(){
                 relationalSituation= true
             }
         })
+        //Valido el nombre
         if(firstName.value ==''){
             firstNameErr.innerText = 'Debe completar este campo'
-        }else if(lastName.value ==''){
+        } else if(firstName.value.length<3){
+            firstNameErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+        }else if(regNum.test(firstName.value)){
+            firstNameErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(firstName.value)){
+            firstNameErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(firstName.value) ){
+            firstNameErr.innerText = 'Debe iniciar con mayuscula'
+        } else { 
+            nombre = true
+            firstNameErr.innerText = ''
+        }
+        //Valido el apellido
+        if(lastName.value ==''){
             lastNameErr.innerText = 'Debe completar este campo'
-        }else if(sex==false){
+        } else if(lastName.value.length<3){
+            lastNameErr.innerText = 'El apellido debe tener 3 caracteres mínimo'
+        }else if(regNum.test(lastName.value)){
+            lastNameErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(lastName.value)){
+            lastNameErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(lastName.value) ){
+            lastNameErr.innerText = 'Debe iniciar con mayuscula'
+        } else { 
+            apellido = true
+            lastNameErr.innerText = ''
+        }
+        //Valido el cumpleaños
+        if(!dateBirth){
+            dateOfBirthAtErr.innerText = 'Debe completar este campo'
+        }
+        //Valido el género
+        if(!sex){
             sexErr.innerText = 'Debe completar este campo'
-        }else if(relationalSituation==false){
+        } else { sexErr.innerText = ''}
+        //Valido la relaciones
+        if(!relationalSituation){
             relationalSituationErr.innerText = 'Debe completar este campo'
-        }else {
-            //Errors delete
+        } else {relationalSituationErr.innerText =''}
+        //Si todo está ok pasa
+        if (nombre && apellido && dateBirth && sex && relationalSituation) {
+            //delete errors
             firstNameErr.innerText = ''
             lastNameErr.innerText = ''
+            dateOfBirthAtErr.innerText = ''
             sexErr.innerText = ''
             relationalSituationErr.innerText = ''
 

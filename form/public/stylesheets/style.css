@@ -20,7 +20,15 @@ html{
 h1{
   color: rgb(0, 0, 0);
 }
-
+h2{
+  font-size: 2em;
+}
+h3{
+  font-size: 1.17em;
+}
+/*h4{
+  font-size: 1.5em;
+}*/
 /*BODY HEDER MAIN FOOTER*/
 
 
@@ -167,19 +175,19 @@ div.bakcgroundImage img{
 div.containerWelcome,div.containerFinish{
   position: absolute;
   z-index: 10;
-  margin-bottom: 10px;
-  display:flex;
-  flex-direction:column;
-  flex-wrap:nowrap;
-  justify-content:flex-end;
-  align-items:center;
-  align-content:center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 40vh;
 }
 div.containerWelcome{
-  bottom: -70px;
+  bottom: -20vh;
 }
 div.containerFinish{
-  bottom: -100px;
+  bottom: -30vh;
 }
 
 div.bienvenida{
@@ -194,11 +202,11 @@ div.bienvenida{
   align-items:center;
   align-content:center;
 }
-div.bienvenida h1{
+div.bienvenida h2{
   margin: 0px;
   font-size: 20px;
 }
-div.bienvenida p{
+div.bienvenida h1{
   margin: 0px;
   padding: 5px;
   font-size: 15px;
@@ -210,26 +218,26 @@ div.btnBoxWelcome{
   flex-wrap:wrap;
   justify-content:space-around;
   align-content:center;
+  margin-bottom: 30px;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ELEMENTOS DENTRO DEL SECTION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 /*  div mark y div text  */
 div.mark, div.text{
-  width: 80%;
+  width: 90%;
   margin: 10px;
 }
 
 /* div text */
-div.text{
-  width: 80%;
-}
 div.text input {
+  padding-left: 10px;
   width: 100%;
-  height: 30px;
-  outline:none;
+  height: 40px;
+  outline: none;
   border: 0;
   border-radius: 3px;
+  font-size: 18px;
 }
 
 /* formatos div marcos */
@@ -260,15 +268,21 @@ div.inputRow,div.inputColumn{
   align-items: center;
   align-content: center;
   width: 100%;
+}
+
+div.inputColumn{
+  margin-left: 5px;
+}
+div.inputRow{
   margin-left: 10px;
 }
 
 div.checkLabel{
-  font-size: 15px;
+  font-size: 18px;
   width: 80%;
 }
 div.checkLabelRow{
-  font-size: 15px;
+  font-size: 18px;
   width: 20%;
 }
 div.checkLabel p,div.checkLabelRow p{
@@ -278,7 +292,7 @@ div.checkLabel p,div.checkLabelRow p{
 
 /*div date*/
 div.date{
-  width: 80%;
+  width: 90%;
   border-style: solid;
   border-color: rgb(255,255,255);
   border-width: 1px;
@@ -286,18 +300,19 @@ div.date{
   flex-direction:column;
   flex-wrap:wrap;
   justify-content:center;
-  align-items:unset;
+  align-items:center;
   align-content:center;
 }
 div.dateLabel {
   width: 100%;
-  height: 30px;
+  height: 40px;
   margin: 10px;
 }
 input[type='date']{
+  font-size: 18px;
   width: 80%;
-  height: 100%;
-  outline:none;
+  height: 40px;
+  outline: none;
   border: 0;
   border-radius: 3px;
 }
@@ -347,6 +362,12 @@ input[type='checkbox']{
   display: block;
 }
 .longer{
+  display: none;
+}
+.shortLess{
+  display: block;
+}
+.longerLess{
   display: none;
 }
 /*section photo*/
@@ -401,22 +422,53 @@ input.inputPhoto{
   display: none;
 }
 label.inputPhotoLabel{
-  display: block;
-  padding: 8px 21px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
   background-color: #FFF;
   color: #9381FF;
   cursor: pointer;
+  padding: 0px 5px;
+  font-size: 16px;
+  margin: 5px 0px;
+  width: 90%;
 }
-h3.namePhoto{
+label.inputPhotoLabel h4{
+  margin: 0px;
+}
+
+h2.namePhoto{
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+  padding: 0px 5px;
+  font-size: 18px;
   color: #000000;
+  margin: 0px;
+  width: 90%;
+  height: 40%;
 }
 .textDanger {
   color: rgb(255, 0, 0);
-  font-size: 14px;
+  padding: 0px 5px;
+  font-size: 16px;
   margin: 2px;
 }
-h4#titleError.textDanger{
-  font-size: 13px;
+div.dotedBox .textDanger{
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+  width: 90%;
+  margin: 5px 0px;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -469,9 +521,6 @@ article.header img{
   object-fit: cover;
 }
 
-
-
-
 .contenidoPersonal,
 .contenidoFamily,
 .contenidoResidency,
@@ -489,18 +538,34 @@ article.header img{
   display: none;
 }
 
-@media (min-width: 361px) {
+
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MEDIA QUERES: 246; 361; 560 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media (min-width: 246px){
+  /*parrafos 246 largos*/
+  .shortLess{
+    display: none;
+  }
+  .longerLess{
+    display: block;
+  }
+  /*inputs 246 column*/
+  div.inputColumn{
+    margin-left: 10px;
+  }
+}
+@media (min-width: 361px){
   /*portada*/
   div.containerWelcome{
-    bottom: 0px;
+    bottom: -60px;
   }
   div.containerFinish{
-    bottom: -50px;
+    bottom: -140px;
   }
-  div.bienvenida h1{
+  div.bienvenida h2{
     font-size: 24px;
   }
-  div.bienvenida p{
+  div.bienvenida h1{
   
     font-size: 20px;
   }
@@ -510,10 +575,17 @@ article.header img{
   }
   div.inputRow{
     justify-content: center;
+    margin: 0px;
   }
   /*section 361 photo*/
   div.paragrphBlue{
     font-size: 20px;
+  }
+  h2.namePhoto{
+    font-size: 24px;
+  }
+  label.inputPhotoLabel{
+    height: 20%
   }
   /*parrafos 361 largos*/
   .short{
@@ -521,6 +593,14 @@ article.header img{
   }
   .longer{
     display: block;
+  }
+  /*div 361 mark , div text y div date  */
+  div.mark, div.text{
+    width: 80%;
+    margin: 10px;
+  }
+  div.date{
+    width: 80%;
   }
 }
 @media (min-width: 560px) {
@@ -531,7 +611,6 @@ article.header img{
     flex-direction:row;  
     justify-content: space-between;
   }
-
 }
 @media (min-width: 761px) {}
 @media (min-width: 1000px) {}

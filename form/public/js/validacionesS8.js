@@ -30,14 +30,15 @@ window.addEventListener('load', function(){
 
         //Expresión regular para validar tipos de archivos
         let extPermitidas = /(.JPG|.JPEG|.PNG|.GIF)$/i
+
         //Genero la variable archivoRuta para que sea más facil de leer el if
         let archivoRuta = file.value
 
         //Valido si me da un true o false el tipo de archivo
         if(!extPermitidas.exec(archivoRuta)){
-        fileErr.innerText = 'Archivos permitidos: JPG, JPEG, PNG, GIF'
+            fileErr.innerText = 'Archivos permitidos: JPG, JPEG, PNG, GIF'
         }else {
-        fileErr.innerText = ''
+            fileErr.innerText = ''
         }
 
         //agrego la leyenda con el nombre del archivo que se está po subir

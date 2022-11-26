@@ -59,12 +59,12 @@ const validationsNewProduct = [
 
   //SECTION 5 GROWNUP
   body('timeChurch').isIn(['timeChurch-0','timeChurch-6-1','timeChurch-1-5','timeChurch-5-0']).withMessage('Por favor, seleccione una de las opciones'),
-  body('churchExperiences').isIn(['nuevoInicio','bautismo','paso1','paso2','paso3','paso4','vidaDiscipular1','vidaDiscipular2','vidaDiscipular3','vidaDiscipular4','seaLibre','fundamentos','celebremos','ninguno','otro']).withMessage('Por favor, seleccione al menos una de las opciones'),
+  body('liveChurch').isIn(['liveChurchPresesnce','liveChurchVirtual']).withMessage('Por favor, seleccione una de las opciones'),
+  body('churchExperiences').isIn(['nuevoInicio','bautismo','paso1','paso2','paso3','paso4','vidaDiscipular1','vidaDiscipular2','vidaDiscipular3','vidaDiscipular4','seaLibre','fundamentos','celebremos','sdl','ninguno','otro']).withMessage('Por favor, seleccione al menos una de las opciones'),
   body('servicesUsed').isIn(['cafeteria','camping','escuela-musica','escuela-danza','casa-mujer','jardín','acasa','ninguno','otro']).withMessage('Por favor, seleccione al menos una de las opciones'),
   
   //SECTION 6 SMALL GORUP
   body('isParticipateSmallGroup').isIn(['si','no']).withMessage('Por favor, seleccione una de las opciones'),
-  body('smallGroupName').notEmpty().withMessage('Tienes que ingresar nombre del grupo'),
   body('smallGroupGuide').notEmpty().withMessage('Tienes que ingresar nombre del guía'),
   body('enjoyMost').isIn(['compañia','amistad','comida','oración','aprender','otros']).withMessage('Por favor, seleccione al menos una de las opciones'),
   body('yourAreaInterest').isIn(['relaciones','biblia','proposito','servir','habitoss','esparcimiento','diversion','comunion','otros']).withMessage('Por favor, seleccione al menos una de las opciones'),
