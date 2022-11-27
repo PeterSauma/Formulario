@@ -276,16 +276,15 @@ window.addEventListener('load', function(){
         });
         if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
-        }
+        };
 /*>>>>> Valido la cantidad de hijos <<<<<*/
         if(isChildrenSi.checked && numberChildren.value ==''){
             numberChildrenErr.innerText = 'Debe completar este campo'
         }else if(isChildrenSi.checked && !regNum.test( numberChildren.value) || isChildrenSi.checked && regSpecial.test( numberChildren.value) || isChildrenSi.checked && regUpp.test( numberChildren.value)){
             numberChildrenErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
-       }else {
-            numberChildrenErr.innerText = ''
-       }
-
+        }else {
+                numberChildrenErr.innerText = ''
+        };
 /*>>>>> Valido la cantidad de hijos en la iglesia <<<<<*/
         if(isChildrenSi.checked && isChildrenAttendChurch.value ==''){
             isChildrenAttendChurchErr.innerText = 'Debe completar este campo'
@@ -459,6 +458,7 @@ window.addEventListener('load', function(){
         };
 
         //tiene hijos?
+/*>>>>> Valido que complete el campo <<<<<*/
         isChildrenCheck.forEach((e)=>{
             if(e.checked){
                 isChildren= true
@@ -466,12 +466,24 @@ window.addEventListener('load', function(){
         });
         if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked && numberChildren.value ==''){
+        };
+/*>>>>> Valido la cantidad de hijos <<<<<*/
+        if(isChildrenSi.checked && numberChildren.value ==''){
             numberChildrenErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked && isChildrenAttendChurch.value ==''){
+        }else if(isChildrenSi.checked && !regNum.test( numberChildren.value) || isChildrenSi.checked && regSpecial.test( numberChildren.value) || isChildrenSi.checked && regUpp.test( numberChildren.value)){
+            numberChildrenErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
+        }else {
+            numberChildrenErr.innerText = ''
+        };
+/*>>>>> Valido la cantidad de hijos en la iglesia <<<<<*/
+        if(isChildrenSi.checked && isChildrenAttendChurch.value ==''){
             isChildrenAttendChurchErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked && isChildrenAttendChurch.value>numberChildren.value){
+        }else if(isChildrenSi.checked && !regNum.test( isChildrenAttendChurch.value) || isChildrenSi.checked && regSpecial.test( isChildrenAttendChurch.value) || isChildrenSi.checked && regUpp.test( isChildrenAttendChurch.value)){
+            isChildrenAttendChurchErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
+        }else if(isChildrenSi.checked && isChildrenAttendChurch.value>isChildrenAttendChurch.value){
             isChildrenAttendChurchErr.innerText = 'Error, este campo no puede ser mayor a la cantidad de hijos'
+        }else {
+            isChildrenAttendChurchErr.innerText = ''
         };
 
         //es jefe/a de hogar?
