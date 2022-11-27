@@ -37,7 +37,7 @@ window.addEventListener('load', function(){
         modalPersonal.style.transition='all 500ms ease'
     });
 });
-/*1
+//1
 window.addEventListener('load', function(){
     //capturo los sections
     let welcome=document.getElementById('welcome')
@@ -90,8 +90,8 @@ window.addEventListener('load', function(){
         contenedorFamily.style.transform='translateY(0%)'
         modalFamily.style.transition='all 500ms ease'   
     });
-});*/
-//2
+});
+/*2
 window.addEventListener('load', function(){
     
     //capturo los sections
@@ -113,9 +113,8 @@ window.addEventListener('load', function(){
     let contenedorFamily=document.querySelector('.contenedorFamily')
     let contenedorResidency=document.querySelector('.contenedorResidency')
 
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES FAMILY <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
     
-    /*>>>>>>>>>> botones Family <<<<<<<<<<*/
     btnFamilyBack.addEventListener('click',function(){
         //family donw
         family.style.display='none'
@@ -147,6 +146,7 @@ window.addEventListener('load', function(){
         modalResidency.style.transition='all 500ms ease'
     });
 });
+*/
 //3
 window.addEventListener('load', function(){  
     //capturo los sections

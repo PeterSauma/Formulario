@@ -224,7 +224,7 @@
                     <h4>¿Con quien vives?</h4>
                   </div>
               
-                  <div class='insideLabelColumn'>
+                  <div class='insideLabelColumn' id="coexistenceSituationDiv">
                     <div class='inputColumn'>
                       <div class="radiobutton"><input type='checkbox' name='coexistenceSituation' class='coexistenceSituation' id='coexistenceSituationPapa' value='papa'<%= locals.oldData && oldData.coexistenceSituation == 'papa' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Papá</strong></p></div>
@@ -277,64 +277,6 @@
                   </div>
                 </div>
 
-                <!--JEFES DE HOGAR-->
-                <div class='mark'>
-                  <div class='paragrph'>
-                    <h4 class="bossMan">¿Eres jefe de hogar?</h4>
-                    <h4 class="bossWoman">¿Eres jefa de hogar?</h4>
-                    <p>(solo efecto de identificar la familia conviviente)</p>
-                  </div>
-              
-                  <div class='insideLabelRow'>
-                    <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isBoss' class='isBoss' id='isBossSi' onclick="isChecked()" value='si'<%= locals.oldData && oldData.isBoss == 'si' ? "checked" : null %>></div>
-                      <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
-                    </div>
-              
-                    <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='isBoss' class='isBoss' id='isBossNo' value='no'<%= locals.oldData && oldData.isBoss == 'no' ? "checked" : null %>></div>
-                      <div class="checkLabelRow"><p><strong>No</strong></p></div>
-                    </div>
-                  </div>
-
-                  <div class='paragrph'>
-                    <h4 class="bossMan">¿Tu pareja asiste a la iglesia?</h4>
-                  </div>
-              
-                  <div class='insideLabelRow'>
-                    <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='christianCouple' class='christianCouple' id='christianCoupleSi' value='si'<%= locals.oldData && oldData.christianCouple == 'si' ? "checked" : null %>></div>
-                      <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
-                    </div>
-              
-                    <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' name='christianCouple' class='christianCouple' id='christianCoupleNo' value='no'<%= locals.oldData && oldData.christianCouple == 'no' ? "checked" : null %>></div>
-                      <div class="checkLabelRow"><p><strong>No</strong></p></div>
-                    </div>
-                  </div>
-
-                  <div class="textDanger" id="isBossErr"></div>
-                  <div class="error">
-                    <h4 class="textDanger" id="titleError"></h4>
-                    <% if(locals.errors && errors.isBoss) { %>
-                      <samp class="textDanger">
-                      <%= errors.isBoss.msg %>
-                      </samp>
-                    <% } %>
-                  </div>
-              
-                  <div class='text'>
-                    <input type='text' name='nameSpouse' id='nameSpouse' placeholder="Nombre cónyuge" value=''>
-                    
-                    <div class="textDanger" id="nameSpouseErr"></div>
-                  </div>
-                  <div class='text'>
-                    <input type='text' name='lastNameSpouse' id='lastNameSpouse' placeholder="Apellido cónyuge" value=''>
-                    
-                    <div class="textDanger" id="lastNameSpouseErr"></div>
-                  </div>
-                </div>
-
                 <!--HIJOS-->
                 <div class='mark'>
                   <div class='paragrph'>
@@ -375,7 +317,100 @@
                     <div class="textDanger" id="isChildrenAttendChurchErr"></div>
                   </div>
                 </div>
+
+                <!--ACLARACION-->
+                <div class="explanatory">
+                  <h4>Los siguientes items son solo efecto de identificar la familia conviviente</h4>
+                </div>
+                
+                <!--JEFE/A DE HOGAR-->
+                <div class='mark'>
+                  <div class='paragrph'>
+                    <h4>¿Eres jefe/a de hogar?</h4>
+                    
+                  </div>
               
+                  <div class='insideLabelRow'>
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='isBoss' class='isBoss' id='isBossSi' value='si'<%= locals.oldData && oldData.isBoss == 'si' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
+                    </div>
+              
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='isBoss' class='isBoss' id='isBossNo' value='no'<%= locals.oldData && oldData.isBoss == 'no' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>No</strong></p></div>
+                    </div>
+                  </div>
+
+                  <div class="textDanger" id="isBossErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.isBoss) { %>
+                      <samp class="textDanger">
+                      <%= errors.isBoss.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+                </div>
+                
+                <!--PAREJA JEFE/A DE HOGAR-->
+                <div class='mark' id='coupleBossDiv'>
+                  <div class='paragrph'>
+                    <h4>¿Tu pareja asiste a la iglesia?</h4>
+                  </div>
+              
+                  <div class='insideLabelRow'>
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='coupleBoss' class='coupleBoss' id='coupleBossSi' value='si'<%= locals.oldData && oldData.coupleBoss == 'si' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
+                    </div>
+              
+                    <div class="inputRow">
+                      <div class="radiobutton"><input type='radio' name='coupleBoss' class='coupleBoss' id='coupleBossNo' value='no'<%= locals.oldData && oldData.christianCouple == 'no' ? "checked" : null %>></div>
+                      <div class="checkLabelRow"><p><strong>No</strong></p></div>
+                    </div>
+                  </div>
+
+                  <div class="textDanger" id="coupleBossErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.coupleBoss) { %>
+                      <samp class="textDanger">
+                      <%= errors.coupleBoss.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+              
+                  <div class='text'>
+                    <input type='text' name='nameCouple' id='nameCouple' placeholder="Nombre pareja" value=''>
+                    
+                    <div class="textDanger" id="nameCoupleErr"></div>
+                  </div>
+                  <div class='text'>
+                    <input type='text' name='lastNameCouple' id='lastNameCouple' placeholder="Apellido pareja" value=''>
+                    
+                    <div class="textDanger" id="lastNameCoupleErr"></div>
+                  </div>
+                </div>
+
+                <!--QUIEN ES SU JEFE/A DE HOGAR-->
+                <div class='mark' id="whoBossDiv">
+                  <div class='paragrph'>
+                    <h4>¿Quien es el jefe/a de familia?</h4>
+                  </div>
+
+                  <div class='text'>
+                    <input type='text' name='whoBossName' id='whoBossName' placeholder="Nombre" value=''>
+                    
+                    <div class="textDanger" id="whoBossNameErr"></div>
+                  </div>
+                  <div class='text'>
+                    <input type='text' name='whoBossLastName' id='whoBossLastName' placeholder="Apellido" value=''>
+                    
+                    <div class="textDanger" id="whoBossLastNameErr"></div>
+                  </div>
+                </div>
+
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnFamilyBack'>

@@ -110,8 +110,6 @@ window.addEventListener('load', function(){
         }
     });
 
-
-
     //Validación de cumpleaños
     dateOfBirthAt.addEventListener("change", function() {
         dateBirth=true
@@ -140,6 +138,7 @@ window.addEventListener('load', function(){
                 relationalSituation= true
             }
         })
+        //Valido los inputs para bloquear el boton si no pasan los test
         //Valido el nombre
         if(firstName.value ==''){
             firstNameErr.innerText = 'Debe completar este campo'
@@ -219,6 +218,7 @@ window.addEventListener('load', function(){
                 relationalSituation= true
             }
         })
+        //Valido los inputs para bloquear el boton si no pasan los test
         //Valido el nombre
         if(firstName.value ==''){
             firstNameErr.innerText = 'Debe completar este campo'

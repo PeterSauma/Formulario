@@ -23,20 +23,46 @@ window.addEventListener('load', function(){
 
     //capturo los imputs
     let coexistenceSituationCheck=document.querySelectorAll('.coexistenceSituation')  // type='checkbox' class='coexistenceSituation'
+    let coexistenceSituationDiv=document.getElementById('coexistenceSituationDiv')
+    let conyuge=formulario.coexistenceSituationConyuge
     let isChildrenCheck=document.querySelectorAll('.isChildren') // type='radio' class='isChildren'
     let isChildrenSi=formulario.isChildrenSi
+    let isChildrenNo=formulario.isChildrenNo
     let numberChildren=formulario.numberChildren
     let isChildrenAttendChurch=formulario.isChildrenAttendChurch
+    let isBossCheck=document.querySelectorAll('.isBoss') // type='radio' class='isChildren'
+    let isBossSi=formulario.isBossSi
+    let isBossNo=formulario.isBossNo
+    let coupleBossDiv=document.getElementById('coupleBossDiv')
+    let coupleBossCheck=document.querySelectorAll('.coupleBoss')
+    let nameCouple=formulario.nameCouple
+    let lastNameCouple=formulario.lastNameCouple
+    let whoBossDiv=document.getElementById('whoBossDiv')
+    let whoBossName=formulario.whoBossName 
+    let whoBossLastName=formulario.whoBossLastName 
     
+   
+
+
     //capturo los errores
     let coexistenceSituationErr = document.querySelector('#coexistenceSituationErr')
     let isChildrenErr = document.querySelector('#isChildrenErr')
     let numberChildrenErr = document.querySelector('#numberChildrenErr')
     let isChildrenAttendChurchErr = document.querySelector('#isChildrenAttendChurchErr')
+    let isBossErr=document.querySelector('#isBossErr')
+    let coupleBossErr=document.querySelector('#coupleBossErr')
+    let nameCoupleErr=document.querySelector('#nameCoupleErr')
+    let lastNameCoupleErr=document.querySelector('#lastNameCoupleErr')
+    let whoBossNameErr=document.querySelector('#whoBossNameErr')
+    let whoBossLastNameErr=document.querySelector('#whoBossLastNameErr')
 
-    //Creo las variables false para radio y checkbox
-    let coexistenceSituation= false
-    let isChildren= false
+
+
+    //Expresiones regulares
+    let regNum = /^(?=.*[0-9])(?=(.*)).{1,}$/
+    let regUpp = /^(?=.*[A-Z])(?=(.*)).{1,}$/
+    let regSpecial = /^(?=.*[\!ºª☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⌂ÇéâüäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£ØƒáíóúñÑªº¿®¬½¼¡«»░▒▓│┤ÁÂÀ©╣║╗╝¢¥┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤ðÐÊËÈıÍÎÏ┘┌█▄¦Ì▀ÓßÔÒõÕµþÞÚÛÙýÝ¯´­±‗¾§÷¸°¨·¹³²■\@#$%&¬*()\\[\]{}\-_+=`~|:"'¿?<>,;./Ç])(?=(.*)).{1,}$/
+
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES FAMILY <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     
@@ -44,6 +70,10 @@ window.addEventListener('load', function(){
     isChildrenSi.addEventListener('click',function(){
         numberChildren.style.display='flex'
         isChildrenAttendChurch.style.display='flex'   
+    });
+    isChildrenNo.addEventListener('click',function(){
+        numberChildren.style.display='none'
+        isChildrenAttendChurch.style.display='none'   
     });
 
     //Validacion del cantidad de hijos
@@ -70,22 +100,179 @@ window.addEventListener('load', function(){
         }
     });
 
+    //Validación jefe/a de hogar
+    isBossSi.addEventListener('click',function(){
+        //isBoss=true
+        //es jefe/a de hogar y tine conyuge
+        if (conyuge.checked){
+            whoBossDiv.style.display='none'               
+            coupleBossDiv.style.display='flex'
+        }else 
+        //es jefe/a de hogar y no tine conyuge
+        if (!conyuge.checked){
+            whoBossDiv.style.display='none'   
+            coupleBossDiv.style.display='none'
+            //coupleBoss=true        
+        }
+    });
+    isBossNo.addEventListener('click',function(){
+        //isBoss=true
+        //no es jefe/a de hogar y tine conyuge
+        if (conyuge.checked){
+            whoBossDiv.style.display='none'   
+            
+            coupleBossDiv.style.display='flex'    
+        }else
+        //no es jefe/a de hogar y no tine conyuge
+        if (!conyuge.checked){
+            whoBossDiv.style.display='flex'      
+            coupleBossDiv.style.display='none'
+            //coupleBoss=true
+        }
+    });
+
+    //Validación pareja jefe/a de hogar
+    coexistenceSituationDiv.addEventListener('click',function(){
+        if (conyuge.checked){               
+            coupleBossDiv.style.display='flex'
+        }else 
+        //es jefe/a de hogar y no tine conyuge
+        if (!conyuge.checked){   
+            coupleBossDiv.style.display='none'        
+        }
+    });
+    //Validacion del nombre
+    nameCouple.addEventListener('keyup', function(){
+        if(regNum.test(nameCouple.value)){
+            nameCoupleErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(nameCouple.value)){
+            nameCoupleErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(nameCouple.value) ){
+            nameCoupleErr.innerText = 'Debe iniciar con mayuscula'
+        }else {
+            nameCoupleErr.innerText = ''
+        }
+    });
+    nameCouple.addEventListener('blur', function(){
+        //El imput no puede estar vacío
+        if(nameCouple.value ==''){
+            nameCoupleErr.innerText = 'Debe completar este campo'
+        } else
+        //Haciendo imput.value.length tengo la cantidad de caracteres, si en menor a 2 está mal
+        if(nameCouple.value.length<3){
+            nameCoupleErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+        }else {
+            nameCoupleErr.innerText= ''
+        }
+    });
+    //Validacion del apellido
+    lastNameCouple.addEventListener('keyup', function(){
+        if(regNum.test(lastNameCouple.value)){
+            lastNameCoupleErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(lastNameCouple.value)){
+            lastNameCoupleErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(lastNameCouple.value) ){
+            lastNameCoupleErr.innerText = 'Debe iniciar con mayuscula'
+        }else {
+            lastNameCoupleErr.innerText = ''
+        }
+    })
+    lastNameCouple.addEventListener('blur', function(){
+        //El imput no puede estar vacío
+        if(lastNameCouple.value ==''){
+            lastNameCoupleErr.innerText = 'Debe completar este campo'
+        } else
+        //Haciendo imput.value.length tengo la cantidad de caracteres, si en menor a 3 está mal
+        if(lastNameCouple.value.length<3){
+            lastNameCoupleErr.innerText = 'El apellido debe tener 3 caracteres mínimo'
+        } else {
+            lastNameCoupleErr.innerText = ''
+        }
+    });
+
+    //Validación quien es jefe/a de hogar
+    //Validacion del nombre
+    whoBossName.addEventListener('keyup', function(){
+        if(regNum.test(whoBossName.value)){
+            whoBossNameErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(whoBossName.value)){
+            whoBossNameErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(whoBossName.value) ){
+            whoBossNameErr.innerText = 'Debe iniciar con mayuscula'
+        }else {
+            whoBossNameErr.innerText = ''
+        }
+    });
+    whoBossName.addEventListener('blur', function(){
+        //El imput no puede estar vacío
+        if(whoBossName.value ==''){
+            whoBossNameErr.innerText = 'Debe completar este campo'
+        } else
+        //Haciendo imput.value.length tengo la cantidad de caracteres, si en menor a 2 está mal
+        if(whoBossName.value.length<3){
+            whoBossNameErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+        }else {
+            whoBossNameErr.innerText= ''
+        }
+    });
+    //Validacion del apellido
+    whoBossLastName.addEventListener('keyup', function(){
+        if(regNum.test(whoBossLastName.value)){
+            whoBossLastNameErr.innerText = 'No debe escribir números'
+        }else if(regSpecial.test(whoBossLastName.value)){
+            whoBossLastNameErr.innerText = 'No debe escribir caracteres especiales'
+        }else if (!regUpp.test(whoBossLastName.value) ){
+            whoBossLastNameErr.innerText = 'Debe iniciar con mayuscula'
+        }else {
+            whoBossLastNameErr.innerText = ''
+        }
+    })
+    whoBossLastName.addEventListener('blur', function(){
+        //El imput no puede estar vacío
+        if(whoBossLastName.value ==''){
+            whoBossLastNameErr.innerText = 'Debe completar este campo'
+        } else
+        //Haciendo imput.value.length tengo la cantidad de caracteres, si en menor a 3 está mal
+        if(whoBossLastName.value.length<3){
+            whoBossLastNameErr.innerText = 'El apellido debe tener 3 caracteres mínimo'
+        } else {
+            whoBossLastNameErr.innerText = ''
+        }
+    });
+
+
+
     /*>>>>>>>>>> botones Family <<<<<<<<<<*/
     btnFamilyBack.addEventListener('click',function(){
-        //valido los check's
+        
+        //Creo las variables false para radio y checkbox
+        let coexistenceSituation=false//ok
+        let isChildren=false//ok
+        let isBoss=false//ok
+        let coupleBoss=false//ok
+        let nameCoupleTest=false //ok
+        let lastNameCoupleTest=false //ok
+        let whoBoss=false//
+        
+    
+        //Valido los inputs para bloquear el boton si no pasan los test
+        //cohexistencia
         coexistenceSituationCheck.forEach((e)=>{
             if(e.checked){
                 coexistenceSituation= true
             }
-        })
+        });
+        if(!coexistenceSituation){
+            coexistenceSituationErr.innerText = 'Debe completar este campo'
+        };
+
+        //tiene hijos?
         isChildrenCheck.forEach((e)=>{
             if(e.checked){
                 isChildren= true
             }
-        })
-        if(!coexistenceSituation){
-            coexistenceSituationErr.innerText = 'Debe completar este campo'
-        }else if(!isChildren){
+        });
+        if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
         }else if(isChildrenSi.checked & numberChildren.value ==''){
             numberChildrenErr.innerText = 'Debe completar este campo'
@@ -93,12 +280,134 @@ window.addEventListener('load', function(){
             isChildrenAttendChurchErr.innerText = 'Debe completar este campo'
         }else if(isChildrenSi.checked & isChildrenAttendChurch.value>numberChildren.value){
             isChildrenAttendChurchErr.innerText = 'Error, este campo no puede ser mayor a la cantidad de hijos'
-        }else{
+        };
+
+        //es jefe/a de hogar?
+        isBossCheck.forEach((e)=>{
+            if(e.checked){
+                isBoss= true
+            }
+        });
+        if(!isBoss){
+            isBossErr.innerText='Debe completar este campo'
+        };
+
+        //su pareja asiste a la iglesa?
+        if(conyuge.checked){
+            coupleBossCheck.forEach((e)=>{
+                if(e.checked){
+                    coupleBoss= true
+                } 
+            })
+        }else {
+            coupleBoss= true
+        };
+        if(!coupleBoss){
+            coupleBossErr.innerText='Debe completar este campo'
+        }; 
+        if(conyuge.checked){
+            //Nombre
+            if(regNum.test(nameCouple.value)){
+                nameCoupleErr.innerText = 'No debe escribir números'
+            }else if(regSpecial.test(nameCouple.value)){
+                nameCoupleErr.innerText = 'No debe escribir caracteres especiales'
+            }else if (!regUpp.test(nameCouple.value) ){
+                nameCoupleErr.innerText = 'Debe iniciar con mayuscula'
+            }else if(nameCouple.value ==''){
+                nameCoupleErr.innerText = 'Debe completar este campo'
+            } else if(nameCouple.value.length<3){
+                nameCoupleErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+            }else {
+                nameCoupleErr.innerText = ''
+                nameCoupleTest=true
+            }
+            //Apellido
+            if(regNum.test(lastNameCouple.value)){
+                lastNameCoupleErr.innerText = 'No debe escribir números'
+            }else if(regSpecial.test(lastNameCouple.value)){
+                lastNameCoupleErr.innerText = 'No debe escribir caracteres especiales'
+            }else if (!regUpp.test(lastNameCouple.value) ){
+                lastNameCoupleErr.innerText = 'Debe iniciar con mayuscula'
+            }else if(lastNameCouple.value ==''){
+                lastNameCoupleErr.innerText = 'Debe completar este campo'
+            } else if(lastNameCouple.value.length<3){
+                lastNameCoupleErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+            }else {
+                lastNameCoupleErr.innerText = ''
+                lastNameCoupleTest=true
+            }
+        } else {
+            nameCoupleTest=true
+            lastNameCoupleTest=true
+        };
+
+        //quien es jefe/a de hogar?
+        if(conyuge.checked || !conyuge.checked && isBossSi.checked ){
+            whoBossNameErr.innerText = ''
+            whoBossLastNameErr.innerText = ''
+            whoBoss=true
+        }else if(!conyuge.checked && isBossNo.checked){
+            //creo dos variables false para validar el nombre y apellido
+            let whoBossNameValidator=false
+            let whoBossLastNameValidator=false
+            //validacion del nombre
+            if(regNum.test(whoBossName.value)){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else if(regSpecial.test(whoBossName.value)){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else if (!regUpp.test(whoBossName.value) ){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else if(whoBossName.value ==''){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            } else if(whoBossName.value.length<3){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else {
+                whoBossNameErr.innerText = ''
+                whoBossNameValidator=true
+            }
+            //validacion del apellido
+            if(regNum.test(whoBossLastName.value)){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else if(regSpecial.test(whoBossLastName.value)){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else if (!regUpp.test(whoBossLastName.value) ){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else if(whoBossLastName.value ==''){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            } else if(whoBossLastName.value.length<3){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else {
+                whoBossLastNameErr.innerText = ''
+                whoBossLastNameValidator=true
+            }
+            if(whoBossNameValidator && whoBossLastNameValidator){
+                whoBoss=true
+            }
+
+        } 
+
+        
+
+        //Si las variables son true se activa el boton
+        if(coexistenceSituation &&
+             isChildren &&
+             isBoss &&
+             coupleBoss &&
+             nameCoupleTest &&
+             lastNameCoupleTest &&
+             whoBoss){
+                
             //delete errors
             coexistenceSituationErr.innerText = ''
             isChildrenErr.innerText = ''
             numberChildrenErr.innerText = ''
             isChildrenAttendChurchErr.innerText = ''
+            isBossErr.innerText=''
+            coupleBossErr=''
+            nameCoupleErr=''
+            lastNameCoupleErr=''
+            whoBossNameErr=''
+            whoBossLastNameErr=''
 
             //family donw
             family.style.display='none'
@@ -113,25 +422,38 @@ window.addEventListener('load', function(){
             modalPersonal.style.visibility='visible'
             contenedorPersonal.style.transform='translateY(0%)'
             modalPersonal.style.transition='all 500ms ease'
-        }
-
-        
+        }  
     });
     btnFamilyContinue.addEventListener('click',function(){
-        //valido los check's
+        
+        //Creo las variables false para radio y checkbox
+        let coexistenceSituation=false//ok
+        let isChildren=false//ok
+        let isBoss=false//ok
+        let coupleBoss=false//ok
+        let nameCoupleTest=false //ok
+        let lastNameCoupleTest=false //ok
+        let whoBoss=false//
+        
+    
+        //Valido los inputs para bloquear el boton si no pasan los test
+        //cohexistencia
         coexistenceSituationCheck.forEach((e)=>{
             if(e.checked){
                 coexistenceSituation= true
             }
-        })
+        });
+        if(!coexistenceSituation){
+            coexistenceSituationErr.innerText = 'Debe completar este campo'
+        };
+
+        //tiene hijos?
         isChildrenCheck.forEach((e)=>{
             if(e.checked){
                 isChildren= true
             }
-        })
-        if(!coexistenceSituation){
-            coexistenceSituationErr.innerText = 'Debe completar este campo'
-        }else if(!isChildren){
+        });
+        if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
         }else if(isChildrenSi.checked & numberChildren.value ==''){
             numberChildrenErr.innerText = 'Debe completar este campo'
@@ -139,12 +461,134 @@ window.addEventListener('load', function(){
             isChildrenAttendChurchErr.innerText = 'Debe completar este campo'
         }else if(isChildrenSi.checked & isChildrenAttendChurch.value>numberChildren.value){
             isChildrenAttendChurchErr.innerText = 'Error, este campo no puede ser mayor a la cantidad de hijos'
-        }else{
+        };
+
+        //es jefe/a de hogar?
+        isBossCheck.forEach((e)=>{
+            if(e.checked){
+                isBoss= true
+            }
+        });
+        if(!isBoss){
+            isBossErr.innerText='Debe completar este campo'
+        };
+
+        //su pareja asiste a la iglesa?
+        if(conyuge.checked){
+            coupleBossCheck.forEach((e)=>{
+                if(e.checked){
+                    coupleBoss= true
+                } 
+            })
+        }else {
+            coupleBoss= true
+        };
+        if(!coupleBoss){
+            coupleBossErr.innerText='Debe completar este campo'
+        }; 
+        if(conyuge.checked){
+            //Nombre
+            if(regNum.test(nameCouple.value)){
+                nameCoupleErr.innerText = 'No debe escribir números'
+            }else if(regSpecial.test(nameCouple.value)){
+                nameCoupleErr.innerText = 'No debe escribir caracteres especiales'
+            }else if (!regUpp.test(nameCouple.value) ){
+                nameCoupleErr.innerText = 'Debe iniciar con mayuscula'
+            }else if(nameCouple.value ==''){
+                nameCoupleErr.innerText = 'Debe completar este campo'
+            } else if(nameCouple.value.length<3){
+                nameCoupleErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+            }else {
+                nameCoupleErr.innerText = ''
+                nameCoupleTest=true
+            }
+            //Apellido
+            if(regNum.test(lastNameCouple.value)){
+                lastNameCoupleErr.innerText = 'No debe escribir números'
+            }else if(regSpecial.test(lastNameCouple.value)){
+                lastNameCoupleErr.innerText = 'No debe escribir caracteres especiales'
+            }else if (!regUpp.test(lastNameCouple.value) ){
+                lastNameCoupleErr.innerText = 'Debe iniciar con mayuscula'
+            }else if(lastNameCouple.value ==''){
+                lastNameCoupleErr.innerText = 'Debe completar este campo'
+            } else if(lastNameCouple.value.length<3){
+                lastNameCoupleErr.innerText= 'El nombre debe tener 3 caracteres mínimo'
+            }else {
+                lastNameCoupleErr.innerText = ''
+                lastNameCoupleTest=true
+            }
+        } else {
+            nameCoupleTest=true
+            lastNameCoupleTest=true
+        };
+
+        //quien es jefe/a de hogar?
+        if(conyuge.checked || !conyuge.checked && isBossSi.checked ){
+            whoBossNameErr.innerText = ''
+            whoBossLastNameErr.innerText = ''
+            whoBoss=true
+        }else if(!conyuge.checked && isBossNo.checked){
+            //creo dos variables false para validar el nombre y apellido
+            let whoBossNameValidator=false
+            let whoBossLastNameValidator=false
+            //validacion del nombre
+            if(regNum.test(whoBossName.value)){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else if(regSpecial.test(whoBossName.value)){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else if (!regUpp.test(whoBossName.value) ){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else if(whoBossName.value ==''){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            } else if(whoBossName.value.length<3){
+                whoBossNameErr.innerText = 'Debe completar este campo'
+            }else {
+                whoBossNameErr.innerText = ''
+                whoBossNameValidator=true
+            }
+            //validacion del apellido
+            if(regNum.test(whoBossLastName.value)){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else if(regSpecial.test(whoBossLastName.value)){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else if (!regUpp.test(whoBossLastName.value) ){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else if(whoBossLastName.value ==''){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            } else if(whoBossLastName.value.length<3){
+                whoBossLastNameErr.innerText = 'Debe completar este campo'
+            }else {
+                whoBossLastNameErr.innerText = ''
+                whoBossLastNameValidator=true
+            }
+            if(whoBossNameValidator && whoBossLastNameValidator){
+                whoBoss=true
+            }
+
+        } 
+
+        
+
+        //Si las variables son true se activa el boton
+        if(coexistenceSituation &&
+             isChildren &&
+             isBoss &&
+             coupleBoss &&
+             nameCoupleTest &&
+             lastNameCoupleTest &&
+             whoBoss){
+
             //delete errors
             coexistenceSituationErr.innerText = ''
             isChildrenErr.innerText = ''
             numberChildrenErr.innerText = ''
             isChildrenAttendChurchErr.innerText = ''
+            isBossErr.innerText=''
+            coupleBossErr=''
+            nameCoupleErr=''
+            lastNameCoupleErr=''
+            whoBossNameErr=''
+            whoBossLastNameErr=''
 
 
             //family donw
@@ -164,3 +608,5 @@ window.addEventListener('load', function(){
         }
     });
 });
+
+

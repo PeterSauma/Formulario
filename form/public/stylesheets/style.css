@@ -259,6 +259,18 @@ div.paragrph{
   height: 20%;
   width: 100%;
 }
+div.explanatory{
+  font-size: 20px;
+  padding: 0px 10px;
+  height: 20%;
+  width: 90%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  justify-content:center;
+  align-items:center;
+  align-content:center;
+}
  /*inputs*/
 div.inputRow,div.inputColumn{
   display: flex;
@@ -471,6 +483,12 @@ div.dotedBox .textDanger{
   margin: 5px 0px;
 }
 
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INPUTS CONDICIONALES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/*SECTION FAMILY*/
+#coupleBossDiv, #whoBossDiv{
+  display: none;
+}
+
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VENTANA EMERGENTE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 .modalPersonal,.modalFamily,.modalResidency,.modalContact,.modalGrownup,.modalSmallGroup,.modalVocation,.modalPhoto{
   width: 100%;
@@ -594,12 +612,15 @@ article.header img{
   .longer{
     display: block;
   }
-  /*div 361 mark , div text y div date  */
+  /*div 361 mark, div text, div date y explanatory */
   div.mark, div.text{
     width: 80%;
     margin: 10px;
   }
   div.date{
+    width: 80%;
+  }
+  div.explanatory{
     width: 80%;
   }
 }
