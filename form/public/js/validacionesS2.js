@@ -265,8 +265,9 @@ window.addEventListener('load', function(){
         });
         if(!coexistenceSituation){
             coexistenceSituationErr.innerText = 'Debe completar este campo'
+        }else{
+            coexistenceSituationErr.innerText = ''
         };
-
         //tiene hijos?
 /*>>>>> Valido que complete el campo <<<<<*/
         isChildrenCheck.forEach((e)=>{
@@ -276,6 +277,8 @@ window.addEventListener('load', function(){
         });
         if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
+        }else {
+            isChildrenErr.innerText = ''
         };
 /*>>>>> Valido la cantidad de hijos <<<<<*/
         if(isChildrenSi.checked && numberChildren.value ==''){
@@ -304,6 +307,8 @@ window.addEventListener('load', function(){
         });
         if(!isBoss){
             isBossErr.innerText='Debe completar este campo'
+        }else{
+            isBossErr.innerText=''
         };
 
         //su pareja asiste a la iglesa?
@@ -455,6 +460,8 @@ window.addEventListener('load', function(){
         });
         if(!coexistenceSituation){
             coexistenceSituationErr.innerText = 'Debe completar este campo'
+        }else{
+            coexistenceSituationErr.innerText = ''
         };
 
         //tiene hijos?
@@ -466,6 +473,8 @@ window.addEventListener('load', function(){
         });
         if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
+        }else {
+            isChildrenErr.innerText = ''
         };
 /*>>>>> Valido la cantidad de hijos <<<<<*/
         if(isChildrenSi.checked && numberChildren.value ==''){
@@ -494,6 +503,8 @@ window.addEventListener('load', function(){
         });
         if(!isBoss){
             isBossErr.innerText='Debe completar este campo'
+        }else{
+            isBossErr.innerText=''
         };
 
         //su pareja asiste a la iglesa?

@@ -127,17 +127,6 @@ window.addEventListener('load', function(){
 
     /*>>>>>>>>>> botones Personal <<<<<<<<<<*/
     btnPersonalBack.addEventListener('click',function(){
-        //valido los check's
-        sexCheck.forEach((e)=>{
-            if(e.checked){
-                sex= true
-            }
-        })
-        relationalSituationCheck.forEach((e)=>{
-            if(e.checked){
-                relationalSituation= true
-            }
-        })
         //Valido los inputs para bloquear el boton si no pasan los test
         //Valido el nombre
         if(firstName.value ==''){
@@ -174,10 +163,20 @@ window.addEventListener('load', function(){
             dateOfBirthAtErr.innerText = 'Debe completar este campo'
         }
         //Valido el género
+        sexCheck.forEach((e)=>{
+            if(e.checked){
+                sex= true
+            }
+        })
         if(!sex){
             sexErr.innerText = 'Debe completar este campo'
         } else { sexErr.innerText = ''}
         //Valido la relaciones
+        relationalSituationCheck.forEach((e)=>{
+            if(e.checked){
+                relationalSituation= true
+            }
+        })
         if(!relationalSituation){
             relationalSituationErr.innerText = 'Debe completar este campo'
         } else {relationalSituationErr.innerText =''}
@@ -207,17 +206,6 @@ window.addEventListener('load', function(){
         }
     });
     btnPersonalContinue.addEventListener('click',()=>{
-        //valido los check's
-        sexCheck.forEach((e)=>{
-            if(e.checked){
-                sex= true
-            }
-        })
-        relationalSituationCheck.forEach((e)=>{
-            if(e.checked){
-                relationalSituation= true
-            }
-        })
         //Valido los inputs para bloquear el boton si no pasan los test
         //Valido el nombre
         if(firstName.value ==''){
@@ -254,10 +242,20 @@ window.addEventListener('load', function(){
             dateOfBirthAtErr.innerText = 'Debe completar este campo'
         }
         //Valido el género
+        sexCheck.forEach((e)=>{
+            if(e.checked){
+                sex= true
+            }
+        })
         if(!sex){
             sexErr.innerText = 'Debe completar este campo'
         } else { sexErr.innerText = ''}
         //Valido la relaciones
+        relationalSituationCheck.forEach((e)=>{
+            if(e.checked){
+                relationalSituation= true
+            }
+        })
         if(!relationalSituation){
             relationalSituationErr.innerText = 'Debe completar este campo'
         } else {relationalSituationErr.innerText =''}
