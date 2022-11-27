@@ -55,7 +55,7 @@ const validationsNewProduct = [
   .isInt({ min:0, max: 50}).withMessage('Debe ingresar telefono correcto'),
   body('email').notEmpty().withMessage('Tienes que ingresar tu email').bail()
   .isEmail(). withMessage('Ingrese un email valido'),
-  body('webSite').isIn(['YouVersion','Facebook','Instagram','YouTube','Tik','Spotify','WhatsApp','Telegram','Twitter','Twitch','Discord','Pinterest','LinkedIn','Slack','ninguno']).withMessage('Por favor, seleccione al menos una de las opciones'),
+  body('webSite').isIn(['YouVersion','Facebook','Instagram','YouTube','Tik','Spotify','WhatsApp','Telegram','Twitter','Twitch','Discord','Pinterest','LinkedIn','Slack','Otra','Ninguna']).withMessage('Por favor, seleccione al menos una de las opciones'),
 
   //SECTION 5 GROWNUP
   body('timeChurch').isIn(['timeChurch-0','timeChurch-6-1','timeChurch-1-5','timeChurch-5-0']).withMessage('Por favor, seleccione una de las opciones'),

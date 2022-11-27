@@ -28,11 +28,15 @@ window.addEventListener('load', function(){
     //capturo los errores
     let celularErr = document.querySelector('#valueContactErr')
     let emailErr = document.querySelector('#emailErr')
+    let webSiteCheck
 
     //Expresiones regulares
     let regNum = /^(?=.*[0-9])(?=(.*)).{1,}$/
     let regUpp = /^(?=.*[A-Z])(?=(.*)).{1,}$/
     let regSpecial = /^(?=.*[\!ºª☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~⌂ÇéâüäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£ØƒáíóúñÑªº¿®¬½¼¡«»░▒▓│┤ÁÂÀ©╣║╗╝¢¥┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤ðÐÊËÈıÍÎÏ┘┌█▄¦Ì▀ÓßÔÒõÕµþÞÚÛÙýÝ¯´­±‗¾§÷¸°¨·¹³²■\@#$%&¬*()\\[\]{}\-_+=`~|:"'¿?<>,;./Ç])(?=(.*)).{1,}$/
+    let regEmail = /^[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+
+
 
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES CONTACT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -52,8 +56,24 @@ window.addEventListener('load', function(){
             celularErr.innerText = ''
         }
     });
+
+    //Validacion correo
+    email.addEventListener('blur', () => {
+        if(email.value == '') {
+        emailErr.innerText = 'Debe completar este campo';
+        } else if(!email.value.match(regEmail)) {
+        emailErr.innerText = 'Correo inválido';
+        } else {
+        emailErr.innerText = '';
+        }
+    });
+
+    //Validacion de redes sociales
+
+
     /*>>>>>>>>>> botones Contact <<<<<<<<<<*/
     btnContactBack.addEventListener('click',function(){
+
         //contact donw
         contact.style.display='none'
         modalContact.style.opacity='0'
