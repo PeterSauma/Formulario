@@ -36,14 +36,14 @@ window.addEventListener('load', function(){
         modalResidency.style.opacity='0'
         modalResidency.style.visibility='hidden'
         contenedorResidency.style.transform='translateY(-30%)'
-        modalResidency.style.transition='all 500ms ease'
+        modalResidency.style.transition='all 2s ease'
 
         //family up
         family.style.display='flex'
         modalFamily.style.opacity='1'
         modalFamily.style.visibility='visible'
         contenedorFamily.style.transform='translateY(0%)'
-        modalFamily.style.transition='all 500ms ease'
+        modalFamily.style.transition='all 2s ease'
     });
     btnResidencyContinue.addEventListener('click',function(){
         //reaidency donw
@@ -51,13 +51,13 @@ window.addEventListener('load', function(){
         modalResidency.style.opacity='0'
         modalResidency.style.visibility='hidden'
         contenedorResidency.style.transform='translateY(-30%)'
-        modalResidency.style.transition='all 500ms ease'
+        modalResidency.style.transition='all 2s ease'
 
         //contact up
         contact.style.display='flex'
         modalContact.style.opacity='1'
         modalContact.style.visibility='visible'
         contenedorContact.style.transform='translateY(0%)'
-        modalContact.style.transition='all 500ms ease'
+        modalContact.style.transition='all 2s ease'
     });
 });

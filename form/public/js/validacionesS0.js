@@ -26,13 +26,13 @@ window.addEventListener('load', function(){
         modalWelcome.style.opacity='0'
         modalWelcome.style.visibility='hidden'
         contenedorWelcome.style.transform='translateY(-30%)'
-        modalWelcome.style.transition='all 500ms ease'
+        modalWelcome.style.transition='all 2s ease'
         
         //personal up
         personal.style.display='flex'
         modalPersonal.style.opacity='1'
         modalPersonal.style.visibility='visible'
         contenedorPersonal.style.transform='translateY(0%)'
-        modalPersonal.style.transition='all 500ms ease'
+        modalPersonal.style.transition='all 2s ease'
     });
 });

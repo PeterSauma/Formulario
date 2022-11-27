@@ -27,14 +27,14 @@ window.addEventListener('load', function(){
         modalWelcome.style.opacity='0'
         modalWelcome.style.visibility='hidden'
         contenedorWelcome.style.transform='translateY(-30%)'
-        modalWelcome.style.transition='all 500ms ease'
+        modalWelcome.style.transition='all 2s ease'
         
         //personal up
         personal.style.display='flex'
         modalPersonal.style.opacity='1'
         modalPersonal.style.visibility='visible'
         contenedorPersonal.style.transform='translateY(0%)'
-        modalPersonal.style.transition='all 500ms ease'
+        modalPersonal.style.transition='all 2s ease'
     });
 });
 //1
@@ -66,14 +66,14 @@ window.addEventListener('load', function(){
         modalWelcome.style.opacity='1'
         modalWelcome.style.visibility='visible'
         contenedorWelcome.style.transform='translateY(0%)'
-        modalWelcome.style.transition='all 500ms ease'
+        modalWelcome.style.transition='all 2s ease'
         
         //personal donw
         personal.style.display='none'
         modalPersonal.style.opacity='0'
         modalPersonal.style.visibility='hidden'
         contenedorPersonal.style.transform='translateY(-30%)'
-        modalPersonal.style.transition='all 500ms ease'
+        modalPersonal.style.transition='all 2s ease'
     });
     btnPersonalContinue.addEventListener('click',()=>{
         //personal donw
@@ -81,17 +81,17 @@ window.addEventListener('load', function(){
         modalPersonal.style.opacity='0'
         modalPersonal.style.visibility='hidden'
         contenedorPersonal.style.transform='translateY(-30%)'
-        modalPersonal.style.transition='all 500ms ease'
+        modalPersonal.style.transition='all 2s ease'
 
         //family up
         family.style.display='flex'
         modalFamily.style.opacity='1'
         modalFamily.style.visibility='visible'
         contenedorFamily.style.transform='translateY(0%)'
-        modalFamily.style.transition='all 500ms ease'   
+        modalFamily.style.transition='all 2s ease'   
     });
 });
-/*2
+//2
 window.addEventListener('load', function(){
     
     //capturo los sections
@@ -121,14 +121,14 @@ window.addEventListener('load', function(){
         modalFamily.style.opacity='0'
         modalFamily.style.visibility='hidden'
         contenedorFamily.style.transform='translateY(-30%)'
-        modalFamily.style.transition='all 500ms ease'
+        modalFamily.style.transition='all 2s ease'
 
         //personal up
         personal.style.display='flex'
         modalPersonal.style.opacity='1'
         modalPersonal.style.visibility='visible'
         contenedorPersonal.style.transform='translateY(0%)'
-        modalPersonal.style.transition='all 500ms ease'    
+        modalPersonal.style.transition='all 2s ease'    
     });
     btnFamilyContinue.addEventListener('click',function(){
         //family donw
@@ -136,17 +136,16 @@ window.addEventListener('load', function(){
         modalFamily.style.opacity='0'
         modalFamily.style.visibility='hidden'
         contenedorFamily.style.transform='translateY(-30%)'
-        modalFamily.style.transition='all 500ms ease'
+        modalFamily.style.transition='all 2s ease'
 
         //residency up
         residency.style.display='flex'
         modalResidency.style.opacity='1'
         modalResidency.style.visibility='visible'
         contenedorResidency.style.transform='translateY(0%)'
-        modalResidency.style.transition='all 500ms ease'
+        modalResidency.style.transition='all 2s ease'
     });
 });
-*/
 //3
 window.addEventListener('load', function(){  
     //capturo los sections
@@ -176,14 +175,14 @@ window.addEventListener('load', function(){
         modalResidency.style.opacity='0'
         modalResidency.style.visibility='hidden'
         contenedorResidency.style.transform='translateY(-30%)'
-        modalResidency.style.transition='all 500ms ease'
+        modalResidency.style.transition='all 2s ease'
 
         //family up
         family.style.display='flex'
         modalFamily.style.opacity='1'
         modalFamily.style.visibility='visible'
         contenedorFamily.style.transform='translateY(0%)'
-        modalFamily.style.transition='all 500ms ease'
+        modalFamily.style.transition='all 2s ease'
     });
     btnResidencyContinue.addEventListener('click',function(){
         //reaidency donw
@@ -191,17 +190,17 @@ window.addEventListener('load', function(){
         modalResidency.style.opacity='0'
         modalResidency.style.visibility='hidden'
         contenedorResidency.style.transform='translateY(-30%)'
-        modalResidency.style.transition='all 500ms ease'
+        modalResidency.style.transition='all 2s ease'
 
         //contact up
         contact.style.display='flex'
         modalContact.style.opacity='1'
         modalContact.style.visibility='visible'
         contenedorContact.style.transform='translateY(0%)'
-        modalContact.style.transition='all 500ms ease'
+        modalContact.style.transition='all 2s ease'
     });
 });
-//4
+/*4
 window.addEventListener('load', function(){
     //capturo los sections
     let residency=document.getElementById('residency')
@@ -222,21 +221,21 @@ window.addEventListener('load', function(){
     let contenedorContact=document.querySelector('.contenedorContact')
     let contenedorGrownup=document.querySelector('.contenedorGrownup')
 
-    /*>>>>>>>>>> botones Contact <<<<<<<<<<*/
+    
     btnContactBack.addEventListener('click',function(){
         //contact donw
         contact.style.display='none'
         modalContact.style.opacity='0'
         modalContact.style.visibility='hidden'
         contenedorContact.style.transform='translateY(-30%)'
-        modalContact.style.transition='all 500ms ease'
+        modalContact.style.transition='all 2s ease'
 
         //residency up
         residency.style.display='flex'
         modalResidency.style.opacity='1'
         modalResidency.style.visibility='visible'
         contenedorResidency.style.transform='translateY(0%)'
-        modalResidency.style.transition='all 500ms ease'
+        modalResidency.style.transition='all 2s ease'
     });
     btnContactContinue.addEventListener('click',function(){
         //contact donw
@@ -244,16 +243,17 @@ window.addEventListener('load', function(){
         modalContact.style.opacity='0'
         modalContact.style.visibility='hidden'
         contenedorContact.style.transform='translateY(-30%)'
-        modalContact.style.transition='all 500ms ease'
+        modalContact.style.transition='all 2s ease'
 
         //grownup up
         grownup.style.display='flex'
         modalGrownup.style.opacity='1'
         modalGrownup.style.visibility='visible'
         contenedorGrownup.style.transform='translateY(0%)'
-        modalGrownup.style.transition='all 500ms ease'
+        modalGrownup.style.transition='all 2s ease'
     });
 });
+*/
 //5
 window.addEventListener('load', function(){
     //capturo los sections
@@ -282,14 +282,14 @@ window.addEventListener('load', function(){
         modalGrownup.style.opacity='0'
         modalGrownup.style.visibility='hidden'
         contenedorGrownup.style.transform='translateY(-30%)'
-        modalGrownup.style.transition='all 500ms ease'
+        modalGrownup.style.transition='all 2s ease'
 
         //contact upp
         contact.style.display='flex'
         modalContact.style.opacity='1'
         modalContact.style.visibility='visible'
         contenedorContact.style.transform='translateY(0%)'
-        modalContact.style.transition='all 500ms ease'
+        modalContact.style.transition='all 2s ease'
     });
     btnGrownupContinue.addEventListener('click',function(){
         //grownup donw
@@ -297,14 +297,14 @@ window.addEventListener('load', function(){
         modalGrownup.style.opacity='0'
         modalGrownup.style.visibility='hidden'
         contenedorGrownup.style.transform='translateY(-30%)'
-        modalGrownup.style.transition='all 500ms ease'
+        modalGrownup.style.transition='all 2s ease'
 
         //smallGroup up
         smallGroup.style.display='flex'
         modalSmallGroup.style.opacity='1'
         modalSmallGroup.style.visibility='visible'
         contenedorSmallGroup.style.transform='translateY(0%)'
-        modalSmallGroup.style.transition='all 500ms ease'
+        modalSmallGroup.style.transition='all 2s ease'
     });
 });
 //6
@@ -335,14 +335,14 @@ window.addEventListener('load', function(){
         modalSmallGroup.style.opacity='0'
         modalSmallGroup.style.visibility='hidden'
         contenedorSmallGroup.style.transform='translateY(-30%)'
-        modalSmallGroup.style.transition='all 500ms ease'
+        modalSmallGroup.style.transition='all 2s ease'
 
         //grownup up
         grownup.style.display='flex'
         modalGrownup.style.opacity='1'
         modalGrownup.style.visibility='visible'
         contenedorGrownup.style.transform='translateY(0%)'
-        modalGrownup.style.transition='all 500ms ease'
+        modalGrownup.style.transition='all 2s ease'
     });
     btnSmallGroupContinue.addEventListener('click',function(){
         //smallGroup donw
@@ -350,14 +350,14 @@ window.addEventListener('load', function(){
         modalSmallGroup.style.opacity='0'
         modalSmallGroup.style.visibility='hidden'
         contenedorSmallGroup.style.transform='translateY(-30%)'
-        modalSmallGroup.style.transition='all 500ms ease'
+        modalSmallGroup.style.transition='all 2s ease'
 
        //vocation up
        vocation.style.display='flex'
        modalVocation.style.opacity='1'
        modalVocation.style.visibility='visible'
        contenedorVocation.style.transform='translateY(0%)'
-       modalVocation.style.transition='all 500ms ease'
+       modalVocation.style.transition='all 2s ease'
     });
 });
 //7
@@ -388,14 +388,14 @@ window.addEventListener('load', function(){
         modalVocation.style.opacity='0'
         modalVocation.style.visibility='hidden'
         contenedorVocation.style.transform='translateY(-30%)'
-        modalVocation.style.transition='all 500ms ease'
+        modalVocation.style.transition='all 2s ease'
 
         //smallGroup up
         smallGroup.style.display='flex'
         modalSmallGroup.style.opacity='1'
         modalSmallGroup.style.visibility='visible'
         contenedorSmallGroup.style.transform='translateY(0%)'
-        modalSmallGroup.style.transition='all 500ms ease'
+        modalSmallGroup.style.transition='all 2s ease'
     });
     btnVocationContinue.addEventListener('click',function(){
         //vocation donw
@@ -403,14 +403,14 @@ window.addEventListener('load', function(){
         modalVocation.style.opacity='0'
         modalVocation.style.visibility='hidden'
         contenedorVocation.style.transform='translateY(-30%)'
-        modalVocation.style.transition='all 500ms ease'
+        modalVocation.style.transition='all 2s ease'
 
         //photo up
         photo.style.display='flex'
         modalPhoto.style.opacity='1'
         modalPhoto.style.visibility='visible'
         contenedorPhoto.style.transform='translateY(0%)'
-        modalPhoto.style.transition='all 500ms ease'
+        modalPhoto.style.transition='all 2s ease'
     });
 });
 //8
@@ -438,14 +438,14 @@ window.addEventListener('load', function(){
         modalPhoto.style.opacity='0'
         modalPhoto.style.visibility='hidden'
         contenedorPhoto.style.transform='translateY(-30%)'
-        modalPhoto.style.transition='all 500ms ease'
+        modalPhoto.style.transition='all 2s ease'
 
         //vocation up
         vocation.style.display='flex'
         modalVocation.style.opacity='1'
         modalVocation.style.visibility='visible'
         contenedorVocation.style.transform='translateY(0%)'
-        modalVocation.style.transition='all 500ms ease'
+        modalVocation.style.transition='all 2s ease'
     });
     btnPhotoContinue.addEventListener('click',function(){
         //photo donw
@@ -453,6 +453,6 @@ window.addEventListener('load', function(){
         modalPhoto.style.opacity='0'
         modalPhoto.style.visibility='hidden'
         contenedorPhoto.style.transform='translateY(-30%)'
-        modalPhoto.style.transition='all 500ms ease'
+        modalPhoto.style.transition='all 2s ease'
     });
 });

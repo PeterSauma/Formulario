@@ -36,14 +36,14 @@ window.addEventListener('load', function(){
         modalGrownup.style.opacity='0'
         modalGrownup.style.visibility='hidden'
         contenedorGrownup.style.transform='translateY(-30%)'
-        modalGrownup.style.transition='all 500ms ease'
+        modalGrownup.style.transition='all 2s ease'
 
         //contact upp
         contact.style.display='flex'
         modalContact.style.opacity='1'
         modalContact.style.visibility='visible'
         contenedorContact.style.transform='translateY(0%)'
-        modalContact.style.transition='all 500ms ease'
+        modalContact.style.transition='all 2s ease'
     });
     btnGrownupContinue.addEventListener('click',function(){
         //grownup donw
@@ -51,13 +51,13 @@ window.addEventListener('load', function(){
         modalGrownup.style.opacity='0'
         modalGrownup.style.visibility='hidden'
         contenedorGrownup.style.transform='translateY(-30%)'
-        modalGrownup.style.transition='all 500ms ease'
+        modalGrownup.style.transition='all 2s ease'
 
         //smallGroup up
         smallGroup.style.display='flex'
         modalSmallGroup.style.opacity='1'
         modalSmallGroup.style.visibility='visible'
         contenedorSmallGroup.style.transform='translateY(0%)'
-        modalSmallGroup.style.transition='all 500ms ease'
+        modalSmallGroup.style.transition='all 2s ease'
     });
 });

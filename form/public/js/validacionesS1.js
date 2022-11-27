@@ -196,14 +196,14 @@ window.addEventListener('load', function(){
             modalWelcome.style.opacity='1'
             modalWelcome.style.visibility='visible'
             contenedorWelcome.style.transform='translateY(0%)'
-            modalWelcome.style.transition='all 500ms ease'
+            modalWelcome.style.transition='all 2s ease'
             
             //personal donw
             personal.style.display='none'
             modalPersonal.style.opacity='0'
             modalPersonal.style.visibility='hidden'
             contenedorPersonal.style.transform='translateY(-30%)'
-            modalPersonal.style.transition='all 500ms ease'
+            modalPersonal.style.transition='all 2s ease'
         }
     });
     btnPersonalContinue.addEventListener('click',()=>{
@@ -275,14 +275,14 @@ window.addEventListener('load', function(){
             modalPersonal.style.opacity='0'
             modalPersonal.style.visibility='hidden'
             contenedorPersonal.style.transform='translateY(-30%)'
-            modalPersonal.style.transition='all 500ms ease'
+            modalPersonal.style.transition='all 2s ease'
 
             //family up
             family.style.display='flex'
             modalFamily.style.opacity='1'
             modalFamily.style.visibility='visible'
             contenedorFamily.style.transform='translateY(0%)'
-            modalFamily.style.transition='all 500ms ease'
+            modalFamily.style.transition='all 2s ease'
             }
     });
 });

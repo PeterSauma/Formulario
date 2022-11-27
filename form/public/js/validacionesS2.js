@@ -39,7 +39,10 @@ window.addEventListener('load', function(){
     let lastNameCouple=formulario.lastNameCouple
     let whoBossDiv=document.getElementById('whoBossDiv')
     let whoBossName=formulario.whoBossName 
-    let whoBossLastName=formulario.whoBossLastName 
+    let whoBossLastName=formulario.whoBossLastName
+    //(inputs section 1)
+    let enPareja=formulario.relationalSituationEnPareja
+    let casado=formulario.relationalSituationCasado
     
    
 
@@ -56,7 +59,14 @@ window.addEventListener('load', function(){
     let whoBossNameErr=document.querySelector('#whoBossNameErr')
     let whoBossLastNameErr=document.querySelector('#whoBossLastNameErr')
 
-
+    //Creo las variables false para radio y checkbox
+    let coexistenceSituation=false
+    let isChildren=false
+    let isBoss=false
+    let coupleBoss=false
+    let nameCoupleTest=false 
+    let lastNameCoupleTest=false 
+    let whoBoss=false
 
     //Expresiones regulares
     let regNum = /^(?=.*[0-9])(?=(.*)).{1,}$/
@@ -85,6 +95,13 @@ window.addEventListener('load', function(){
             numberChildrenErr.innerText= ''
         }
     });
+     numberChildren.addEventListener('keyup', function(){
+        if(!regNum.test( numberChildren.value) || regSpecial.test( numberChildren.value) || regUpp.test( numberChildren.value)){
+             numberChildrenErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
+        }else {
+             numberChildrenErr.innerText = ''
+        }
+    });
 
     //Validacion de hijos en la iglesia
     isChildrenAttendChurch.addEventListener('blur', function(){
@@ -99,48 +116,45 @@ window.addEventListener('load', function(){
         isChildrenAttendChurchErr.innerText = ''
         }
     });
+    isChildrenAttendChurch.addEventListener('keyup', function(){
+        if(!regNum.test( isChildrenAttendChurch.value) || regSpecial.test( isChildrenAttendChurch.value) || regUpp.test( isChildrenAttendChurch.value)){
+             isChildrenAttendChurchErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
+        }else {
+             isChildrenAttendChurchErr.innerText = ''
+        }
+    });
 
     //Validación jefe/a de hogar
     isBossSi.addEventListener('click',function(){
-        //isBoss=true
-        //es jefe/a de hogar y tine conyuge
-        if (conyuge.checked){
+        //es jefe/a de hogar y tine pareja
+        if (conyuge.checked || casado.checked || enPareja.checked){
             whoBossDiv.style.display='none'               
             coupleBossDiv.style.display='flex'
         }else 
-        //es jefe/a de hogar y no tine conyuge
-        if (!conyuge.checked){
+        //es jefe/a de hogar y no tine pareja
+        if (!conyuge.checked && !casado.checked && !enPareja.checked){
             whoBossDiv.style.display='none'   
-            coupleBossDiv.style.display='none'
-            //coupleBoss=true        
+            coupleBossDiv.style.display='none'     
         }
     });
     isBossNo.addEventListener('click',function(){
-        //isBoss=true
-        //no es jefe/a de hogar y tine conyuge
-        if (conyuge.checked){
+        //no es jefe/a de hogar y tine pareja
+        if (conyuge.checked || casado.checked || enPareja.checked){
             whoBossDiv.style.display='none'   
-            
             coupleBossDiv.style.display='flex'    
         }else
-        //no es jefe/a de hogar y no tine conyuge
-        if (!conyuge.checked){
+        //no es jefe/a de hogar y no tine pareja
+        if (!conyuge.checked && !casado.checked && !enPareja.checked){
             whoBossDiv.style.display='flex'      
             coupleBossDiv.style.display='none'
-            //coupleBoss=true
         }
     });
 
     //Validación pareja jefe/a de hogar
-    coexistenceSituationDiv.addEventListener('click',function(){
-        if (conyuge.checked){               
-            coupleBossDiv.style.display='flex'
-        }else 
-        //es jefe/a de hogar y no tine conyuge
-        if (!conyuge.checked){   
-            coupleBossDiv.style.display='none'        
-        }
-    });
+    //Mostrar inputs
+    if(casado.checked || enPareja.checked || conyuge.checked){
+        coupleBossDiv.style.display='flex'
+    };
     //Validacion del nombre
     nameCouple.addEventListener('keyup', function(){
         if(regNum.test(nameCouple.value)){
@@ -240,21 +254,8 @@ window.addEventListener('load', function(){
         }
     });
 
-
-
     /*>>>>>>>>>> botones Family <<<<<<<<<<*/
     btnFamilyBack.addEventListener('click',function(){
-        
-        //Creo las variables false para radio y checkbox
-        let coexistenceSituation=false//ok
-        let isChildren=false//ok
-        let isBoss=false//ok
-        let coupleBoss=false//ok
-        let nameCoupleTest=false //ok
-        let lastNameCoupleTest=false //ok
-        let whoBoss=false//
-        
-    
         //Valido los inputs para bloquear el boton si no pasan los test
         //cohexistencia
         coexistenceSituationCheck.forEach((e)=>{
@@ -267,6 +268,7 @@ window.addEventListener('load', function(){
         };
 
         //tiene hijos?
+/*>>>>> Valido que complete el campo <<<<<*/
         isChildrenCheck.forEach((e)=>{
             if(e.checked){
                 isChildren= true
@@ -274,13 +276,26 @@ window.addEventListener('load', function(){
         });
         if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked & numberChildren.value ==''){
+        }
+/*>>>>> Valido la cantidad de hijos <<<<<*/
+        if(isChildrenSi.checked && numberChildren.value ==''){
             numberChildrenErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked & isChildrenAttendChurch.value ==''){
+        }else if(isChildrenSi.checked && !regNum.test( numberChildren.value) || isChildrenSi.checked && regSpecial.test( numberChildren.value) || isChildrenSi.checked && regUpp.test( numberChildren.value)){
+            numberChildrenErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
+       }else {
+            numberChildrenErr.innerText = ''
+       }
+
+/*>>>>> Valido la cantidad de hijos en la iglesia <<<<<*/
+        if(isChildrenSi.checked && isChildrenAttendChurch.value ==''){
             isChildrenAttendChurchErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked & isChildrenAttendChurch.value>numberChildren.value){
+        }else if(isChildrenSi.checked && !regNum.test( isChildrenAttendChurch.value) || isChildrenSi.checked && regSpecial.test( isChildrenAttendChurch.value) || isChildrenSi.checked && regUpp.test( isChildrenAttendChurch.value)){
+            isChildrenAttendChurchErr.innerText = 'Debe escribir números sin espacios ni paréntesis'
+       }else if(isChildrenSi.checked && isChildrenAttendChurch.value>isChildrenAttendChurch.value){
             isChildrenAttendChurchErr.innerText = 'Error, este campo no puede ser mayor a la cantidad de hijos'
-        };
+        }else {
+            isChildrenAttendChurchErr.innerText = ''
+       };
 
         //es jefe/a de hogar?
         isBossCheck.forEach((e)=>{
@@ -293,19 +308,21 @@ window.addEventListener('load', function(){
         };
 
         //su pareja asiste a la iglesa?
-        if(conyuge.checked){
+/*>>>>> valido si la pareja va a la iglesia <<<<<*/
+        if(conyuge.checked || casado.checked || enPareja.checked){
             coupleBossCheck.forEach((e)=>{
                 if(e.checked){
                     coupleBoss= true
                 } 
             })
-        }else {
+        }else if(!conyuge.checked && !casado.checked && !enPareja.checked){
             coupleBoss= true
         };
         if(!coupleBoss){
             coupleBossErr.innerText='Debe completar este campo'
-        }; 
-        if(conyuge.checked){
+        };
+/*>>>>> Valido nombre y apellido de la pareja <<<<<*/
+        if(conyuge.checked || casado.checked || enPareja.checked){
             //Nombre
             if(regNum.test(nameCouple.value)){
                 nameCoupleErr.innerText = 'No debe escribir números'
@@ -340,13 +357,20 @@ window.addEventListener('load', function(){
             nameCoupleTest=true
             lastNameCoupleTest=true
         };
+/*>>>>> Valido que se corresponda conyuge de la section 2 con la pareja/casado de la section 1 <<<<<*/
+        if (conyuge.checked && !casado.checked || conyuge.checked && !enPareja.checked){               
+            alert ('¡Cuidado! En la sección anterior has declarado que no tienes pareja y aquí dices que sí. Debes corroborar los datos')        
+        }else 
+        if (!conyuge.checked && casado.checked || !conyuge.checked && enPareja.checked){   
+            alert ('¡Cuidado! En en la sección anterior has declarado que tienes pareja y aquí dices que no.  Debes corroborar los datos')        
+        }
 
-        //quien es jefe/a de hogar?
-        if(conyuge.checked || !conyuge.checked && isBossSi.checked ){
+        //Validación quien es jefe/a de hogar?
+        if(conyuge.checked || casado.checked || enPareja.checked || !conyuge.checked && isBossSi.checked || !casado.checked && isBossSi.checked || !enPareja.checked && isBossSi.checked){
             whoBossNameErr.innerText = ''
             whoBossLastNameErr.innerText = ''
             whoBoss=true
-        }else if(!conyuge.checked && isBossNo.checked){
+        }else if(!conyuge.checked && isBossNo.checked || !casado.checked && isBossNo.checked || !enPareja.checked && isBossNo.checked ){
             //creo dos variables false para validar el nombre y apellido
             let whoBossNameValidator=false
             let whoBossLastNameValidator=false
@@ -384,9 +408,7 @@ window.addEventListener('load', function(){
                 whoBoss=true
             }
 
-        } 
-
-        
+        };
 
         //Si las variables son true se activa el boton
         if(coexistenceSituation &&
@@ -414,28 +436,17 @@ window.addEventListener('load', function(){
             modalFamily.style.opacity='0'
             modalFamily.style.visibility='hidden'
             contenedorFamily.style.transform='translateY(-30%)'
-            modalFamily.style.transition='all 500ms ease'
+            modalFamily.style.transition='all 2s ease'
 
             //personal up
             personal.style.display='flex'
             modalPersonal.style.opacity='1'
             modalPersonal.style.visibility='visible'
             contenedorPersonal.style.transform='translateY(0%)'
-            modalPersonal.style.transition='all 500ms ease'
+            modalPersonal.style.transition='all 2s ease'
         }  
     });
     btnFamilyContinue.addEventListener('click',function(){
-        
-        //Creo las variables false para radio y checkbox
-        let coexistenceSituation=false//ok
-        let isChildren=false//ok
-        let isBoss=false//ok
-        let coupleBoss=false//ok
-        let nameCoupleTest=false //ok
-        let lastNameCoupleTest=false //ok
-        let whoBoss=false//
-        
-    
         //Valido los inputs para bloquear el boton si no pasan los test
         //cohexistencia
         coexistenceSituationCheck.forEach((e)=>{
@@ -455,11 +466,11 @@ window.addEventListener('load', function(){
         });
         if(!isChildren){
             isChildrenErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked & numberChildren.value ==''){
+        }else if(isChildrenSi.checked && numberChildren.value ==''){
             numberChildrenErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked & isChildrenAttendChurch.value ==''){
+        }else if(isChildrenSi.checked && isChildrenAttendChurch.value ==''){
             isChildrenAttendChurchErr.innerText = 'Debe completar este campo'
-        }else if(isChildrenSi.checked & isChildrenAttendChurch.value>numberChildren.value){
+        }else if(isChildrenSi.checked && isChildrenAttendChurch.value>numberChildren.value){
             isChildrenAttendChurchErr.innerText = 'Error, este campo no puede ser mayor a la cantidad de hijos'
         };
 
@@ -474,19 +485,21 @@ window.addEventListener('load', function(){
         };
 
         //su pareja asiste a la iglesa?
-        if(conyuge.checked){
+/*>>>>> valido si la pareja va a la iglesia <<<<<*/
+        if(conyuge.checked || casado.checked || enPareja.checked){
             coupleBossCheck.forEach((e)=>{
                 if(e.checked){
                     coupleBoss= true
                 } 
             })
-        }else {
+        }else if(!conyuge.checked && !casado.checked && !enPareja.checked){
             coupleBoss= true
         };
         if(!coupleBoss){
             coupleBossErr.innerText='Debe completar este campo'
         }; 
-        if(conyuge.checked){
+/*>>>>> Valido nombre y apellido de la pareja <<<<<*/
+        if(conyuge.checked || casado.checked || enPareja.checked){
             //Nombre
             if(regNum.test(nameCouple.value)){
                 nameCoupleErr.innerText = 'No debe escribir números'
@@ -521,13 +534,20 @@ window.addEventListener('load', function(){
             nameCoupleTest=true
             lastNameCoupleTest=true
         };
+/*>>>>> Valido que se corresponda conyuge de la section 2 con la pareja/casado de la section 1 <<<<<*/
+        if (conyuge.checked && !casado.checked || conyuge.checked && !enPareja.checked){               
+            alert ('¡Cuidado! En la sección anterior has declarado que no tienes pareja y aquí dices que sí. Debes corroborar los datos')        
+        }else 
+        if (!conyuge.checked && casado.checked || !conyuge.checked && enPareja.checked){   
+            alert ('¡Cuidado! En en la sección anterior has declarado que tienes pareja y aquí dices que no.  Debes corroborar los datos')        
+        }
 
-        //quien es jefe/a de hogar?
-        if(conyuge.checked || !conyuge.checked && isBossSi.checked ){
+        //Validación quien es jefe/a de hogar?
+        if(conyuge.checked || casado.checked || enPareja.checked || !conyuge.checked && isBossSi.checked || !casado.checked && isBossSi.checked || !enPareja.checked && isBossSi.checked){
             whoBossNameErr.innerText = ''
             whoBossLastNameErr.innerText = ''
             whoBoss=true
-        }else if(!conyuge.checked && isBossNo.checked){
+        }else if(!conyuge.checked && isBossNo.checked || !casado.checked && isBossNo.checked || !enPareja.checked && isBossNo.checked ){
             //creo dos variables false para validar el nombre y apellido
             let whoBossNameValidator=false
             let whoBossLastNameValidator=false
@@ -565,9 +585,7 @@ window.addEventListener('load', function(){
                 whoBoss=true
             }
 
-        } 
-
-        
+        };
 
         //Si las variables son true se activa el boton
         if(coexistenceSituation &&
@@ -596,14 +614,14 @@ window.addEventListener('load', function(){
             modalFamily.style.opacity='0'
             modalFamily.style.visibility='hidden'
             contenedorFamily.style.transform='translateY(-30%)'
-            modalFamily.style.transition='all 500ms ease'
+            modalFamily.style.transition='all 2s ease'
 
             //residency up
             residency.style.display='flex'
             modalResidency.style.opacity='1'
             modalResidency.style.visibility='visible'
             contenedorResidency.style.transform='translateY(0%)'
-            modalResidency.style.transition='all 500ms ease'
+            modalResidency.style.transition='all 2s ease'
 
         }
     });

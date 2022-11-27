@@ -54,14 +54,14 @@ window.addEventListener('load', function(){
         modalPhoto.style.opacity='0'
         modalPhoto.style.visibility='hidden'
         contenedorPhoto.style.transform='translateY(-30%)'
-        modalPhoto.style.transition='all 500ms ease'
+        modalPhoto.style.transition='all 2s ease'
 
         //vocation up
         vocation.style.display='flex'
         modalVocation.style.opacity='1'
         modalVocation.style.visibility='visible'
         contenedorVocation.style.transform='translateY(0%)'
-        modalVocation.style.transition='all 500ms ease'
+        modalVocation.style.transition='all 2s ease'
     });
     btnPhotoContinue.addEventListener('click',function(){
         //photo donw
@@ -69,7 +69,7 @@ window.addEventListener('load', function(){
         modalPhoto.style.opacity='0'
         modalPhoto.style.visibility='hidden'
         contenedorPhoto.style.transform='translateY(-30%)'
-        modalPhoto.style.transition='all 500ms ease'
+        modalPhoto.style.transition='all 2s ease'
     });
 
 
