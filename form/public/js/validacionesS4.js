@@ -87,6 +87,7 @@ window.addEventListener('load', function(){
             phoneErr.innerText = ''
             phoneTest = true
         };
+
         //Validacion correo
         if(email.value == '') {
         emailErr.innerText = 'Debe completar este campo';
@@ -95,7 +96,7 @@ window.addEventListener('load', function(){
         } else {
         emailErr.innerText = '';
         emailTest = true
-        }
+        };
 
         //Validacion redes sociales
         webSiteCheck.forEach((e)=>{
@@ -108,6 +109,8 @@ window.addEventListener('load', function(){
         }else{
             webSiteErr.innerText=''
         };
+        
+        //Si todo está ok pasa
         if(phoneTest && emailTest && webSite) {
             //delete errors
             phoneErr.innerText=''

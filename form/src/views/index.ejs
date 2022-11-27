@@ -763,22 +763,22 @@
       
                   <div class='insideLabelColumn'>
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='liveChurch'  id='liveChurchPresesnce' value='liveChurchPresesnce'<%= locals.oldData && oldData.liveChurch == 'liveChurchPresesnce' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' class="liveChurch" name='liveChurch'  id='liveChurchPresesnce' value='liveChurchPresesnce'<%= locals.oldData && oldData.liveChurch == 'liveChurchPresesnce' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Presencial</strong></p></div>
                     </div>
           
                     <div class="inputColumn">
-                      <div class="radiobutton"><input type='radio' name='liveChurch' id='liveChurchVirtual' value='liveChurchVirtual'<%= locals.oldData && oldData.liveChurch == 'liveChurchVirtual' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' class="liveChurch" name='liveChurch' id='liveChurchVirtual' value='liveChurchVirtual'<%= locals.oldData && oldData.liveChurch == 'liveChurchVirtual' ? "checked" : null %>></div>
                       <div class="checkLabel"><p><strong>Virtual</strong></p></div>
                     </div>
                   </div>
 
-                  <div class="textDanger" id="timeChurchErr"></div>
+                  <div class="textDanger" id="liveChurchErr"></div>
                   <div class="error">
                     <h4 class="textDanger" id="titleError"></h4>
-                    <% if(locals.errors && errors.timeChurch) { %>
+                    <% if(locals.errors && errors.liveChurch) { %>
                       <samp class="textDanger">
-                      <%= errors.timeChurch.msg %>
+                      <%= errors.liveChurch.msg %>
                       </samp>
                     <% } %>
                   </div>

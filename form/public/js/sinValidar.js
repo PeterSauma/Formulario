@@ -200,7 +200,7 @@ window.addEventListener('load', function(){
         modalContact.style.transition='all 2s ease'
     });
 });
-/*4
+//4
 window.addEventListener('load', function(){
     //capturo los sections
     let residency=document.getElementById('residency')
@@ -253,8 +253,7 @@ window.addEventListener('load', function(){
         modalGrownup.style.transition='all 2s ease'
     });
 });
-*/
-//5
+/*5
 window.addEventListener('load', function(){
     //capturo los sections
     let contact=document.getElementById('contact')
@@ -275,7 +274,6 @@ window.addEventListener('load', function(){
     let contenedorGrownup=document.querySelector('.contenedorGrownup')
     let contenedorSmallGroup=document.querySelector('.contenedorSmallGroup')
     
-    /*>>>>>>>>>> botones Grownup <<<<<<<<<<*/
     btnGrownupBack.addEventListener('click',function(){
         //grownup donw
         grownup.style.display='none'
@@ -307,6 +305,7 @@ window.addEventListener('load', function(){
         modalSmallGroup.style.transition='all 2s ease'
     });
 });
+*/
 //6
 window.addEventListener('load', function(){    
     //capturo los sections
@@ -328,7 +327,7 @@ window.addEventListener('load', function(){
     let contenedorSmallGroup=document.querySelector('.contenedorSmallGroup')
     let contenedorVocation=document.querySelector('.contenedorVocation')
     
-    /*>>>>>>>>>> botones Group <<<<<<<<<<*/
+    
     btnSmallGroupBack.addEventListener('click',function(){
         //smallGroup donw
         smallGroup.style.display='none'
@@ -381,7 +380,7 @@ window.addEventListener('load', function(){
     let contenedorVocation=document.querySelector('.contenedorVocation')
     let contenedorPhoto=document.querySelector('.contenedorPhoto')
 
-    /*>>>>>>>>>> botones Vocation <<<<<<<<<<*/
+    
     btnVocationBack.addEventListener('click',function(){
         //vocation donw
         vocation.style.display='none'
@@ -431,7 +430,7 @@ window.addEventListener('load', function(){
     let contenedorVocation=document.querySelector('.contenedorVocation')
     let contenedorPhoto=document.querySelector('.contenedorPhoto')
 
-    /*>>>>>>>>>> botones Photo <<<<<<<<<<*/
+    
     btnPhotoBack.addEventListener('click',function(){
         //photo donw
         photo.style.display='none'
