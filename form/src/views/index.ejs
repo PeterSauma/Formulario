@@ -1326,12 +1326,12 @@
       
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' class="servicesChurch" name='servicesChurch' id='servicesChurch-si'  value='si'<%= locals.oldData && oldData.servicesChurch == 'si' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' class="servicesChurch" name='servicesChurch' id='servicesChurchSi'  value='si'<%= locals.oldData && oldData.servicesChurch == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
           
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' class="servicesChurch" name='servicesChurch' id='servicesChurch-no'  value='no'<%= locals.oldData && oldData.servicesChurch == 'no' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' class="servicesChurch" name='servicesChurch' id='servicesChurchNo'  value='no'<%= locals.oldData && oldData.servicesChurch == 'no' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>No</strong></p></div>
                     </div>
                   </div>
@@ -1348,28 +1348,34 @@
                   
                   <div class='text'>
                     <input type='text' name='areaServices' id='areaServices' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
+                    <div class="textDanger" id="areaServicesErr"></div>
                   </div>
                   <div class='text'>
                     <input type='text' name='areaServices2' id='areaServices2' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
+                    <div class="textDanger" id="areaServices2Err"></div>
                   </div>
                   <div class='text'>
                     <input type='text' name='areaServices3' id='areaServices3' placeholder="Área de servicio" class= 'inputText' maxlength='60' value="">
+                    <div class="textDanger" id="areaServices3Err"></div>
                   </div>
                 </div>
       
                 <!--PROFESION-->
                 <div class='text'>
                   <input type='text' name='profession' id='profession' class= 'inputText' placeholder="Profesión/Oficio/Labor" maxlength='60' value="">
+                  <div class="textDanger" id="professionErr"></div>
                 </div>
       
                 <!--ULTIMO TRABAJO-->
                 <div class='text'>
                   <input type='text' name='lastJob' id='lastJob' class= 'inputText' placeholder ="Último trabajo" maxlength='60' value="">
+                  <div class="textDanger" id="lastJobErr"></div>
                 </div>
                 
                 <!--HABILIDADES ARTISTICAS-->
                 <div class='text'>
                   <input type='text' name='artist' id='artist' class= 'inputText' placeholder="Habilidades artísticas" maxlength='60' value="">
+                  <div class="textDanger" id="artistErr"></div>
                 </div>
       
                 <!--ADELANTE/ATRÁS-->

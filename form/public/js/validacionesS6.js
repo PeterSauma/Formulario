@@ -55,7 +55,6 @@ window.addEventListener('load', function(){
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES SMALLGROUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
  /*>>>>> bajo o subo los inputs nombre guía y GP*/
     isParticipateSi.addEventListener('click',function(){
-            //es jefe/a de hogar y tine pareja
             if (isParticipateSi.checked){
                 nombreGuia.style.display='flex'
                 nombreGrupo.style.display='flex'
@@ -65,7 +64,6 @@ window.addEventListener('load', function(){
             }
     });
     isParticipateNo.addEventListener('click',function(){
-        //es jefe/a de hogar y tine pareja
         if (isParticipateNo.checked){
             nombreGuia.style.display='none'
             nombreGrupo.style.display='none'
