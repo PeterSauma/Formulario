@@ -24,8 +24,8 @@ window.addEventListener('load', function(){
     //capturo los imputs 
     let liveChurchCheck=document.querySelectorAll('.liveChurch') // type='radio' class='webSite'
     let timeChurchCheck=document.querySelectorAll('.timeChurch') // type='radio' class='webSite'
-    let churchExperiencesCheck=document.querySelectorAll('.churchExperiences') // type='radio' class='webSite'
-    let servicesUsedCheck=document.querySelectorAll('.servicesUsed') // type='radio' class='webSite'
+    let churchExperiencesCheck=document.querySelectorAll('.churchExperiences') // type='checkbox' class='webSite'
+    let servicesUsedCheck=document.querySelectorAll('.servicesUsed') // type='checkbox' class='webSite'
 
     //capturo los errores
     let liveChurchErr = document.querySelector('#liveChurchErr')

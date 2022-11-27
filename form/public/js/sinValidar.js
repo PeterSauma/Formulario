@@ -253,7 +253,7 @@ window.addEventListener('load', function(){
         modalGrownup.style.transition='all 2s ease'
     });
 });
-/*5
+//5
 window.addEventListener('load', function(){
     //capturo los sections
     let contact=document.getElementById('contact')
@@ -305,8 +305,8 @@ window.addEventListener('load', function(){
         modalSmallGroup.style.transition='all 2s ease'
     });
 });
-*/
-//6
+
+/*6
 window.addEventListener('load', function(){    
     //capturo los sections
     let grownup=document.getElementById('grownup')
@@ -359,6 +359,7 @@ window.addEventListener('load', function(){
        modalVocation.style.transition='all 2s ease'
     });
 });
+*/
 //7
 window.addEventListener('load', function(){
     //capturo los sections

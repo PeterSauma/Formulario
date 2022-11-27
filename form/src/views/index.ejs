@@ -1039,12 +1039,12 @@
       
                   <div class='insideLabelRow'>
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' class="isParticipateSmallGroup" name='isParticipateSmallGroup' id='isParticipateSmallGroup-si' value='si'<%= locals.oldData && oldData.isParticipateSmallGroup == 'si' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' class="isParticipateSmallGroup" name='isParticipateSmallGroup' id='isParticipateSmallGroupSi' value='si'<%= locals.oldData && oldData.isParticipateSmallGroup == 'si' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>Sí</strong></p></div>
                     </div>
                     
                     <div class="inputRow">
-                      <div class="radiobutton"><input type='radio' class="isParticipateSmallGroup" name='isParticipateSmallGroup' id='isParticipateSmallGroup-no' value='no'<%= locals.oldData && oldData.isParticipateSmallGroup == 'no' ? "checked" : null %>></div>
+                      <div class="radiobutton"><input type='radio' class="isParticipateSmallGroup" name='isParticipateSmallGroup' id='isParticipateSmallGroupNo' value='no'<%= locals.oldData && oldData.isParticipateSmallGroup == 'no' ? "checked" : null %>></div>
                       <div class="checkLabelRow"><p><strong>No</strong></p></div>
                     </div>
                   </div>
@@ -1074,6 +1074,8 @@
                   </div>
                   <div class='text'>
                     <input type='text' name='smallGroupName' id='smallGroupName' class= 'inputText' placeholder="Nombre grupo (opcional)" maxlength='50' value="<%= locals.oldData ? oldData.name : null %>">
+                    
+                    <div class="textDanger" id="smallGroupNameErr"></div>
                   </div>
                 </div>
       

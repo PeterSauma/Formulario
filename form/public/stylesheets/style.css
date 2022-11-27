@@ -552,7 +552,7 @@ article.header img{
 
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INPUTS EMERGENTES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-#numberChildren,#isChildrenAttendChurch{
+#numberChildren,#isChildrenAttendChurch, #smallGroupGuide,#smallGroupName{
   display: none;
 }
 
