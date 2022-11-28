@@ -146,7 +146,7 @@ window.addEventListener('load', function(){
         modalResidency.style.transition='all 2s ease'
     });
 });
-//3
+/*3
 window.addEventListener('load', function(){  
     //capturo los sections
     let family=document.getElementById('family')
@@ -166,9 +166,7 @@ window.addEventListener('load', function(){
     let contenedorFamily=document.querySelector('.contenedorFamily')
     let contenedorResidency=document.querySelector('.contenedorResidency')
     let contenedorContact=document.querySelector('.contenedorContact')
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES RESIDENCY <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
-    /*>>>>>>>>>> botones Residency <<<<<<<<<<*/
+    
     btnResidencyBack.addEventListener('click',function(){
         //residency donw
         residency.style.display='none'
@@ -200,6 +198,7 @@ window.addEventListener('load', function(){
         modalContact.style.transition='all 2s ease'
     });
 });
+*/
 //4
 window.addEventListener('load', function(){
     //capturo los sections
@@ -305,7 +304,6 @@ window.addEventListener('load', function(){
         modalSmallGroup.style.transition='all 2s ease'
     });
 });
-
 //6
 window.addEventListener('load', function(){    
     //capturo los sections
@@ -359,7 +357,7 @@ window.addEventListener('load', function(){
        modalVocation.style.transition='all 2s ease'
     });
 });
-/*7
+//7
 window.addEventListener('load', function(){
     //capturo los sections
     let smallGroup=document.getElementById('smallGroup')
@@ -412,7 +410,6 @@ window.addEventListener('load', function(){
         modalPhoto.style.transition='all 2s ease'
     });
 });
-*/
 //8
 window.addEventListener('load', function(){
     //capturo los sections

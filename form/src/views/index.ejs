@@ -442,7 +442,59 @@
               <section class='residency' id='residency'>
 
                 <h2>Recidencia</h2>
-      
+                                    
+                <!--PAIS-->
+                <div class='text'>
+                  <input type='text' name='country' id='country' class= 'inputText' placeholder='País'  maxlength='50' value='<%= locals.oldData ? oldData.country : null %>'>
+                  
+                  <div class="textDanger" id="countryErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.country) { %>
+                      <samp class="textDanger">
+                      <%= errors.country.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+                </div>
+                                    
+                <!--PROVINCIA-->
+                <div class='text'>
+                  <input type='text' name='state' id='state' class= 'inputText' placeholder='Provincia'  maxlength='50' value='<%= locals.oldData ? oldData.state : null %>'>
+                  
+                  <div class="textDanger" id="stateErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.state) { %>
+                      <samp class="textDanger">
+                      <%= errors.state.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+                </div>
+                                    
+                <!--DEPARTAMENTO-->
+                <div class='text'>
+                  <input type='text' name='city' id='city' class= 'inputText' placeholder='Departamento'  maxlength='50' value='<%= locals.oldData ? oldData.city : null %>'>
+                  
+                  <div class="textDanger" id="cityErr"></div>
+                  <div class="error">
+                    <h4 class="textDanger" id="titleError"></h4>
+                    <% if(locals.errors && errors.city) { %>
+                      <samp class="textDanger">
+                      <%= errors.city.msg %>
+                      </samp>
+                    <% } %>
+                  </div>
+                </div> 
+
+                <!--LOCALIDAD-->
+                <div class='text'>
+                  <input type='text' name='location' id='location' class= 'inputText' placeholder='Localidad (opcional)' maxlength='50' value=''>
+                  
+                  <div class="textDanger" id="locationErr"></div>
+                </div>
+
                 <!--CALLE-->
                 <div class='text'>
                   <input type='text' name='street' id='street' class= 'inputText' placeholder='Calle'  maxlength='50' value='<%= locals.oldData ? oldData.street : null %>'>
@@ -476,21 +528,29 @@
                 <!--ACLARACION-->
                 <div class='text'>
                   <input type='text' name='secondLine' id='secondLine' class= 'inputText' placeholder='A tener en cuenta'  maxlength='200'>
+                  
+                  <div class="textDanger" id="secondLineErr"></div>
                 </div>
       
                 <!--BARRIO-->
                 <div class='text'>                  
-                  <input type='text' name='neighborhood' id='neighborhood' class= 'inputText' placeholder='Barrio'  maxlength='50' value=''>
+                  <input type='text' name='neighborhood' id='neighborhood' class= 'inputText' placeholder='Barrio (opcional)'  maxlength='50' value=''>
+                  
+                  <div class="textDanger" id="neighborhoodErr"></div>
                 </div>
       
                 <!--MANZANA-->
                 <div class='text'>                  
-                  <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'inputText' placeholder='Manzana' maxlength='50' value=''>
+                  <input type='text' name='neighborhoodBlock' id='neighborhoodBlock' class= 'inputText' placeholder='Manzana (si corresponde)' maxlength='50' value=''>
+                  
+                  <div class="textDanger" id="neighborhoodBlockErr"></div>
                 </div>
       
                 <!--CASA-->
                 <div class='text'>                  
-                  <input type='text' name='houseNumber' id='houseNumber' class= 'inputText' placeholder='Casa' maxlength='50' value=''>
+                  <input type='text' name='houseNumber' id='houseNumber' class= 'inputText' placeholder='Casa (si corresponde)' maxlength='50' value=''>
+                  
+                  <div class="textDanger" id="houseNumberErr"></div>
                 </div>
       
                 <!--CODIGO POSTAL-->
@@ -507,57 +567,7 @@
                     <% } %>
                   </div>
                 </div>
-                    
-                <!--LOCALIDAD-->
-                <div class='text'>
-                  <input type='text' name='location' id='location' class= 'inputText' placeholder='Localidad' maxlength='50' value=''>
-                </div>
-                    
-                <!--DEPARTAMENTO-->
-                <div class='text'>
-                  <input type='text' name='city' id='city' class= 'inputText' placeholder='Departamento'  maxlength='50' value='<%= locals.oldData ? oldData.city : null %>'>
-                  
-                  <div class="textDanger" id="cityErr"></div>
-                  <div class="error">
-                    <h4 class="textDanger" id="titleError"></h4>
-                    <% if(locals.errors && errors.city) { %>
-                      <samp class="textDanger">
-                      <%= errors.city.msg %>
-                      </samp>
-                    <% } %>
-                  </div>
-                </div>
-                    
-                <!--PROVINCIA-->
-                <div class='text'>
-                  <input type='text' name='state' id='state' class= 'inputText' placeholder='Provincia'  maxlength='50' value='<%= locals.oldData ? oldData.state : null %>'>
-                  
-                  <div class="textDanger" id="stateErr"></div>
-                  <div class="error">
-                    <h4 class="textDanger" id="titleError"></h4>
-                    <% if(locals.errors && errors.state) { %>
-                      <samp class="textDanger">
-                      <%= errors.state.msg %>
-                      </samp>
-                    <% } %>
-                  </div>
-                </div>
-                    
-                <!--PAIS-->
-                <div class='text'>
-                  <input type='text' name='country' id='country' class= 'inputText' placeholder='País'  maxlength='50' value='<%= locals.oldData ? oldData.country : null %>'>
-                  
-                  <div class="textDanger" id="countryErr"></div>
-                  <div class="error">
-                    <h4 class="textDanger" id="titleError"></h4>
-                    <% if(locals.errors && errors.country) { %>
-                      <samp class="textDanger">
-                      <%= errors.country.msg %>
-                      </samp>
-                    <% } %>
-                  </div>
-                </div>
-      
+
                 <!--ADELANTE/ATRÁS-->
                 <div class='btnBox'>
                   <div class='btn' id='btnResidencyBack'>
@@ -1303,6 +1313,7 @@
             </div>
           </div>
         </div>
+        
 <!------------------------------ SECTION 7 VOCATION ------------------------------>
         <!--CONTENIDO MODAL VOCATION-->
         <div class="modalVocation" id="modalVocation">

@@ -39,9 +39,6 @@ window.addEventListener('load', function(){
     let churchExperiences = false 
     let servicesUsed = false 
 
-
-    //Creo las variables false para radio y checkbox
-
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> VALIDACIONES GROWNUP <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     /*>>>>>>>>>> botones Grownup <<<<<<<<<<*/
