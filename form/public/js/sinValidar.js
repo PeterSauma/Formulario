@@ -146,7 +146,7 @@ window.addEventListener('load', function(){
         modalResidency.style.transition='all 2s ease'
     });
 });
-/*3
+//3
 window.addEventListener('load', function(){  
     //capturo los sections
     let family=document.getElementById('family')
@@ -198,7 +198,6 @@ window.addEventListener('load', function(){
         modalContact.style.transition='all 2s ease'
     });
 });
-*/
 //4
 window.addEventListener('load', function(){
     //capturo los sections

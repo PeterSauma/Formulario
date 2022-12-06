@@ -20,6 +20,10 @@ npm install
 npm start
 nodemon app
 
+### Data Base
+Tablas relacionales
+https://lucid.app/lucidchart/044c8c4f-7a36-477f-a666-a1006cc77d94/edit?page=0_0#
+
 ### url importantes
 https://docs.igle.ar/api
 
