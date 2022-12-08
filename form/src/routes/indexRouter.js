@@ -126,7 +126,7 @@ const validationsNewProduct = [
 
 /* FORMULARIO */
 router.get('/',indexController.index);
-router.post('/createMember',validationsNewProduct,uploadFile.single("file"),indexController.createMember);
+router.post('/createMember',uploadFile.single("file"),validationsNewProduct,indexController.createMember);
 
 /* FINISH */
 router.get('/finish',indexController.finish)

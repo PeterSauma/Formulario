@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-12-2022 a las 01:17:50
+-- Tiempo de generación: 07-12-2022 a las 01:36:43
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `membersalameda`
+-- Base de datos: `members_alameda`
 --
 
 -- --------------------------------------------------------
@@ -124,7 +124,7 @@ CREATE TABLE `gronwup` (
   `gronwUp_id` int(11) NOT NULL,
   `liveChurch` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `timeChurch` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `isComingGP_fk` int(11) NOT NULL,
+  `smallGroup_fk` int(11) NOT NULL,
   `voluntary_fk` int(11) NOT NULL,
   `servicesUsed_fk` int(11) NOT NULL,
   `churchExperiences_fk` int(11) NOT NULL
@@ -170,10 +170,10 @@ CREATE TABLE `jobs` (
 
 CREATE TABLE `members` (
   `member_id` int(11) NOT NULL,
-  `name` varchar(100) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `lastName` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `dateOfBirthday` datetime NOT NULL,
-  `sex` varchar(50) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `sex` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `relationalSituation` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `pathPhoto` varchar(550) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `job_fk` int(11) NOT NULL,
@@ -244,7 +244,7 @@ CREATE TABLE `services_used` (
   `instagram` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `escuelaMusica` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `escuelaDanza` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `casaMujer` varchar(10) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `casaMujer` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `jardin` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `acasa` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `otherService` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -335,13 +335,18 @@ ALTER TABLE `enjoy_group`
 -- Indices de la tabla `family`
 --
 ALTER TABLE `family`
-  ADD PRIMARY KEY (`family_id`);
+  ADD PRIMARY KEY (`family_id`),
+  ADD KEY `fk_bossFamily_family` (`bossFamily_fk`);
 
 --
 -- Indices de la tabla `gronwup`
 --
 ALTER TABLE `gronwup`
-  ADD PRIMARY KEY (`gronwUp_id`);
+  ADD PRIMARY KEY (`gronwUp_id`),
+  ADD KEY `fk_churchExperiences_gronwUp` (`churchExperiences_fk`),
+  ADD KEY `fk_servesUsed_gronwUp` (`servicesUsed_fk`),
+  ADD KEY `fk_voluntary_gronwUp` (`voluntary_fk`),
+  ADD KEY `fk_smallGroup_gronwUp` (`smallGroup_fk`);
 
 --
 -- Indices de la tabla `interest_area`
@@ -360,7 +365,14 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `members`
   ADD PRIMARY KEY (`member_id`),
-  ADD KEY `fk_members_jobs` (`job_fk`);
+  ADD KEY `fk_jobs_members` (`job_fk`),
+  ADD KEY `fk_contact_members` (`contact_fk`),
+  ADD KEY `fk_family_members` (`family_fk`),
+  ADD KEY `fk_gronwUp_members` (`gronwUp_fk`),
+  ADD KEY `fk_interestArea_members` (`interestArea_fk`),
+  ADD KEY `fk_needs_members` (`needs_fk`),
+  ADD KEY `fk_residency_members` (`residency_fk`),
+  ADD KEY `fk_socialMedia_members` (`socialMedia_fk`);
 
 --
 -- Indices de la tabla `needs`
@@ -384,7 +396,8 @@ ALTER TABLE `services_used`
 -- Indices de la tabla `small_group`
 --
 ALTER TABLE `small_group`
-  ADD PRIMARY KEY (`smallGroup_id`);
+  ADD PRIMARY KEY (`smallGroup_id`),
+  ADD KEY `fk_ejoyGroup_smallGroup` (`enjoyGroup_fk`);
 
 --
 -- Indices de la tabla `socialmedia`
@@ -491,6 +504,44 @@ ALTER TABLE `socialmedia`
 --
 ALTER TABLE `voluntary`
   MODIFY `voluntary_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `family`
+--
+ALTER TABLE `family`
+  ADD CONSTRAINT `fk_bossFamily_family` FOREIGN KEY (`bossFamily_fk`) REFERENCES `boss_family` (`bossFamily_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `gronwup`
+--
+ALTER TABLE `gronwup`
+  ADD CONSTRAINT `fk_churchExperiences_gronwUp` FOREIGN KEY (`churchExperiences_fk`) REFERENCES `church_experiences` (`churchExperiences_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_servesUsed_gronwUp` FOREIGN KEY (`servicesUsed_fk`) REFERENCES `services_used` (`servicesUsed_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_smallGroup_gronwUp` FOREIGN KEY (`smallGroup_fk`) REFERENCES `small_group` (`smallGroup_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_voluntary_gronwUp` FOREIGN KEY (`voluntary_fk`) REFERENCES `voluntary` (`voluntary_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `members`
+--
+ALTER TABLE `members`
+  ADD CONSTRAINT `fk_contact_members` FOREIGN KEY (`contact_fk`) REFERENCES `contact` (`contact _id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_family_members` FOREIGN KEY (`family_fk`) REFERENCES `family` (`family_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_gronwUp_members` FOREIGN KEY (`gronwUp_fk`) REFERENCES `gronwup` (`gronwUp_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_interestArea_members` FOREIGN KEY (`interestArea_fk`) REFERENCES `interest_area` (`interestArea_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_jobs_members` FOREIGN KEY (`job_fk`) REFERENCES `jobs` (`job_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_needs_members` FOREIGN KEY (`needs_fk`) REFERENCES `needs` (`needs_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_residency_members` FOREIGN KEY (`residency_fk`) REFERENCES `residency` (`residency _id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_socialMedia_members` FOREIGN KEY (`socialMedia_fk`) REFERENCES `socialmedia` (`socialMedia_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `small_group`
+--
+ALTER TABLE `small_group`
+  ADD CONSTRAINT `fk_ejoyGroup_smallGroup` FOREIGN KEY (`enjoyGroup_fk`) REFERENCES `enjoy_group` (`enjoyGroup_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
