@@ -70,7 +70,7 @@ CREATE TABLE `church_experiences` (
 --
 
 CREATE TABLE `contact` (
-  `contact _id` int(11) NOT NULL,
+  `contact_id` int(11) NOT NULL,
   `phone` int(100) NOT NULL,
   `homePhone` int(100) DEFAULT NULL,
   `email` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
@@ -217,7 +217,7 @@ CREATE TABLE `needs` (
 --
 
 CREATE TABLE `residency` (
-  `residency _id` int(11) NOT NULL,
+  `residency_id` int(11) NOT NULL,
   `country` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `state` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,

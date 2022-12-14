@@ -9,11 +9,11 @@ module.exports = (sequelize, dataTypes) => {
         autoIncrement: true,
       },
       name: {
-        type:  dataTypes.varchar(100),
+        type:  dataTypes.STRING(100),
         allowNull: false
       },
       lastName: {
-        type: dataTypes.varchar(100),
+        type: dataTypes.STRING(100),
         allowNull: false
       },
       dateOfBirth: {
@@ -21,15 +21,15 @@ module.exports = (sequelize, dataTypes) => {
         allowNull: false
       },
       sex: {
-        type: dataTypes.varchar(50),
+        type: dataTypes.STRING(50),
         allowNull: false
       },
       relationalSituation: {
-        type: dataTypes.varchar(50),
+        type: dataTypes.STRING(50),
         allowNull: false
       },
       pathPhoto: {
-        type: dataTypes.varchar(550),
+        type: dataTypes.STRING(550),
       },
       job_fk: {
         type: dataTypes.INTEGER(11),
@@ -64,15 +64,15 @@ module.exports = (sequelize, dataTypes) => {
         allowNull: false
       }
     };
-    
+
     //Le explico a sequelize como está configurada la tabla en la base de datos
     let config = {
       tableName: "members", // nombre de la tabla en  BD
       timestamps: false, //declaro que la tabla no tiene las columnas createAt y updateAt, sino explotaría sequelize
     };
+
     //Acá defino el modelo de la tabla en sequelize con la info que le metí en el alias, las columnas que tiene y como está configurada en la DB
     const Miembro = sequelize.define(alias, cols, config);
-  
 
     //Defino las asociaciones/relaciones con las tablas a traves de las Forange Keys
     Miembro.associate = function (models) {
@@ -86,11 +86,11 @@ module.exports = (sequelize, dataTypes) => {
             as: "familia",
             foreignKey: "family_fk",
         }),
-        Miembro.belongsTo(models.Recidencias, {
-        as: "recidencia",
+        Miembro.belongsTo(models.Residencias, {
+        as: "residencia",
         foreignKey: "residency_fk",
         }),
-        Miembro.belongsTo(models.RedesSociales, {
+        Miembro.belongsTo(models.RedSociales, {
         as: "redeSocial",
         foreignKey: "socialMedia_fk",
         }),
