@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.STRING(100),
         allowNull: false
       },
-      dateOfBirth: {
+      dateOfBirthday: {
         type: dataTypes.DATE,
         allowNull: false
       },
@@ -51,7 +51,7 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.INTEGER(11),
         allowNull: false
       },
-      growUp_fk: {
+      gronwUp_fk: {
         type: dataTypes.INTEGER(11),
         allowNull: false
       },
